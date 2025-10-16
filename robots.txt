@@ -1,0 +1,12 @@
+# Robots.txt for Ahtapot IOC Analysis Extension
+User-agent: *
+Allow: /
+Disallow: /assets/
+Disallow: /*.js$
+Disallow: /*.css$
+
+# Sitemap location
+Sitemap: https://ahtapot.me/sitemap.xml
+
+# Crawl delay
+Crawl-delay: 1

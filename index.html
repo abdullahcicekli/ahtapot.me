@@ -3,9 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Ahtapot - Fast and secure IOC analysis browser extension for cybersecurity professionals">
-    <meta name="keywords" content="IOC, cybersecurity, threat intelligence, browser extension, malware analysis">
-    <title>Ahtapot - IOC Analysis Extension</title>
+
+    <!-- Primary Meta Tags -->
+    <title>Ahtapot - IOC Analysis Extension | Fast Threat Intelligence for Security Professionals</title>
+    <meta name="title" content="Ahtapot - IOC Analysis Extension | Fast Threat Intelligence for Security Professionals">
+    <meta name="description" content="Ahtapot - Fast and secure IOC analysis browser extension for cybersecurity professionals. Analyze IPs, domains, URLs, hashes, CVEs, and crypto addresses with lightning speed. Privacy-first threat intelligence.">
+    <meta name="keywords" content="IOC, cybersecurity, threat intelligence, browser extension, malware analysis, VirusTotal, AlienVault OTX, security tools, IPv4, IPv6, hash analysis, CVE lookup, cryptocurrency tracking, security extension, Chrome extension">
+    <meta name="author" content="Abdullah Cicekli">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#4a9eff">
+    <meta name="msapplication-TileColor" content="#4a9eff">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://ahtapot.me/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ahtapot.me/">
+    <meta property="og:title" content="Ahtapot - IOC Analysis Extension | Fast Threat Intelligence">
+    <meta property="og:description" content="Fast and secure IOC analysis browser extension for cybersecurity professionals. Analyze IPs, domains, URLs, hashes, CVEs with lightning speed. Privacy-first threat intelligence.">
+    <meta property="og:image" content="https://ahtapot.me/assets/images/og-image.png">
+    <meta property="og:image:width" content="440">
+    <meta property="og:image:height" content="280">
+    <meta property="og:image:alt" content="Ahtapot IOC Analysis Extension Logo">
+    <meta property="og:site_name" content="Ahtapot">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="tr_TR">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://ahtapot.me/">
+    <meta name="twitter:title" content="Ahtapot - IOC Analysis Extension | Fast Threat Intelligence">
+    <meta name="twitter:description" content="Fast and secure IOC analysis browser extension for cybersecurity professionals. Privacy-first threat intelligence with lightning speed.">
+    <meta name="twitter:image" content="https://ahtapot.me/assets/images/og-image.png">
+    <meta name="twitter:image:alt" content="Ahtapot IOC Analysis Extension Logo">
+    <meta name="twitter:creator" content="@abdullahcicekli">
+
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://chrome.google.com" crossorigin>
+    <link rel="dns-prefetch" href="https://github.com">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+    <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
+    <link rel="shortcut icon" href="/assets/icons/favicon.ico">
+
+    <!-- Manifest for PWA -->
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- Sitemap -->
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+
+    <!-- Structured Data / JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Ahtapot",
+      "applicationCategory": "SecurityApplication",
+      "operatingSystem": "Chrome, Chromium-based browsers",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "ratingCount": "1"
+      },
+      "description": "Fast and secure IOC analysis browser extension for cybersecurity professionals. Analyze IPs, domains, URLs, hashes, CVEs, and cryptocurrency addresses with lightning speed.",
+      "featureList": [
+        "Smart IOC Detection",
+        "Privacy-First Architecture",
+        "Lightning Fast Analysis",
+        "VirusTotal Integration",
+        "AlienVault OTX Integration",
+        "Secure Local Storage",
+        "11 IOC Types Support",
+        "Modern UI Design"
+      ],
+      "screenshot": "https://ahtapot.me/assets/images/og-image.png",
+      "author": {
+        "@type": "Person",
+        "name": "Abdullah Cicekli",
+        "url": "https://github.com/abdullahcicekli"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Ahtapot",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://ahtapot.me/assets/images/logo-black.png"
+        }
+      },
+      "url": "https://ahtapot.me",
+      "downloadUrl": "https://chrome.google.com/webstore",
+      "softwareVersion": "1.0",
+      "releaseNotes": "Initial release with comprehensive IOC analysis capabilities",
+      "license": "https://github.com/abdullahcicekli/ahtapot/blob/main/LICENSE"
+    }
+    </script>
+
+    <!-- Additional Structured Data for Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Ahtapot",
+      "url": "https://ahtapot.me",
+      "description": "IOC Analysis Extension for Cybersecurity Professionals",
+      "inLanguage": ["en", "tr"],
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://ahtapot.me/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
     
     <style>
         * {
@@ -171,17 +292,24 @@
 
         /* Hero Section */
         .hero {
-            padding: 8rem 2rem 4rem;
-            text-align: center;
-            max-width: 1200px;
+            padding: 8rem 2rem 6rem;
+            max-width: 1400px;
             margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content {
+            text-align: left;
         }
 
         .hero h1 {
-            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-size: clamp(2.5rem, 5vw, 4rem);
             margin-bottom: 1.5rem;
             font-weight: 800;
-            line-height: 1.2;
+            line-height: 1.1;
         }
 
         .gradient-text {
@@ -189,22 +317,61 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            display: block;
         }
 
         .hero p {
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             color: var(--text-secondary);
-            margin-bottom: 3rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
         }
 
         .hero-buttons {
             display: flex;
             gap: 1rem;
-            justify-content: center;
             flex-wrap: wrap;
+        }
+
+        .hero-image {
+            position: relative;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 1.5rem;
+            box-shadow: 0 20px 60px var(--shadow);
+            border: 1px solid var(--border);
+            transition: transform 0.3s ease;
+        }
+
+        .hero-image img:hover {
+            transform: scale(1.02);
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 2rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-badge svg {
+            width: 16px;
+            height: 16px;
+            stroke: var(--success);
         }
 
         /* How It Works Section */
@@ -432,6 +599,26 @@
         }
 
         /* Responsive */
+        @media (max-width: 1024px) {
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                padding: 6rem 2rem 4rem;
+            }
+
+            .hero-content {
+                text-align: center;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-image {
+                order: -1;
+            }
+        }
+
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -442,7 +629,7 @@
             }
 
             .hero {
-                padding: 6rem 1.5rem 3rem;
+                padding: 5rem 1.5rem 3rem;
             }
 
             .hero h1 {
@@ -450,7 +637,11 @@
             }
 
             .hero p {
-                font-size: 1.1rem;
+                font-size: 1.05rem;
+            }
+
+            .hero-image img {
+                max-width: 100%;
             }
 
             .features-grid, .steps {
@@ -482,7 +673,7 @@
                 <img
                   id="logoImage"
                   class="logo-img"
-                  src="/ahtapot-logo-black.png"
+                  src="/assets/images/ahtapot-logo-black.png"
                   alt="Ahtapot Extension Logo" />
             </a>
             
@@ -524,28 +715,40 @@
 
     <!-- Hero Section -->
     <section class="hero fade-in">
-        <h1>
-            <span data-i18n="hero.title1">Analyze IOCs with</span>
-            <span class="gradient-text" data-i18n="hero.title2">Lightning Speed</span>
-        </h1>
-        <p data-i18n="hero.subtitle">
-            Fast and secure Indicators of Compromise analysis directly in your browser. Built for security professionals.
-        </p>
-        <div class="hero-buttons">
-            <a href="https://chrome.google.com/webstore" class="btn btn-primary">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                    <polyline points="15 3 21 3 21 9"/>
-                    <line x1="10" y1="14" x2="21" y2="3"/>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                    <polyline points="22 4 12 14.01 9 11.01"/>
                 </svg>
-                <span data-i18n="hero.installBtn">Install Extension</span>
-            </a>
-            <a href="https://github.com/abdullahcicekli/ahtapot" target="_blank" class="btn btn-secondary">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
-                </svg>
-                <span data-i18n="hero.githubBtn">View on GitHub</span>
-            </a>
+                <span data-i18n="hero.badge">Free & Open Source</span>
+            </div>
+            <h1>
+                <span data-i18n="hero.title1">Analyze IOCs with</span><br>
+                <span class="gradient-text" data-i18n="hero.title2">Lightning Speed</span>
+            </h1>
+            <p data-i18n="hero.subtitle">
+                Fast and secure Indicators of Compromise analysis directly in your browser. Built for security professionals who need instant threat intelligence.
+            </p>
+            <div class="hero-buttons">
+                <a href="https://chrome.google.com/webstore" class="btn btn-primary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                        <polyline points="15 3 21 3 21 9"/>
+                        <line x1="10" y1="14" x2="21" y2="3"/>
+                    </svg>
+                    <span data-i18n="hero.installBtn">Install Extension</span>
+                </a>
+                <a href="https://github.com/abdullahcicekli/ahtapot" target="_blank" class="btn btn-secondary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                    </svg>
+                    <span data-i18n="hero.githubBtn">View on GitHub</span>
+                </a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="/assets/images/landing.png" alt="Ahtapot Extension Screenshot - IOC Analysis Dashboard showing threat intelligence data" loading="eager">
         </div>
     </section>
 
@@ -705,9 +908,10 @@
             en: {
                 'nav.features': 'Features',
                 'nav.howItWorks': 'How it Works',
+                'hero.badge': 'Free & Open Source',
                 'hero.title1': 'Analyze IOCs with',
                 'hero.title2': 'Lightning Speed',
-                'hero.subtitle': 'Fast and secure Indicators of Compromise analysis directly in your browser. Built for security professionals.',
+                'hero.subtitle': 'Fast and secure Indicators of Compromise analysis directly in your browser. Built for security professionals who need instant threat intelligence.',
                 'hero.installBtn': 'Install Extension',
                 'hero.githubBtn': 'View on GitHub',
                 'howItWorks.title': 'How It Works',
@@ -745,9 +949,10 @@
             tr: {
                 'nav.features': 'Özellikler',
                 'nav.howItWorks': 'Nasıl Çalışır',
+                'hero.badge': 'Ücretsiz ve Açık Kaynak',
                 'hero.title1': 'IOC\'leri',
                 'hero.title2': 'Işık Hızında Analiz Et',
-                'hero.subtitle': 'Doğrudan tarayıcınızda hızlı ve güvenli IOC analizi. Güvenlik uzmanları için geliştirildi.',
+                'hero.subtitle': 'Doğrudan tarayıcınızda hızlı ve güvenli IOC analizi. Anında tehdit istihbaratına ihtiyaç duyan güvenlik uzmanları için geliştirildi.',
                 'hero.installBtn': 'Eklentiyi Yükle',
                 'hero.githubBtn': 'GitHub\'da Görüntüle',
                 'howItWorks.title': 'Nasıl Çalışır',
@@ -798,9 +1003,9 @@
         function updateLogo(theme) {
             const logoImage = document.getElementById('logoImage');
             if (theme === 'dark') {
-                logoImage.src = '/ahtapot-logo-white.png';
+                logoImage.src = '/assets/images/ahtapot-logo-white.png';
             } else {
-                logoImage.src = '/ahtapot-logo-black.png';
+                logoImage.src = '/assets/images/ahtapot-logo-black.png';
             }
         }
 

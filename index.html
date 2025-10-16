@@ -15,295 +15,395 @@
         }
 
         :root {
-            --primary-gradient: linear-gradient(135deg, #4a9eff 0%, #667eea 100%);
-            --bg-gradient: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-            --card-bg: rgba(255, 255, 255, 0.05);
-            --card-hover: rgba(255, 255, 255, 0.08);
-            --border-color: rgba(255, 255, 255, 0.1);
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fa;
+            --bg-card: #ffffff;
+            --text-primary: #1a1a1a;
+            --text-secondary: #6c757d;
+            --text-muted: #909090;
+            --accent: #4a9eff;
+            --accent-hover: #3890ff;
+            --border: #e0e0e0;
+            --shadow: rgba(0, 0, 0, 0.1);
+            --success: #22c55e;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --gradient: linear-gradient(135deg, #4a9eff 0%, #667eea 100%);
+        }
+
+        [data-theme="dark"] {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #1a1a1a;
+            --bg-card: #181818;
             --text-primary: #ffffff;
-            --text-secondary: rgba(255, 255, 255, 0.7);
-            --text-muted: rgba(255, 255, 255, 0.6);
+            --text-secondary: #a0a0a0;
+            --text-muted: #707070;
+            --accent: #4a9eff;
+            --accent-hover: #5fa8ff;
+            --border: #2a2a2a;
+            --shadow: rgba(0, 0, 0, 0.5);
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-                'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            background: var(--bg-gradient);
-            min-height: 100vh;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', sans-serif;
+            background: var(--bg-primary);
             color: var(--text-primary);
-            overflow-x: hidden;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+            line-height: 1.6;
+            transition: all 0.3s ease;
         }
 
         /* Header */
         header {
-            padding: 30px 0;
-            background: rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border-color);
             position: fixed;
-            width: 100%;
             top: 0;
+            width: 100%;
+            background: var(--bg-primary);
+            border-bottom: 1px solid var(--border);
             z-index: 1000;
+            transition: all 0.3s ease;
         }
 
         nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
             display: flex;
-            align-items: center;
             justify-content: space-between;
-        }
-
-        .logo-container {
-            display: flex;
             align-items: center;
-            gap: 12px;
         }
 
         .logo {
-            height: 40px;
-            width: auto;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+
+        .logo-img {
+            width: 32px;
+            height: 32px;
+            object-fit: contain;
         }
 
         .logo-text {
-            font-size: 24px;
+            font-size: 1.5rem;
             font-weight: 700;
-            background: var(--primary-gradient);
+            background: var(--gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
         .nav-links {
             display: flex;
-            gap: 30px;
+            gap: 2rem;
             align-items: center;
         }
 
         .nav-links a {
             color: var(--text-secondary);
             text-decoration: none;
-            font-size: 16px;
+            font-size: 0.95rem;
             transition: color 0.3s ease;
         }
 
         .nav-links a:hover {
-            color: var(--text-primary);
+            color: var(--accent);
         }
 
-        .cta-button {
-            background: var(--primary-gradient);
-            color: white;
-            padding: 10px 24px;
-            border-radius: 8px;
+        .btn {
+            padding: 0.5rem 1.25rem;
+            border-radius: 0.5rem;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 500;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(74, 158, 255, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: none;
+            cursor: pointer;
+            font-size: 0.95rem;
         }
 
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(74, 158, 255, 0.4);
+        .btn-primary {
+            background: var(--gradient);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px var(--shadow);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-secondary);
+        }
+
+        .theme-toggle, .lang-toggle {
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .theme-toggle:hover, .lang-toggle:hover {
+            background: var(--bg-secondary);
+            color: var(--accent);
         }
 
         /* Hero Section */
         .hero {
-            padding: 160px 0 100px;
+            padding: 8rem 2rem 4rem;
             text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .hero h1 {
-            font-size: 56px;
-            font-weight: 700;
-            margin-bottom: 24px;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 1.5rem;
+            font-weight: 800;
             line-height: 1.2;
         }
 
-        .hero .highlight {
-            background: var(--primary-gradient);
+        .gradient-text {
+            background: var(--gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
         .hero p {
-            font-size: 20px;
+            font-size: 1.25rem;
             color: var(--text-secondary);
-            margin-bottom: 40px;
-            max-width: 600px;
+            margin-bottom: 3rem;
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
         }
 
         .hero-buttons {
             display: flex;
-            gap: 20px;
+            gap: 1rem;
             justify-content: center;
             flex-wrap: wrap;
         }
 
-        .secondary-button {
-            padding: 12px 28px;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            border-radius: 8px;
-            color: var(--text-primary);
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .secondary-button:hover {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: rgba(255, 255, 255, 0.3);
-        }
-
-        /* Features Grid */
-        .features {
-            padding: 80px 0;
+        /* How It Works Section */
+        .how-it-works {
+            padding: 4rem 2rem;
+            background: var(--bg-secondary);
         }
 
         .section-title {
             text-align: center;
-            font-size: 36px;
-            margin-bottom: 60px;
+            font-size: 2rem;
+            margin-bottom: 3rem;
             font-weight: 700;
+        }
+
+        .steps {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .step {
+            text-align: center;
+            padding: 2rem;
+            background: var(--bg-card);
+            border-radius: 1rem;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .step:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px var(--shadow);
+        }
+
+        .step-number {
+            width: 48px;
+            height: 48px;
+            background: var(--gradient);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+
+        .step h3 {
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+        }
+
+        .step p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Features Grid */
+        .features {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px;
+            gap: 2rem;
+            margin-top: 3rem;
         }
 
-        .feature-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 24px;
+        .feature {
+            padding: 2rem;
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            background: var(--bg-card);
             transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         }
 
-        .feature-card:hover {
-            transform: translateY(-4px);
-            background: var(--card-hover);
-            border-color: rgba(255, 255, 255, 0.2);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+        .feature:hover {
+            border-color: var(--accent);
+            box-shadow: 0 4px 12px var(--shadow);
         }
 
         .feature-icon {
-            width: 48px;
-            height: 48px;
-            background: var(--primary-gradient);
-            border-radius: 10px;
+            width: 40px;
+            height: 40px;
+            background: var(--gradient);
+            border-radius: 0.5rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 16px;
-            box-shadow: 0 4px 12px rgba(74, 158, 255, 0.3);
+            margin-bottom: 1rem;
         }
 
-        .feature-card h3 {
-            font-size: 20px;
-            margin-bottom: 12px;
-            color: var(--text-primary);
+        .feature-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: white;
         }
 
-        .feature-card p {
-            color: var(--text-muted);
+        .feature h3 {
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+        }
+
+        .feature p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
             line-height: 1.6;
         }
 
-        /* IOC Types Section */
-        .ioc-types {
-            padding: 80px 0;
-            background: rgba(0, 0, 0, 0.2);
+        /* Supported IOCs */
+        .ioc-section {
+            padding: 4rem 2rem;
+            background: var(--bg-secondary);
+        }
+
+        .ioc-container {
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
         .ioc-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 16px;
-            margin-top: 40px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            justify-content: center;
+            margin-top: 2rem;
         }
 
         .ioc-badge {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid var(--border-color);
-            padding: 16px;
-            border-radius: 8px;
-            text-align: center;
-            font-size: 14px;
+            padding: 0.5rem 1rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 2rem;
+            font-size: 0.9rem;
             color: var(--text-secondary);
             transition: all 0.3s ease;
         }
 
         .ioc-badge:hover {
-            background: rgba(255, 255, 255, 0.08);
-            color: var(--text-primary);
-            border-color: rgba(255, 255, 255, 0.2);
+            border-color: var(--accent);
+            color: var(--accent);
+            transform: translateY(-2px);
         }
 
-        /* Stats Section */
+        /* Stats */
         .stats {
-            padding: 80px 0;
+            padding: 4rem 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
+            gap: 2rem;
             text-align: center;
         }
 
-        .stat-item {
-            padding: 20px;
-        }
-
-        .stat-number {
-            font-size: 48px;
-            font-weight: 700;
-            background: var(--primary-gradient);
+        .stat h3 {
+            font-size: 2.5rem;
+            background: var(--gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 8px;
+            margin-bottom: 0.5rem;
         }
 
-        .stat-label {
+        .stat p {
             color: var(--text-secondary);
-            font-size: 16px;
         }
 
         /* Footer */
         footer {
-            padding: 40px 0;
-            background: rgba(0, 0, 0, 0.3);
-            border-top: 1px solid var(--border-color);
-            text-align: center;
+            padding: 3rem 2rem;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
         }
 
         .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 20px;
+            gap: 2rem;
         }
 
         .footer-links {
             display: flex;
-            gap: 24px;
+            gap: 2rem;
             flex-wrap: wrap;
         }
 
@@ -314,35 +414,48 @@
         }
 
         .footer-links a:hover {
-            color: var(--text-primary);
+            color: var(--accent);
         }
 
-        .copyright {
+        .footer-text {
             color: var(--text-muted);
-            font-size: 14px;
+            font-size: 0.9rem;
         }
 
-        /* Mobile Responsive */
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: none;
+            background: transparent;
+            border: none;
+            color: var(--text-primary);
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
             }
 
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .hero {
+                padding: 6rem 1.5rem 3rem;
+            }
+
             .hero h1 {
-                font-size: 36px;
+                font-size: 2rem;
             }
 
             .hero p {
-                font-size: 18px;
+                font-size: 1.1rem;
             }
 
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .section-title {
-                font-size: 28px;
+            .features-grid, .steps {
+                grid-template-columns: 1fr;
             }
 
             .footer-content {
@@ -350,126 +463,191 @@
                 text-align: center;
             }
         }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease-out;
+        }
     </style>
 </head>
-<body>
+<body data-theme="light" data-lang="en">
     <!-- Header -->
     <header>
-        <nav class="container">
-            <div class="logo-container">
-                <svg class="logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="50" cy="50" r="45" fill="url(#octopusGradient)" opacity="0.9"/>
-                    <path d="M50 20 C30 20, 20 35, 20 50 C20 65, 30 80, 50 80 C70 80, 80 65, 80 50 C80 35, 70 20, 50 20 Z" fill="white" opacity="0.9"/>
-                    <circle cx="40" cy="45" r="5" fill="#1a1a2e"/>
-                    <circle cx="60" cy="45" r="5" fill="#1a1a2e"/>
-                    <path d="M40 60 Q50 65 60 60" fill="none" stroke="#1a1a2e" stroke-width="2" stroke-linecap="round"/>
-                    <defs>
-                        <linearGradient id="octopusGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#4a9eff"/>
-                            <stop offset="100%" style="stop-color:#667eea"/>
-                        </linearGradient>
-                    </defs>
-                </svg>
+        <nav>
+            <a href="#" class="logo">
+                <img
+                  id="logoImage"
+                  class="logo-img"
+                  src="/logo-black.png"
+                  alt="Ahtapot Extension Logo" />
                 <span class="logo-text">Ahtapot</span>
-            </div>
-            <div class="nav-links">
-                <a href="#features">Features</a>
-                <a href="#how-it-works">How it Works</a>
-                <a href="https://github.com/abdullahcicekli/ahtapot" target="_blank">GitHub</a>
-                <a href="#install" class="cta-button">Install Extension</a>
+            </a>
+            
+            <div class="nav-controls">
+                <div class="nav-links">
+                    <a href="#features" data-i18n="nav.features">Features</a>
+                    <a href="#how-it-works" data-i18n="nav.howItWorks">How it Works</a>
+                    <a href="https://github.com/abdullahcicekli/ahtapot" target="_blank">GitHub</a>
+                </div>
+                
+                <button class="lang-toggle" onclick="toggleLanguage()" title="Change Language">
+                    <span id="langText">EN</span>
+                </button>
+                
+                <button class="theme-toggle" onclick="toggleTheme()" title="Toggle Theme">
+                    <svg id="themeIcon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"/>
+                        <line x1="12" y1="1" x2="12" y2="3"/>
+                        <line x1="12" y1="21" x2="12" y2="23"/>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                        <line x1="1" y1="12" x2="3" y2="12"/>
+                        <line x1="21" y1="12" x2="23" y2="12"/>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                    </svg>
+                </button>
+                
+                <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="3" y1="12" x2="21" y2="12"/>
+                        <line x1="3" y1="6" x2="21" y2="6"/>
+                        <line x1="3" y1="18" x2="21" y2="18"/>
+                    </svg>
+                </button>
             </div>
         </nav>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero fade-in">
+        <h1>
+            <span data-i18n="hero.title1">Analyze IOCs with</span>
+            <span class="gradient-text" data-i18n="hero.title2">Lightning Speed</span>
+        </h1>
+        <p data-i18n="hero.subtitle">
+            Fast and secure Indicators of Compromise analysis directly in your browser. Built for security professionals.
+        </p>
+        <div class="hero-buttons">
+            <a href="https://chrome.google.com/webstore" class="btn btn-primary">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                    <polyline points="15 3 21 3 21 9"/>
+                    <line x1="10" y1="14" x2="21" y2="3"/>
+                </svg>
+                <span data-i18n="hero.installBtn">Install Extension</span>
+            </a>
+            <a href="https://github.com/abdullahcicekli/ahtapot" target="_blank" class="btn btn-secondary">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                </svg>
+                <span data-i18n="hero.githubBtn">View on GitHub</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works" class="how-it-works">
         <div class="container">
-            <h1>Analyze IOCs with <span class="highlight">Lightning Speed</span></h1>
-            <p>Fast and secure Indicators of Compromise analysis directly in your browser. Built for security professionals.</p>
-            <div class="hero-buttons">
-                <a href="#install" class="cta-button" style="padding: 14px 32px; font-size: 18px;">
-                    🚀 Install for Chrome
-                </a>
-                <a href="https://github.com/yourusername/ahtapot-extension" class="secondary-button" target="_blank">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+            <h2 class="section-title" data-i18n="howItWorks.title">How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3 data-i18n="howItWorks.step1.title">Select Text</h3>
+                    <p data-i18n="howItWorks.step1.desc">Select any text containing IOCs on any webpage</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3 data-i18n="howItWorks.step2.title">Click Analyze</h3>
+                    <p data-i18n="howItWorks.step2.desc">A floating button appears instantly - just click it</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3 data-i18n="howItWorks.step3.title">View Results</h3>
+                    <p data-i18n="howItWorks.step3.desc">Get detailed threat analysis in a beautiful side panel</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3 data-i18n="howItWorks.step4.title">Take Action</h3>
+                    <p data-i18n="howItWorks.step4.desc">Make informed decisions based on threat intelligence</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="features">
+        <h2 class="section-title" data-i18n="features.title">Powerful Features</h2>
+        <div class="features-grid">
+            <div class="feature">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"/>
+                        <path d="m21 21-4.35-4.35"/>
                     </svg>
-                    View on GitHub
-                </a>
+                </div>
+                <h3 data-i18n="features.detection.title">Smart Detection</h3>
+                <p data-i18n="features.detection.desc">Automatically detects IPs, domains, URLs, hashes, emails, CVEs, and cryptocurrency addresses.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
+                </div>
+                <h3 data-i18n="features.privacy.title">Privacy First</h3>
+                <p data-i18n="features.privacy.desc">All API keys stored locally. No tracking, no servers, no data collection.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                    </svg>
+                </div>
+                <h3 data-i18n="features.speed.title">Lightning Fast</h3>
+                <p data-i18n="features.speed.desc">One-click analysis with instant results. Floating button appears automatically.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                    </svg>
+                </div>
+                <h3 data-i18n="features.sources.title">Multiple Sources</h3>
+                <p data-i18n="features.sources.desc">Integrates with VirusTotal and OTX AlienVault for comprehensive threat intelligence.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                        <rect x="3" y="11" width="18" height="10" rx="2" ry="2"/>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                    </svg>
+                </div>
+                <h3 data-i18n="features.secure.title">Secure Storage</h3>
+                <p data-i18n="features.secure.desc">Uses Chrome's encrypted storage for API keys with optional caching.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                        <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
+                    </svg>
+                </div>
+                <h3 data-i18n="features.ui.title">Modern UI</h3>
+                <p data-i18n="features.ui.desc">Clean design with smooth animations and tab-based results view.</p>
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="features" id="features">
-        <div class="container">
-            <h2 class="section-title">Powerful Features</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-                            <circle cx="11" cy="11" r="8"/>
-                            <path d="m21 21-4.35-4.35"/>
-                        </svg>
-                    </div>
-                    <h3>Smart Detection</h3>
-                    <p>Automatically detects IPs, domains, URLs, hashes, emails, CVEs, and cryptocurrency addresses on any webpage.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                        </svg>
-                    </div>
-                    <h3>Privacy First</h3>
-                    <p>All API keys stored locally on your device. No tracking, no servers, no data collection. Your data stays yours.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
-                        </svg>
-                    </div>
-                    <h3>Lightning Fast</h3>
-                    <p>One-click analysis with instant results. Floating button appears automatically when you select text containing IOCs.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
-                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
-                        </svg>
-                    </div>
-                    <h3>Multiple Sources</h3>
-                    <p>Integrates with VirusTotal and OTX AlienVault for comprehensive threat intelligence and malware analysis.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-                            <rect x="3" y="11" width="18" height="10" rx="2" ry="2"/>
-                            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-                        </svg>
-                    </div>
-                    <h3>Secure Storage</h3>
-                    <p>Uses Chrome's encrypted storage for API keys. Optional caching with configurable retention periods.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-                            <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
-                        </svg>
-                    </div>
-                    <h3>Modern UI</h3>
-                    <p>Clean, professional design with smooth animations. Tab-based results view and dark mode optimized interface.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- IOC Types Section -->
-    <section class="ioc-types">
-        <div class="container">
-            <h2 class="section-title">Supported IOC Types</h2>
+    <!-- Supported IOCs -->
+    <section class="ioc-section">
+        <div class="ioc-container">
+            <h2 class="section-title" data-i18n="ioc.title">Supported IOC Types</h2>
             <div class="ioc-grid">
                 <div class="ioc-badge">IPv4</div>
                 <div class="ioc-badge">IPv6</div>
@@ -486,45 +664,226 @@
         </div>
     </section>
 
-    <!-- Stats Section -->
+    <!-- Stats -->
     <section class="stats">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <div class="stat-number">11</div>
-                    <div class="stat-label">IOC Types Supported</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">2</div>
-                    <div class="stat-label">Threat Intel Sources</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">100%</div>
-                    <div class="stat-label">Privacy Focused</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">0</div>
-                    <div class="stat-label">Data Collected</div>
-                </div>
+        <div class="stats-grid">
+            <div class="stat">
+                <h3>11</h3>
+                <p data-i18n="stats.iocTypes">IOC Types</p>
+            </div>
+            <div class="stat">
+                <h3>2</h3>
+                <p data-i18n="stats.sources">Threat Intel Sources</p>
+            </div>
+            <div class="stat">
+                <h3>100%</h3>
+                <p data-i18n="stats.privacy">Privacy Focused</p>
+            </div>
+            <div class="stat">
+                <h3>0</h3>
+                <p data-i18n="stats.dataCollected">Data Collected</p>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-links">
-                    <a href="https://github.com/abdullahcicekli/ahtapot" target="_blank">GitHub</a>
-                    <a href="https://github.com/abdullahcicekli/ahtapot/PRIVACY.md" target="_blank">Privacy Policy</a>
-                    <a href="https://github.com/abdullahcicekli/ahtapot/LICENSE" target="_blank">MIT License</a>
-                    <a href="https://github.com/abdullahcicekli/ahtapot/issues" target="_blank">Support</a>
-                </div>
-                <div class="copyright">
-                    Made with ❤️ for the cybersecurity community
-                </div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="https://github.com/abdullahcicekli/ahtapot" target="_blank">GitHub</a>
+                <a href="https://github.com/abdullahcicekli/ahtapot/blob/main/PRIVACY.md" target="_blank" data-i18n="footer.privacy">Privacy Policy</a>
+                <a href="https://github.com/abdullahcicekli/ahtapot/blob/main/LICENSE" target="_blank" data-i18n="footer.license">MIT License</a>
+                <a href="https://github.com/abdullahcicekli/ahtapot/issues" target="_blank" data-i18n="footer.support">Support</a>
+            </div>
+            <div class="footer-text" data-i18n="footer.madeWith">
+                Made with ❤️ for the cybersecurity community
             </div>
         </div>
     </footer>
+
+    <script>
+        // Translations
+        const translations = {
+            en: {
+                'nav.features': 'Features',
+                'nav.howItWorks': 'How it Works',
+                'hero.title1': 'Analyze IOCs with',
+                'hero.title2': 'Lightning Speed',
+                'hero.subtitle': 'Fast and secure Indicators of Compromise analysis directly in your browser. Built for security professionals.',
+                'hero.installBtn': 'Install Extension',
+                'hero.githubBtn': 'View on GitHub',
+                'howItWorks.title': 'How It Works',
+                'howItWorks.step1.title': 'Select Text',
+                'howItWorks.step1.desc': 'Select any text containing IOCs on any webpage',
+                'howItWorks.step2.title': 'Click Analyze',
+                'howItWorks.step2.desc': 'A floating button appears instantly - just click it',
+                'howItWorks.step3.title': 'View Results',
+                'howItWorks.step3.desc': 'Get detailed threat analysis in a beautiful side panel',
+                'howItWorks.step4.title': 'Take Action',
+                'howItWorks.step4.desc': 'Make informed decisions based on threat intelligence',
+                'features.title': 'Powerful Features',
+                'features.detection.title': 'Smart Detection',
+                'features.detection.desc': 'Automatically detects IPs, domains, URLs, hashes, emails, CVEs, and cryptocurrency addresses.',
+                'features.privacy.title': 'Privacy First',
+                'features.privacy.desc': 'All API keys stored locally. No tracking, no servers, no data collection.',
+                'features.speed.title': 'Lightning Fast',
+                'features.speed.desc': 'One-click analysis with instant results. Floating button appears automatically.',
+                'features.sources.title': 'Multiple Sources',
+                'features.sources.desc': 'Integrates with VirusTotal and OTX AlienVault for comprehensive threat intelligence.',
+                'features.secure.title': 'Secure Storage',
+                'features.secure.desc': 'Uses Chrome\'s encrypted storage for API keys with optional caching.',
+                'features.ui.title': 'Modern UI',
+                'features.ui.desc': 'Clean design with smooth animations and tab-based results view.',
+                'ioc.title': 'Supported IOC Types',
+                'stats.iocTypes': 'IOC Types',
+                'stats.sources': 'Threat Intel Sources',
+                'stats.privacy': 'Privacy Focused',
+                'stats.dataCollected': 'Data Collected',
+                'footer.privacy': 'Privacy Policy',
+                'footer.license': 'MIT License',
+                'footer.support': 'Support',
+                'footer.madeWith': 'Made with ❤️ for the cybersecurity community'
+            },
+            tr: {
+                'nav.features': 'Özellikler',
+                'nav.howItWorks': 'Nasıl Çalışır',
+                'hero.title1': 'IOC\'leri',
+                'hero.title2': 'Işık Hızında Analiz Et',
+                'hero.subtitle': 'Doğrudan tarayıcınızda hızlı ve güvenli IOC analizi. Güvenlik uzmanları için geliştirildi.',
+                'hero.installBtn': 'Eklentiyi Yükle',
+                'hero.githubBtn': 'GitHub\'da Görüntüle',
+                'howItWorks.title': 'Nasıl Çalışır',
+                'howItWorks.step1.title': 'Metin Seç',
+                'howItWorks.step1.desc': 'Herhangi bir web sayfasında IOC içeren metni seçin',
+                'howItWorks.step2.title': 'Analiz Et\'e Tıkla',
+                'howItWorks.step2.desc': 'Anında beliren kayan butona tıklamanız yeterli',
+                'howItWorks.step3.title': 'Sonuçları Görüntüle',
+                'howItWorks.step3.desc': 'Güzel tasarlanmış yan panelde detaylı tehdit analizi alın',
+                'howItWorks.step4.title': 'Aksiyon Al',
+                'howItWorks.step4.desc': 'Tehdit istihbaratına dayalı bilinçli kararlar verin',
+                'features.title': 'Güçlü Özellikler',
+                'features.detection.title': 'Akıllı Tespit',
+                'features.detection.desc': 'IP\'ler, domainler, URL\'ler, hash\'ler, e-postalar, CVE\'ler ve kripto adreslerini otomatik tespit eder.',
+                'features.privacy.title': 'Gizlilik Öncelikli',
+                'features.privacy.desc': 'Tüm API anahtarları cihazınızda saklanır. İzleme yok, sunucu yok, veri toplama yok.',
+                'features.speed.title': 'Işık Hızında',
+                'features.speed.desc': 'Tek tıkla analiz, anında sonuçlar. Kayan buton otomatik olarak belirir.',
+                'features.sources.title': 'Çoklu Kaynak',
+                'features.sources.desc': 'Kapsamlı tehdit istihbaratı için VirusTotal ve OTX AlienVault ile entegre.',
+                'features.secure.title': 'Güvenli Depolama',
+                'features.secure.desc': 'API anahtarları için Chrome\'un şifreli depolamasını kullanır, opsiyonel önbellekleme.',
+                'features.ui.title': 'Modern Arayüz',
+                'features.ui.desc': 'Temiz tasarım, akıcı animasyonlar ve sekme tabanlı sonuç görünümü.',
+                'ioc.title': 'Desteklenen IOC Türleri',
+                'stats.iocTypes': 'IOC Türü',
+                'stats.sources': 'Tehdit İstihbarat Kaynağı',
+                'stats.privacy': 'Gizlilik Odaklı',
+                'stats.dataCollected': 'Toplanan Veri',
+                'footer.privacy': 'Gizlilik Politikası',
+                'footer.license': 'MIT Lisansı',
+                'footer.support': 'Destek',
+                'footer.madeWith': 'Siber güvenlik topluluğu için ❤️ ile yapıldı'
+            }
+        };
+
+        // Theme Toggle
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+            updateLogo(newTheme);
+        }
+
+        function updateLogo(theme) {
+            const logoImage = document.getElementById('logoImage');
+            if (theme === 'dark') {
+                logoImage.src = '/logo-white.png';
+            } else {
+                logoImage.src = '/logo-black.png';
+            }
+        }
+
+        function updateThemeIcon(theme) {
+            const icon = document.getElementById('themeIcon');
+            if (theme === 'dark') {
+                icon.innerHTML = `
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                `;
+            } else {
+                icon.innerHTML = `
+                    <circle cx="12" cy="12" r="5"/>
+                    <line x1="12" y1="1" x2="12" y2="3"/>
+                    <line x1="12" y1="21" x2="12" y2="23"/>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                    <line x1="1" y1="12" x2="3" y2="12"/>
+                    <line x1="21" y1="12" x2="23" y2="12"/>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                `;
+            }
+        }
+
+        // Language Toggle
+        function toggleLanguage() {
+            const body = document.body;
+            const currentLang = body.getAttribute('data-lang');
+            const newLang = currentLang === 'en' ? 'tr' : 'en';
+            body.setAttribute('data-lang', newLang);
+            localStorage.setItem('language', newLang);
+            updateLanguageText(newLang);
+            translatePage(newLang);
+        }
+
+        function updateLanguageText(lang) {
+            const langText = document.getElementById('langText');
+            langText.textContent = lang.toUpperCase();
+        }
+
+        function translatePage(lang) {
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            // Load saved theme
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.body.setAttribute('data-theme', savedTheme);
+            updateThemeIcon(savedTheme);
+            updateLogo(savedTheme);
+
+            // Load saved language
+            const savedLang = localStorage.getItem('language') || 'en';
+            document.body.setAttribute('data-lang', savedLang);
+            updateLanguageText(savedLang);
+            translatePage(savedLang);
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+        });
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.style.display = navLinks.style.display === 'none' ? 'flex' : 'none';
+        }
+    </script>
 </body>
 </html>

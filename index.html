@@ -85,6 +85,9 @@
         "Lightning Fast Analysis",
         "VirusTotal Integration",
         "AlienVault OTX Integration",
+        "AbuseIPDB Integration",
+        "Smart Provider Matching",
+        "Provider Support Badges",
         "Secure Local Storage",
         "11 IOC Types Support",
         "Modern UI Design"
@@ -728,7 +731,7 @@
                 <span class="gradient-text" data-i18n="hero.title2">Lightning Speed</span>
             </h1>
             <p data-i18n="hero.subtitle">
-                Fast and secure Indicators of Compromise analysis directly in your browser. Built for security professionals who need instant threat intelligence.
+                Fast, secure IOC analysis directly in your browser. Triple-threat intelligence from VirusTotal, OTX AlienVault, and AbuseIPDB.
             </p>
             <div class="hero-buttons">
                 <a href="https://chrome.google.com/webstore" class="btn btn-primary">
@@ -820,8 +823,27 @@
                         <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
                     </svg>
                 </div>
-                <h3 data-i18n="features.sources.title">Multiple Sources</h3>
-                <p data-i18n="features.sources.desc">Integrates with VirusTotal and OTX AlienVault for comprehensive threat intelligence.</p>
+                <h3 data-i18n="features.sources.title">Triple-Threat Analysis</h3>
+                <p data-i18n="features.sources.desc">Integrates with VirusTotal, OTX AlienVault, and AbuseIPDB for comprehensive threat intelligence.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                </div>
+                <h3 data-i18n="features.matching.title">Smart Provider Matching</h3>
+                <p data-i18n="features.matching.desc">See which threat intelligence providers support each indicator before analysis. No wasted API calls.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                        <path d="M16 3h-8v4h8V3z"/>
+                    </svg>
+                </div>
+                <h3 data-i18n="features.badges.title">Provider Support Badges</h3>
+                <p data-i18n="features.badges.desc">Each detected IOC displays badge-based provider support. Know instantly which sources will analyze your data.</p>
             </div>
             <div class="feature">
                 <div class="feature-icon">
@@ -873,7 +895,7 @@
                 <p data-i18n="stats.iocTypes">IOC Types</p>
             </div>
             <div class="stat">
-                <h3>2</h3>
+                <h3>3</h3>
                 <p data-i18n="stats.sources">Threat Intel Sources</p>
             </div>
             <div class="stat">
@@ -911,7 +933,7 @@
                 'hero.badge': 'Free & Open Source',
                 'hero.title1': 'Analyze IOCs with',
                 'hero.title2': 'Lightning Speed',
-                'hero.subtitle': 'Fast and secure Indicators of Compromise analysis directly in your browser. Built for security professionals who need instant threat intelligence.',
+                'hero.subtitle': 'Fast, secure IOC analysis directly in your browser. Triple-threat intelligence from VirusTotal, OTX AlienVault, and AbuseIPDB.',
                 'hero.installBtn': 'Install Extension',
                 'hero.githubBtn': 'View on GitHub',
                 'howItWorks.title': 'How It Works',
@@ -930,8 +952,12 @@
                 'features.privacy.desc': 'All API keys stored locally. No tracking, no servers, no data collection.',
                 'features.speed.title': 'Lightning Fast',
                 'features.speed.desc': 'One-click analysis with instant results. Floating button appears automatically.',
-                'features.sources.title': 'Multiple Sources',
-                'features.sources.desc': 'Integrates with VirusTotal and OTX AlienVault for comprehensive threat intelligence.',
+                'features.sources.title': 'Triple-Threat Analysis',
+                'features.sources.desc': 'Integrates with VirusTotal, OTX AlienVault, and AbuseIPDB for comprehensive threat intelligence.',
+                'features.matching.title': 'Smart Provider Matching',
+                'features.matching.desc': 'See which threat intelligence providers support each indicator before analysis. No wasted API calls.',
+                'features.badges.title': 'Provider Support Badges',
+                'features.badges.desc': 'Each detected IOC displays badge-based provider support. Know instantly which sources will analyze your data.',
                 'features.secure.title': 'Secure Storage',
                 'features.secure.desc': 'Uses Chrome\'s encrypted storage for API keys with optional caching.',
                 'features.ui.title': 'Modern UI',
@@ -952,7 +978,7 @@
                 'hero.badge': 'Ücretsiz ve Açık Kaynak',
                 'hero.title1': 'IOC\'leri',
                 'hero.title2': 'Işık Hızında Analiz Et',
-                'hero.subtitle': 'Doğrudan tarayıcınızda hızlı ve güvenli IOC analizi. Anında tehdit istihbaratına ihtiyaç duyan güvenlik uzmanları için geliştirildi.',
+                'hero.subtitle': 'Tarayıcınızda hızlı ve güvenli IOC analizi. VirusTotal, OTX AlienVault ve AbuseIPDB\'den üçlü tehdit istihbaratı.',
                 'hero.installBtn': 'Eklentiyi Yükle',
                 'hero.githubBtn': 'GitHub\'da Görüntüle',
                 'howItWorks.title': 'Nasıl Çalışır',
@@ -971,8 +997,12 @@
                 'features.privacy.desc': 'Tüm API anahtarları cihazınızda saklanır. İzleme yok, sunucu yok, veri toplama yok.',
                 'features.speed.title': 'Işık Hızında',
                 'features.speed.desc': 'Tek tıkla analiz, anında sonuçlar. Kayan buton otomatik olarak belirir.',
-                'features.sources.title': 'Çoklu Kaynak',
-                'features.sources.desc': 'Kapsamlı tehdit istihbaratı için VirusTotal ve OTX AlienVault ile entegre.',
+                'features.sources.title': 'Üçlü Tehdit Analizi',
+                'features.sources.desc': 'Kapsamlı tehdit istihbaratı için VirusTotal, OTX AlienVault ve AbuseIPDB ile entegre.',
+                'features.matching.title': 'Akıllı Sağlayıcı Eşleştirme',
+                'features.matching.desc': 'Hangi tehdit istihbarat sağlayıcılarının her göstergeyi desteklediğini analiz öncesi görün. Boşa API çağrısı yok.',
+                'features.badges.title': 'Sağlayıcı Destek Rozetleri',
+                'features.badges.desc': 'Tespit edilen her gösterge rozet tabanlı sağlayıcı desteği gösterir. Hangi kaynakların verilerinizi analiz edeceğini anında bilin.',
                 'features.secure.title': 'Güvenli Depolama',
                 'features.secure.desc': 'API anahtarları için Chrome\'un şifreli depolamasını kullanır, opsiyonel önbellekleme.',
                 'features.ui.title': 'Modern Arayüz',

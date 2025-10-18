@@ -81,11 +81,13 @@
       "description": "Fast and secure IOC analysis browser extension for cybersecurity professionals. Analyze IPs, domains, URLs, hashes, CVEs, and cryptocurrency addresses with lightning speed.",
       "featureList": [
         "Smart IOC Detection",
+        "Built-in Search",
         "Privacy-First Architecture",
         "Lightning Fast Analysis",
         "VirusTotal Integration",
         "AlienVault OTX Integration",
         "AbuseIPDB Integration",
+        "MalwareBazaar Integration",
         "Smart Provider Matching",
         "Provider Support Badges",
         "Secure Local Storage",
@@ -553,6 +555,69 @@
             color: var(--text-secondary);
         }
 
+        /* Providers Section */
+        .providers {
+            padding: 4rem 2rem;
+            background: var(--bg-secondary);
+        }
+
+        .providers-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .providers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+            align-items: center;
+        }
+
+        .provider-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            transition: all 0.3s ease;
+            max-height: 120px;
+            height: 120px;
+        }
+
+        .provider-logo:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px var(--shadow);
+            border-color: var(--accent);
+        }
+
+        .provider-logo img {
+            max-width: 100%;
+            max-height: 80px;
+            object-fit: contain;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+
+        .provider-logo:hover img {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+
+        [data-theme="dark"] .provider-logo img {
+            filter: grayscale(100%) brightness(0) invert(1);
+            opacity: 0.6;
+        }
+
+        [data-theme="dark"] .provider-logo:hover img {
+            filter: grayscale(0%) brightness(1) invert(0);
+            opacity: 1;
+        }
+
         /* Footer */
         footer {
             padding: 3rem 2rem;
@@ -731,7 +796,7 @@
                 <span class="gradient-text" data-i18n="hero.title2">Lightning Speed</span>
             </h1>
             <p data-i18n="hero.subtitle">
-                Fast, secure IOC analysis directly in your browser. Triple-threat intelligence from VirusTotal, OTX AlienVault, and AbuseIPDB.
+                Fast, secure IOC analysis directly in your browser. Multi-source threat intelligence from VirusTotal, OTX AlienVault, AbuseIPDB, and MalwareBazaar.
             </p>
             <div class="hero-buttons">
                 <a href="https://chrome.google.com/webstore" class="btn btn-primary">
@@ -801,6 +866,17 @@
             <div class="feature">
                 <div class="feature-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"/>
+                        <line x1="11" y1="8" x2="11" y2="14"/>
+                        <line x1="8" y1="11" x2="14" y2="11"/>
+                    </svg>
+                </div>
+                <h3 data-i18n="features.search.title">Built-in Search</h3>
+                <p data-i18n="features.search.desc">Direct search from extension popup. No need to select text - just type and analyze instantly.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
                         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
                     </svg>
                 </div>
@@ -823,8 +899,8 @@
                         <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
                     </svg>
                 </div>
-                <h3 data-i18n="features.sources.title">Triple-Threat Analysis</h3>
-                <p data-i18n="features.sources.desc">Integrates with VirusTotal, OTX AlienVault, and AbuseIPDB for comprehensive threat intelligence.</p>
+                <h3 data-i18n="features.sources.title">Multi-Source Intelligence</h3>
+                <p data-i18n="features.sources.desc">Integrates with VirusTotal, OTX AlienVault, AbuseIPDB, and MalwareBazaar for comprehensive threat intelligence.</p>
             </div>
             <div class="feature">
                 <div class="feature-icon">
@@ -895,7 +971,7 @@
                 <p data-i18n="stats.iocTypes">IOC Types</p>
             </div>
             <div class="stat">
-                <h3>3</h3>
+                <h3>4</h3>
                 <p data-i18n="stats.sources">Threat Intel Sources</p>
             </div>
             <div class="stat">
@@ -905,6 +981,30 @@
             <div class="stat">
                 <h3>0</h3>
                 <p data-i18n="stats.dataCollected">Data Collected</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Providers -->
+    <section class="providers">
+        <div class="providers-container">
+            <h2 class="section-title" data-i18n="providers.title">Integrates with Leading Threat Intelligence Providers</h2>
+            <p style="color: var(--text-secondary); margin-bottom: 1rem;" data-i18n="providers.subtitle">
+                Leverages industry-trusted APIs for comprehensive security analysis
+            </p>
+            <div class="providers-grid">
+                <div class="provider-logo">
+                    <img src="/assets/provider-icons/virustotal_logo.png" alt="VirusTotal Logo">
+                </div>
+                <div class="provider-logo">
+                    <img src="/assets/provider-icons/alienVaultOtx-logo.png" alt="AlienVault OTX Logo">
+                </div>
+                <div class="provider-logo">
+                    <img src="/assets/provider-icons/abuseipdb-logo.png" alt="AbuseIPDB Logo">
+                </div>
+                <div class="provider-logo">
+                    <img src="/assets/provider-icons/abuse-logo.png" alt="MalwareBazaar Logo">
+                </div>
             </div>
         </div>
     </section>
@@ -933,7 +1033,7 @@
                 'hero.badge': 'Free & Open Source',
                 'hero.title1': 'Analyze IOCs with',
                 'hero.title2': 'Lightning Speed',
-                'hero.subtitle': 'Fast, secure IOC analysis directly in your browser. Triple-threat intelligence from VirusTotal, OTX AlienVault, and AbuseIPDB.',
+                'hero.subtitle': 'Fast, secure IOC analysis directly in your browser. Multi-source threat intelligence from VirusTotal, OTX AlienVault, AbuseIPDB, and MalwareBazaar.',
                 'hero.installBtn': 'Install Extension',
                 'hero.githubBtn': 'View on GitHub',
                 'howItWorks.title': 'How It Works',
@@ -948,12 +1048,14 @@
                 'features.title': 'Powerful Features',
                 'features.detection.title': 'Smart Detection',
                 'features.detection.desc': 'Automatically detects IPs, domains, URLs, hashes, emails, CVEs, and cryptocurrency addresses.',
+                'features.search.title': 'Built-in Search',
+                'features.search.desc': 'Direct search from extension popup. No need to select text - just type and analyze instantly.',
                 'features.privacy.title': 'Privacy First',
                 'features.privacy.desc': 'All API keys stored locally. No tracking, no servers, no data collection.',
                 'features.speed.title': 'Lightning Fast',
                 'features.speed.desc': 'One-click analysis with instant results. Floating button appears automatically.',
-                'features.sources.title': 'Triple-Threat Analysis',
-                'features.sources.desc': 'Integrates with VirusTotal, OTX AlienVault, and AbuseIPDB for comprehensive threat intelligence.',
+                'features.sources.title': 'Multi-Source Intelligence',
+                'features.sources.desc': 'Integrates with VirusTotal, OTX AlienVault, AbuseIPDB, and MalwareBazaar for comprehensive threat intelligence.',
                 'features.matching.title': 'Smart Provider Matching',
                 'features.matching.desc': 'See which threat intelligence providers support each indicator before analysis. No wasted API calls.',
                 'features.badges.title': 'Provider Support Badges',
@@ -970,7 +1072,9 @@
                 'footer.privacy': 'Privacy Policy',
                 'footer.license': 'MIT License',
                 'footer.support': 'Support',
-                'footer.madeWith': 'Made with ❤️ for the cybersecurity community'
+                'footer.madeWith': 'Made with ❤️ for the cybersecurity community',
+                'providers.title': 'Integrates with Leading Threat Intelligence Providers',
+                'providers.subtitle': 'Leverages industry-trusted APIs for comprehensive security analysis'
             },
             tr: {
                 'nav.features': 'Özellikler',
@@ -978,7 +1082,7 @@
                 'hero.badge': 'Ücretsiz ve Açık Kaynak',
                 'hero.title1': 'IOC\'leri',
                 'hero.title2': 'Işık Hızında Analiz Et',
-                'hero.subtitle': 'Tarayıcınızda hızlı ve güvenli IOC analizi. VirusTotal, OTX AlienVault ve AbuseIPDB\'den üçlü tehdit istihbaratı.',
+                'hero.subtitle': 'Tarayıcınızda hızlı ve güvenli IOC analizi. VirusTotal, OTX AlienVault, AbuseIPDB ve MalwareBazaar\'dan çoklu kaynak tehdit istihbaratı.',
                 'hero.installBtn': 'Eklentiyi Yükle',
                 'hero.githubBtn': 'GitHub\'da Görüntüle',
                 'howItWorks.title': 'Nasıl Çalışır',
@@ -993,12 +1097,14 @@
                 'features.title': 'Güçlü Özellikler',
                 'features.detection.title': 'Akıllı Tespit',
                 'features.detection.desc': 'IP\'ler, domainler, URL\'ler, hash\'ler, e-postalar, CVE\'ler ve kripto adreslerini otomatik tespit eder.',
+                'features.search.title': 'Dahili Arama',
+                'features.search.desc': 'Eklenti popup\'ından doğrudan arama. Metin seçmeye gerek yok - sadece yazın ve anında analiz edin.',
                 'features.privacy.title': 'Gizlilik Öncelikli',
                 'features.privacy.desc': 'Tüm API anahtarları cihazınızda saklanır. İzleme yok, sunucu yok, veri toplama yok.',
                 'features.speed.title': 'Işık Hızında',
                 'features.speed.desc': 'Tek tıkla analiz, anında sonuçlar. Kayan buton otomatik olarak belirir.',
-                'features.sources.title': 'Üçlü Tehdit Analizi',
-                'features.sources.desc': 'Kapsamlı tehdit istihbaratı için VirusTotal, OTX AlienVault ve AbuseIPDB ile entegre.',
+                'features.sources.title': 'Çoklu Kaynak İstihbaratı',
+                'features.sources.desc': 'Kapsamlı tehdit istihbaratı için VirusTotal, OTX AlienVault, AbuseIPDB ve MalwareBazaar ile entegre.',
                 'features.matching.title': 'Akıllı Sağlayıcı Eşleştirme',
                 'features.matching.desc': 'Hangi tehdit istihbarat sağlayıcılarının her göstergeyi desteklediğini analiz öncesi görün. Boşa API çağrısı yok.',
                 'features.badges.title': 'Sağlayıcı Destek Rozetleri',
@@ -1015,7 +1121,9 @@
                 'footer.privacy': 'Gizlilik Politikası',
                 'footer.license': 'MIT Lisansı',
                 'footer.support': 'Destek',
-                'footer.madeWith': 'Siber güvenlik topluluğu için ❤️ ile yapıldı'
+                'footer.madeWith': 'Siber güvenlik topluluğu için ❤️ ile yapıldı',
+                'providers.title': 'Önde Gelen Tehdit İstihbaratı Sağlayıcıları ile Entegre',
+                'providers.subtitle': 'Kapsamlı güvenlik analizi için sektörde güvenilir API\'ler kullanır'
             }
         };
 

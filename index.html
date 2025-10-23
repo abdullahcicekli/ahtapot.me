@@ -365,6 +365,14 @@
             transform: scale(1.02);
         }
 
+        .hero-badges-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
         .hero-badge {
             display: inline-flex;
             align-items: center;
@@ -375,13 +383,29 @@
             border-radius: 2rem;
             font-size: 0.9rem;
             color: var(--text-secondary);
-            margin-bottom: 1.5rem;
         }
 
         .hero-badge svg {
             width: 16px;
             height: 16px;
             stroke: var(--success);
+        }
+
+        .product-hunt-badge {
+            display: inline-flex;
+            align-items: center;
+            transition: transform 0.3s ease;
+            height: 40px;
+        }
+
+        .product-hunt-badge:hover {
+            transform: translateY(-2px);
+        }
+
+        .product-hunt-badge img {
+            display: block;
+            height: 40px;
+            width: auto;
         }
 
         /* How It Works Section */
@@ -860,12 +884,17 @@
     <!-- Hero Section -->
     <section class="hero fade-in">
         <div class="hero-content">
-            <div class="hero-badge">
-                <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
-                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                    <polyline points="22 4 12 14.01 9 11.01"/>
-                </svg>
-                <span data-i18n="hero.badge">Free & Open Source</span>
+            <div class="hero-badges-container">
+                <div class="hero-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                        <polyline points="22 4 12 14.01 9 11.01"/>
+                    </svg>
+                    <span data-i18n="hero.badge">Free & Open Source</span>
+                </div>
+                <a href="https://www.producthunt.com/products/ahtapot?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-ahtapot" target="_blank" rel="noopener noreferrer" class="product-hunt-badge">
+                    <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1029486&theme=light&t=1761229220244" alt="Ahtapot - IOC Analysis | Fast Threat Intel for Security Pros | Product Hunt" />
+                </a>
             </div>
             <h1>
                 <span data-i18n="hero.title1">Analyze IOCs with</span><br>
@@ -1259,6 +1288,7 @@
             localStorage.setItem('theme', newTheme);
             updateThemeIcon(newTheme);
             updateLogo(newTheme);
+            updateProductHuntBadge(newTheme);
         }
 
         function updateLogo(theme) {
@@ -1267,6 +1297,16 @@
                 logoImage.src = '/assets/images/ahtapot-logo-white.png';
             } else {
                 logoImage.src = '/assets/images/ahtapot-logo-black.png';
+            }
+        }
+
+        function updateProductHuntBadge(theme) {
+            const phBadge = document.querySelector('.product-hunt-badge img');
+            if (phBadge) {
+                const baseUrl = 'https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1029486';
+                const themeParam = theme === 'dark' ? 'dark' : 'light';
+                const timestamp = Date.now();
+                phBadge.src = `${baseUrl}&theme=${themeParam}&t=${timestamp}`;
             }
         }
 
@@ -1333,6 +1373,7 @@
             document.body.setAttribute('data-theme', savedTheme);
             updateThemeIcon(savedTheme);
             updateLogo(savedTheme);
+            updateProductHuntBadge(savedTheme);
 
             // Load saved language
             const savedLang = localStorage.getItem('language') || 'en';

@@ -7,8 +7,8 @@
     <!-- Primary Meta Tags -->
     <title>Ahtapot - IOC Analysis Extension | Fast Threat Intelligence for Security Professionals</title>
     <meta name="title" content="Ahtapot - IOC Analysis Extension | Fast Threat Intelligence for Security Professionals">
-    <meta name="description" content="Ahtapot - Fast and secure IOC analysis browser extension for cybersecurity professionals. Analyze IPs, domains, URLs, hashes, CVEs with 7 threat intelligence providers: VirusTotal, AlienVault OTX, AbuseIPDB, MalwareBazaar, ARIN, Shodan, GreyNoise. Privacy-first threat intelligence.">
-    <meta name="keywords" content="IOC, cybersecurity, threat intelligence, browser extension, malware analysis, VirusTotal, AlienVault OTX, AbuseIPDB, MalwareBazaar, ARIN, Shodan, GreyNoise, security tools, IPv4, IPv6, hash analysis, CVE lookup, WHOIS lookup, device search, internet noise detection, security extension, Chrome extension">
+    <meta name="description" content="Ahtapot - Fast and secure IOC analysis browser extension for cybersecurity professionals. Analyze IPs, domains, URLs, hashes, CVEs with 10 threat intelligence providers: VirusTotal, AlienVault OTX, AbuseIPDB, MalwareBazaar, ARIN, Shodan, GreyNoise, URLhaus, Pulsedive, Scamalytics. Privacy-first threat intelligence.">
+    <meta name="keywords" content="IOC, cybersecurity, threat intelligence, browser extension, malware analysis, VirusTotal, AlienVault OTX, AbuseIPDB, MalwareBazaar, ARIN, Shodan, GreyNoise, URLhaus, Pulsedive, Scamalytics, security tools, IPv4, IPv6, hash analysis, CVE lookup, WHOIS lookup, device search, internet noise detection, fraud detection, security extension, Chrome extension">
     <meta name="author" content="Abdullah Cicekli">
     <meta name="robots" content="index, follow">
     <meta name="language" content="English">
@@ -25,7 +25,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://ahtapot.me/">
     <meta property="og:title" content="Ahtapot - IOC Analysis Extension | Fast Threat Intelligence">
-    <meta property="og:description" content="Fast and secure IOC analysis browser extension with 7 threat intelligence providers: VirusTotal, AlienVault OTX, AbuseIPDB, MalwareBazaar, ARIN, Shodan, GreyNoise. Privacy-first threat intelligence.">
+    <meta property="og:description" content="Fast and secure IOC analysis browser extension with 10 threat intelligence providers: VirusTotal, AlienVault OTX, AbuseIPDB, MalwareBazaar, ARIN, Shodan, GreyNoise, URLhaus, Pulsedive, Scamalytics. Privacy-first threat intelligence.">
     <meta property="og:image" content="https://ahtapot.me/assets/images/og-image.png">
     <meta property="og:image:width" content="440">
     <meta property="og:image:height" content="280">
@@ -38,7 +38,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://ahtapot.me/">
     <meta name="twitter:title" content="Ahtapot - IOC Analysis Extension | Fast Threat Intelligence">
-    <meta name="twitter:description" content="Fast IOC analysis with 7 threat intelligence providers: VirusTotal, AlienVault OTX, AbuseIPDB, MalwareBazaar, ARIN, Shodan, GreyNoise. Privacy-first.">
+    <meta name="twitter:description" content="Fast IOC analysis with 10 threat intelligence providers: VirusTotal, AlienVault OTX, AbuseIPDB, MalwareBazaar, ARIN, Shodan, GreyNoise, URLhaus, Pulsedive, Scamalytics. Privacy-first.">
     <meta name="twitter:image" content="https://ahtapot.me/assets/images/og-image.png">
     <meta name="twitter:image:alt" content="Ahtapot IOC Analysis Extension Logo">
     <meta name="twitter:creator" content="@abdullahcicekli">
@@ -78,13 +78,13 @@
         "ratingValue": "5.0",
         "ratingCount": "1"
       },
-      "description": "Fast and secure IOC analysis browser extension for cybersecurity professionals. Analyze IPs, domains, URLs, hashes, CVEs with 7 threat intelligence providers.",
+      "description": "Fast and secure IOC analysis browser extension for cybersecurity professionals. Analyze IPs, domains, URLs, hashes, CVEs with 10 threat intelligence providers.",
       "featureList": [
         "Smart IOC Detection",
         "Built-in Search",
         "Privacy-First Architecture",
         "Lightning Fast Analysis",
-        "7 Threat Intelligence Providers",
+        "10 Threat Intelligence Providers",
         "VirusTotal Integration",
         "AlienVault OTX Integration",
         "AbuseIPDB Integration",
@@ -92,12 +92,16 @@
         "ARIN WHOIS Integration",
         "Shodan Integration",
         "GreyNoise Integration",
+        "URLhaus Integration",
+        "Pulsedive Integration",
+        "Scamalytics Integration",
         "Smart Provider Matching",
         "Rate Limit Protection",
         "Provider Support Badges",
         "Secure Local Storage",
         "11 IOC Types Support",
-        "Modern UI Design"
+        "Modern UI Design",
+        "Customizable Provider Order"
       ],
       "screenshot": "https://ahtapot.me/assets/images/og-image.png",
       "author": {
@@ -115,7 +119,7 @@
       },
       "url": "https://ahtapot.me",
       "downloadUrl": "https://chromewebstore.google.com/detail/ahtapot-ioc-analysis-tool/gmekhigahdiddngdhfdkeefcomcankpg",
-      "softwareVersion": "1.0",
+      "softwareVersion": "2.6.0",
       "releaseNotes": "Initial release with comprehensive IOC analysis capabilities",
       "license": "https://github.com/abdullahcicekli/ahtapot/blob/main/LICENSE"
     }
@@ -901,7 +905,7 @@
                 <span class="gradient-text" data-i18n="hero.title2">Lightning Speed</span>
             </h1>
             <p data-i18n="hero.subtitle">
-                Fast, secure IOC analysis directly in your browser. Multi-source threat intelligence from 7 providers: VirusTotal, OTX AlienVault, AbuseIPDB, MalwareBazaar, ARIN, Shodan, and GreyNoise.
+                Fast, secure IOC analysis directly in your browser. Multi-source threat intelligence from 10 providers: VirusTotal, OTX AlienVault, AbuseIPDB, MalwareBazaar, ARIN, Shodan, GreyNoise, URLhaus, Pulsedive, and Scamalytics.
             </p>
             <div class="hero-buttons">
                 <a href="https://chromewebstore.google.com/detail/ahtapot-ioc-analysis-tool/gmekhigahdiddngdhfdkeefcomcankpg" class="btn btn-primary">
@@ -1004,8 +1008,8 @@
                         <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
                     </svg>
                 </div>
-                <h3 data-i18n="features.sources.title">7 Intelligence Sources</h3>
-                <p data-i18n="features.sources.desc">Integrates with VirusTotal, OTX AlienVault, AbuseIPDB, MalwareBazaar, ARIN, Shodan, and GreyNoise for comprehensive threat intelligence.</p>
+                <h3 data-i18n="features.sources.title">10 Intelligence Sources</h3>
+                <p data-i18n="features.sources.desc">Integrates with VirusTotal, OTX AlienVault, AbuseIPDB, MalwareBazaar, ARIN, Shodan, GreyNoise, URLhaus, Pulsedive, and Scamalytics for comprehensive threat intelligence.</p>
             </div>
             <div class="feature">
                 <div class="feature-icon">
@@ -1076,7 +1080,7 @@
                 <p data-i18n="stats.iocTypes">IOC Types</p>
             </div>
             <div class="stat">
-                <h3>7</h3>
+                <h3>10</h3>
                 <p data-i18n="stats.sources">Threat Intel Sources</p>
             </div>
             <div class="stat">
@@ -1118,6 +1122,15 @@
                 </div>
                 <div class="provider-logo">
                     <img src="/assets/provider-icons/greynoise-logo.png" alt="GreyNoise - Internet-wide noise detection and threat classification provider">
+                </div>
+                <div class="provider-logo">
+                    <img src="/assets/provider-icons/abuse-logo.png" alt="URLhaus - Malicious URL and malware distribution database by abuse.ch">
+                </div>
+                <div class="provider-logo">
+                    <img src="/assets/provider-icons/pulsedive-logo.png" alt="Pulsedive - Threat intelligence platform with IOC enrichment">
+                </div>
+                <div class="provider-logo">
+                    <img src="/assets/provider-icons/scamalytics-logo.png" alt="Scamalytics - IP fraud score and scam detection provider">
                 </div>
             </div>
         </div>
@@ -1170,7 +1183,7 @@
                 'hero.badge': 'Free & Open Source',
                 'hero.title1': 'Analyze IOCs with',
                 'hero.title2': 'Lightning Speed',
-                'hero.subtitle': 'Fast, secure IOC analysis directly in your browser. Multi-source threat intelligence from 7 providers: VirusTotal, OTX AlienVault, AbuseIPDB, MalwareBazaar, ARIN, Shodan, and GreyNoise.',
+                'hero.subtitle': 'Fast, secure IOC analysis directly in your browser. Multi-source threat intelligence from 10 providers: VirusTotal, OTX AlienVault, AbuseIPDB, MalwareBazaar, ARIN, Shodan, GreyNoise, URLhaus, Pulsedive, and Scamalytics.',
                 'hero.installBtn': 'Install Extension',
                 'hero.githubBtn': 'View on GitHub',
                 'howItWorks.title': 'How It Works',
@@ -1191,8 +1204,8 @@
                 'features.privacy.desc': 'All API keys stored locally. No tracking, no servers, no data collection.',
                 'features.speed.title': 'Lightning Fast',
                 'features.speed.desc': 'One-click analysis with instant results. Floating button appears automatically.',
-                'features.sources.title': '7 Intelligence Sources',
-                'features.sources.desc': 'Integrates with VirusTotal, OTX AlienVault, AbuseIPDB, MalwareBazaar, ARIN, Shodan, and GreyNoise for comprehensive threat intelligence.',
+                'features.sources.title': '10 Intelligence Sources',
+                'features.sources.desc': 'Integrates with VirusTotal, OTX AlienVault, AbuseIPDB, MalwareBazaar, ARIN, Shodan, GreyNoise, URLhaus, Pulsedive, and Scamalytics for comprehensive threat intelligence.',
                 'features.matching.title': 'Smart Provider Matching',
                 'features.matching.desc': 'See which threat intelligence providers support each indicator before analysis. No wasted API calls.',
                 'features.badges.title': 'Provider Support Badges',
@@ -1227,7 +1240,7 @@
                 'hero.badge': 'Ücretsiz ve Açık Kaynak',
                 'hero.title1': 'IOC\'leri',
                 'hero.title2': 'Işık Hızında Analiz Et',
-                'hero.subtitle': 'Tarayıcınızda hızlı ve güvenli IOC analizi. 7 sağlayıcıdan çoklu kaynak tehdit istihbaratı: VirusTotal, OTX AlienVault, AbuseIPDB, MalwareBazaar, ARIN, Shodan ve GreyNoise.',
+                'hero.subtitle': 'Tarayıcınızda hızlı ve güvenli IOC analizi. 10 sağlayıcıdan çoklu kaynak tehdit istihbaratı: VirusTotal, OTX AlienVault, AbuseIPDB, MalwareBazaar, ARIN, Shodan, GreyNoise, URLhaus, Pulsedive ve Scamalytics.',
                 'hero.installBtn': 'Eklentiyi Yükle',
                 'hero.githubBtn': 'GitHub\'da Görüntüle',
                 'howItWorks.title': 'Nasıl Çalışır',
@@ -1248,8 +1261,8 @@
                 'features.privacy.desc': 'Tüm API anahtarları cihazınızda saklanır. İzleme yok, sunucu yok, veri toplama yok.',
                 'features.speed.title': 'Işık Hızında',
                 'features.speed.desc': 'Tek tıkla analiz, anında sonuçlar. Kayan buton otomatik olarak belirir.',
-                'features.sources.title': '7 İstihbarat Kaynağı',
-                'features.sources.desc': 'Kapsamlı tehdit istihbaratı için VirusTotal, OTX AlienVault, AbuseIPDB, MalwareBazaar, ARIN, Shodan ve GreyNoise ile entegre.',
+                'features.sources.title': '10 İstihbarat Kaynağı',
+                'features.sources.desc': 'Kapsamlı tehdit istihbaratı için VirusTotal, OTX AlienVault, AbuseIPDB, MalwareBazaar, ARIN, Shodan, GreyNoise, URLhaus, Pulsedive ve Scamalytics ile entegre.',
                 'features.matching.title': 'Akıllı Sağlayıcı Eşleştirme',
                 'features.matching.desc': 'Hangi tehdit istihbarat sağlayıcılarının her göstergeyi desteklediğini analiz öncesi görün. Boşa API çağrısı yok.',
                 'features.badges.title': 'Sağlayıcı Destek Rozetleri',

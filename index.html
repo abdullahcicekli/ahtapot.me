@@ -304,7 +304,39 @@
         }
 
         /* Hero Section */
+        .hero-wrapper {
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+        }
+
+        .hero-bg-octopus {
+            position: absolute;
+            right: -5%;
+            bottom: -10%;
+            width: 55%;
+            max-width: 700px;
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: 0;
+            filter: blur(1px);
+            transform: rotate(-15deg);
+            animation: floatOctopus 8s ease-in-out infinite;
+        }
+
+        [data-theme="light"] .hero-bg-octopus {
+            opacity: 0.08;
+            filter: brightness(0) blur(1px);
+        }
+
+        @keyframes floatOctopus {
+            0%, 100% { transform: rotate(-15deg) translateY(0); }
+            50% { transform: rotate(-15deg) translateY(-20px); }
+        }
+
         .hero {
+            position: relative;
+            z-index: 1;
             padding: 8rem 2rem 6rem;
             max-width: 1400px;
             margin: 0 auto;
@@ -822,6 +854,13 @@
                 max-width: 100%;
             }
 
+            .hero-bg-octopus {
+                width: 80%;
+                right: -20%;
+                bottom: 5%;
+                opacity: 0.1;
+            }
+
             .features-grid, .steps {
                 grid-template-columns: 1fr;
             }
@@ -1119,7 +1158,9 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="hero fade-in">
+    <div class="hero-wrapper">
+        <img src="/assets/images/octopus.png" alt="" class="hero-bg-octopus" aria-hidden="true">
+        <section class="hero fade-in">
         <div class="hero-content">
             <div class="hero-badges-container">
                 <div class="hero-badge">
@@ -1161,6 +1202,7 @@
             <img src="/assets/images/landing.png" alt="Ahtapot Extension Screenshot - IOC Analysis Dashboard showing threat intelligence data" loading="eager">
         </div>
     </section>
+    </div>
 
     <!-- How It Works -->
     <section id="how-it-works" class="how-it-works">

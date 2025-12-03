@@ -1,12 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
     <url>
         <loc>https://ahtapot.me/</loc>
-        <lastmod>2025-10-16</lastmod>
+        <lastmod>2025-12-03</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
         <xhtml:link rel="alternate" hreflang="en" href="https://ahtapot.me/"/>
         <xhtml:link rel="alternate" hreflang="tr" href="https://ahtapot.me/?lang=tr"/>
+        <image:image>
+            <image:loc>https://ahtapot.me/assets/images/og-image.png</image:loc>
+            <image:title>Ahtapot AI Security Tool - IOC Analysis</image:title>
+            <image:caption>AI-powered IOC analysis with Claude, Gemini, GPT-4o</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://ahtapot.me/assets/images/landing.png</image:loc>
+            <image:title>Ahtapot Dashboard - AI Threat Intelligence</image:title>
+            <image:caption>AI-powered threat intelligence dashboard for SOC analysts</image:caption>
+        </image:image>
     </url>
 </urlset>

@@ -1,9 +1,7 @@
-# Robots.txt for Ahtapot IOC Analysis Extension
+# Robots.txt for Ahtapot - AI Security Tool
 User-agent: *
 Allow: /
-Disallow: /assets/
-Disallow: /*.js$
-Disallow: /*.css$
+Allow: /assets/images/
 
 # Sitemap location
 Sitemap: https://ahtapot.me/sitemap.xml

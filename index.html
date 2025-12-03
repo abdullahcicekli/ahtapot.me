@@ -15,8 +15,8 @@
     <meta name="revisit-after" content="7 days">
 
     <!-- Theme Color -->
-    <meta name="theme-color" content="#4a9eff">
-    <meta name="msapplication-TileColor" content="#4a9eff">
+    <meta name="theme-color" content="#1A1A1F">
+    <meta name="msapplication-TileColor" content="#1A1A1F">
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://ahtapot.me/">
@@ -150,33 +150,35 @@
         }
 
         :root {
-            --bg-primary: #ffffff;
-            --bg-secondary: #f8f9fa;
-            --bg-card: #ffffff;
-            --text-primary: #1a1a1a;
-            --text-secondary: #6c757d;
-            --text-muted: #909090;
-            --accent: #4a9eff;
-            --accent-hover: #3890ff;
-            --border: #e0e0e0;
-            --shadow: rgba(0, 0, 0, 0.1);
+            /* Light Mode */
+            --bg-primary: #FAFAFA;
+            --bg-secondary: #F0F0F2;
+            --bg-card: #FFFFFF;
+            --text-primary: #1A1A1F;
+            --text-secondary: #5A5A65;
+            --text-muted: #8A8A95;
+            --accent: #1A1A1F;
+            --accent-bright: #FFF770;
+            --accent-dim: rgba(255, 247, 112, 0.2);
+            --border: #E5E5EA;
+            --shadow: rgba(0, 0, 0, 0.08);
             --success: #22c55e;
             --warning: #f59e0b;
             --danger: #ef4444;
-            --gradient: linear-gradient(135deg, #4a9eff 0%, #667eea 100%);
         }
 
         [data-theme="dark"] {
-            --bg-primary: #0a0a0a;
-            --bg-secondary: #1a1a1a;
-            --bg-card: #181818;
-            --text-primary: #ffffff;
-            --text-secondary: #a0a0a0;
-            --text-muted: #707070;
-            --accent: #4a9eff;
-            --accent-hover: #5fa8ff;
-            --border: #2a2a2a;
-            --shadow: rgba(0, 0, 0, 0.5);
+            --bg-primary: #1A1A1F;
+            --bg-secondary: #222228;
+            --bg-card: #2A2A32;
+            --text-primary: #FFFFFF;
+            --text-secondary: #A0A0AA;
+            --text-muted: #707078;
+            --accent: #FFF770;
+            --accent-bright: #FFF770;
+            --accent-dim: rgba(255, 247, 112, 0.15);
+            --border: rgba(255, 255, 255, 0.1);
+            --shadow: rgba(0, 0, 0, 0.4);
         }
 
         body {
@@ -223,10 +225,7 @@
         .logo-text {
             font-size: 1.5rem;
             font-weight: 700;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--accent);
         }
 
         .nav-controls {
@@ -267,12 +266,13 @@
         }
 
         .btn-primary {
-            background: var(--gradient);
-            color: white;
+            background: var(--accent-bright);
+            color: #1A1A1F;
         }
 
         .btn-primary:hover {
             transform: translateY(-1px);
+            filter: brightness(1.1);
             box-shadow: 0 4px 12px var(--shadow);
         }
 
@@ -284,6 +284,7 @@
 
         .btn-secondary:hover {
             background: var(--bg-secondary);
+            border-color: var(--accent);
         }
 
         .theme-toggle, .lang-toggle {
@@ -327,11 +328,16 @@
         }
 
         .gradient-text {
-            background: var(--gradient);
+            color: var(--accent-bright);
+            display: block;
+        }
+
+        [data-theme="light"] .gradient-text {
+            color: #1A1A1F;
+            background: linear-gradient(135deg, #1A1A1F 0%, #3A3A45 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            display: block;
         }
 
         .hero p {
@@ -382,11 +388,15 @@
             align-items: center;
             gap: 0.5rem;
             padding: 0.5rem 1rem;
-            background: var(--bg-secondary);
+            background: var(--accent-dim);
             border: 1px solid var(--border);
             border-radius: 2rem;
             font-size: 0.9rem;
             color: var(--text-secondary);
+        }
+
+        [data-theme="dark"] .hero-badge {
+            border-color: rgba(255, 247, 112, 0.3);
         }
 
         .hero-badge svg {
@@ -445,13 +455,14 @@
         .step:hover {
             transform: translateY(-4px);
             box-shadow: 0 8px 24px var(--shadow);
+            border-color: var(--accent-bright);
         }
 
         .step-number {
             width: 48px;
             height: 48px;
-            background: var(--gradient);
-            color: white;
+            background: var(--accent-bright);
+            color: #1A1A1F;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -494,14 +505,14 @@
         }
 
         .feature:hover {
-            border-color: var(--accent);
+            border-color: var(--accent-bright);
             box-shadow: 0 4px 12px var(--shadow);
         }
 
         .feature-icon {
             width: 40px;
             height: 40px;
-            background: var(--gradient);
+            background: var(--accent-bright);
             border-radius: 0.5rem;
             display: flex;
             align-items: center;
@@ -512,7 +523,7 @@
         .feature-icon svg {
             width: 24px;
             height: 24px;
-            stroke: white;
+            stroke: #1A1A1F;
         }
 
         .feature h3 {
@@ -556,9 +567,10 @@
         }
 
         .ioc-badge:hover {
-            border-color: var(--accent);
+            border-color: var(--accent-bright);
             color: var(--accent);
             transform: translateY(-2px);
+            background: var(--accent-dim);
         }
 
         /* Stats */
@@ -577,11 +589,12 @@
 
         .stat h3 {
             font-size: 2.5rem;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--accent-bright);
             margin-bottom: 0.5rem;
+        }
+
+        [data-theme="light"] .stat h3 {
+            color: #1A1A1F;
         }
 
         .stat p {
@@ -624,7 +637,7 @@
         .provider-logo:hover {
             transform: translateY(-4px);
             box-shadow: 0 8px 24px var(--shadow);
-            border-color: var(--accent);
+            border-color: var(--accent-bright);
         }
 
         .provider-logo img {
@@ -702,8 +715,8 @@
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: var(--accent);
-            box-shadow: 0 0 0 3px rgba(74, 158, 255, 0.1);
+            border-color: var(--accent-bright);
+            box-shadow: 0 0 0 3px var(--accent-dim);
         }
 
         .form-group textarea {
@@ -836,7 +849,7 @@
         }
     </style>
 </head>
-<body data-theme="light" data-lang="en">
+<body data-theme="dark" data-lang="en">
     <!-- Header -->
     <header>
         <nav>
@@ -844,7 +857,7 @@
                 <img
                   id="logoImage"
                   class="logo-img"
-                  src="/assets/images/ahtapot-logo-black.png"
+                  src="/assets/images/ahtapot-logo-white.png"
                   alt="Ahtapot Extension Logo" />
             </a>
             
@@ -862,15 +875,7 @@
                 
                 <button class="theme-toggle" onclick="toggleTheme()" title="Toggle Theme">
                     <svg id="themeIcon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="5"/>
-                        <line x1="12" y1="1" x2="12" y2="3"/>
-                        <line x1="12" y1="21" x2="12" y2="23"/>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-                        <line x1="1" y1="12" x2="3" y2="12"/>
-                        <line x1="21" y1="12" x2="23" y2="12"/>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
                     </svg>
                 </button>
                 
@@ -897,7 +902,7 @@
                     <span data-i18n="hero.badge">Free & Open Source</span>
                 </div>
                 <a href="https://www.producthunt.com/products/ahtapot?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-ahtapot" target="_blank" rel="noopener noreferrer" class="product-hunt-badge">
-                    <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1029486&theme=light&t=1761229220244" alt="Ahtapot - IOC Analysis | Fast Threat Intel for Security Pros | Product Hunt" />
+                    <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1029486&theme=dark&t=1761229220244" alt="Ahtapot - IOC Analysis | Fast Threat Intel for Security Pros | Product Hunt" />
                 </a>
             </div>
             <h1>
@@ -1378,8 +1383,8 @@
 
         // Initialize
         document.addEventListener('DOMContentLoaded', () => {
-            // Load saved theme
-            const savedTheme = localStorage.getItem('theme') || 'light';
+            // Load saved theme - default to dark
+            const savedTheme = localStorage.getItem('theme') || 'dark';
             document.body.setAttribute('data-theme', savedTheme);
             updateThemeIcon(savedTheme);
             updateLogo(savedTheme);

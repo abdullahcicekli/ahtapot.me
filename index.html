@@ -7,16 +7,16 @@
     <!-- Primary Meta Tags -->
     <title>Ahtapot - IOC Analysis Extension | Fast Threat Intelligence for Security Professionals</title>
     <meta name="title" content="Ahtapot - IOC Analysis Extension | Fast Threat Intelligence for Security Professionals">
-    <meta name="description" content="Ahtapot - Fast and secure IOC analysis browser extension for cybersecurity professionals. Analyze IPs, domains, URLs, hashes, CVEs with 9 threat intelligence providers: VirusTotal, AlienVault OTX, AbuseIPDB, MalwareBazaar, ARIN, Shodan, GreyNoise, URLhaus, Pulsedive. Privacy-first threat intelligence.">
-    <meta name="keywords" content="IOC, cybersecurity, threat intelligence, browser extension, malware analysis, VirusTotal, AlienVault OTX, AbuseIPDB, MalwareBazaar, ARIN, Shodan, GreyNoise, URLhaus, Pulsedive, security tools, IPv4, IPv6, hash analysis, CVE lookup, WHOIS lookup, device search, internet noise detection, security extension, Chrome extension">
+    <meta name="description" content="Ahtapot - Fast and secure IOC analysis browser extension for cybersecurity professionals. Analyze IPs, domains, URLs, hashes, CVEs with 10 threat intelligence providers including AI-powered analysis. VirusTotal, AlienVault OTX, AbuseIPDB, MalwareBazaar, ARIN, Shodan, GreyNoise, URLhaus, Pulsedive, Scamalytics. Privacy-first threat intelligence.">
+    <meta name="keywords" content="IOC, cybersecurity, threat intelligence, browser extension, malware analysis, VirusTotal, AlienVault OTX, AbuseIPDB, MalwareBazaar, ARIN, Shodan, GreyNoise, security tools, IPv4, IPv6, hash analysis, CVE lookup, WHOIS lookup, device search, internet noise detection, security extension, Chrome extension">
     <meta name="author" content="Abdullah Cicekli">
     <meta name="robots" content="index, follow">
     <meta name="language" content="English">
     <meta name="revisit-after" content="7 days">
 
     <!-- Theme Color -->
-    <meta name="theme-color" content="#1A1A1F">
-    <meta name="msapplication-TileColor" content="#1A1A1F">
+    <meta name="theme-color" content="#4a9eff">
+    <meta name="msapplication-TileColor" content="#4a9eff">
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://ahtapot.me/">
@@ -25,7 +25,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://ahtapot.me/">
     <meta property="og:title" content="Ahtapot - IOC Analysis Extension | Fast Threat Intelligence">
-    <meta property="og:description" content="Fast and secure IOC analysis browser extension with 9 threat intelligence providers: VirusTotal, AlienVault OTX, AbuseIPDB, MalwareBazaar, ARIN, Shodan, GreyNoise, URLhaus, Pulsedive. Privacy-first threat intelligence.">
+    <meta property="og:description" content="Fast and secure IOC analysis browser extension with 10 threat intelligence providers + AI-powered analysis. VirusTotal, OTX, AbuseIPDB, Shodan, GreyNoise, and more. Privacy-first.">
     <meta property="og:image" content="https://ahtapot.me/assets/images/og-image.png">
     <meta property="og:image:width" content="440">
     <meta property="og:image:height" content="280">
@@ -38,7 +38,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://ahtapot.me/">
     <meta name="twitter:title" content="Ahtapot - IOC Analysis Extension | Fast Threat Intelligence">
-    <meta name="twitter:description" content="Fast IOC analysis with 9 threat intelligence providers: VirusTotal, AlienVault OTX, AbuseIPDB, MalwareBazaar, ARIN, Shodan, GreyNoise, URLhaus, Pulsedive. Privacy-first.">
+    <meta name="twitter:description" content="Fast IOC analysis with 10 threat intelligence providers + AI-powered analysis. VirusTotal, OTX, AbuseIPDB, Shodan, GreyNoise, and more. Privacy-first.">
     <meta name="twitter:image" content="https://ahtapot.me/assets/images/og-image.png">
     <meta name="twitter:image:alt" content="Ahtapot IOC Analysis Extension Logo">
     <meta name="twitter:creator" content="@abdullahcicekli">
@@ -78,13 +78,15 @@
         "ratingValue": "5.0",
         "ratingCount": "1"
       },
-      "description": "Fast and secure IOC analysis browser extension for cybersecurity professionals. Analyze IPs, domains, URLs, hashes, CVEs with 10 threat intelligence providers.",
+      "description": "Fast and secure IOC analysis browser extension for cybersecurity professionals. Analyze IPs, domains, URLs, hashes, CVEs with 7 threat intelligence providers.",
       "featureList": [
         "Smart IOC Detection",
         "Built-in Search",
         "Privacy-First Architecture",
         "Lightning Fast Analysis",
         "10 Threat Intelligence Providers",
+        "AI-Powered IOC Analysis",
+        "Claude, Gemini, GPT-4o Integration",
         "VirusTotal Integration",
         "AlienVault OTX Integration",
         "AbuseIPDB Integration",
@@ -92,15 +94,12 @@
         "ARIN WHOIS Integration",
         "Shodan Integration",
         "GreyNoise Integration",
-        "URLhaus Integration",
-        "Pulsedive Integration",
         "Smart Provider Matching",
         "Rate Limit Protection",
         "Provider Support Badges",
         "Secure Local Storage",
         "11 IOC Types Support",
-        "Modern UI Design",
-        "Customizable Provider Order"
+        "Modern UI Design"
       ],
       "screenshot": "https://ahtapot.me/assets/images/og-image.png",
       "author": {
@@ -118,7 +117,7 @@
       },
       "url": "https://ahtapot.me",
       "downloadUrl": "https://chromewebstore.google.com/detail/ahtapot-ioc-analysis-tool/gmekhigahdiddngdhfdkeefcomcankpg",
-      "softwareVersion": "2.6.0",
+      "softwareVersion": "1.0",
       "releaseNotes": "Initial release with comprehensive IOC analysis capabilities",
       "license": "https://github.com/abdullahcicekli/ahtapot/blob/main/LICENSE"
     }
@@ -149,35 +148,33 @@
         }
 
         :root {
-            /* Light Mode */
-            --bg-primary: #FAFAFA;
-            --bg-secondary: #F0F0F2;
-            --bg-card: #FFFFFF;
-            --text-primary: #1A1A1F;
-            --text-secondary: #5A5A65;
-            --text-muted: #8A8A95;
-            --accent: #1A1A1F;
-            --accent-bright: #FFF770;
-            --accent-dim: rgba(255, 247, 112, 0.2);
-            --border: #E5E5EA;
-            --shadow: rgba(0, 0, 0, 0.08);
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fa;
+            --bg-card: #ffffff;
+            --text-primary: #1a1a1a;
+            --text-secondary: #6c757d;
+            --text-muted: #909090;
+            --accent: #4a9eff;
+            --accent-hover: #3890ff;
+            --border: #e0e0e0;
+            --shadow: rgba(0, 0, 0, 0.1);
             --success: #22c55e;
             --warning: #f59e0b;
             --danger: #ef4444;
+            --gradient: linear-gradient(135deg, #4a9eff 0%, #667eea 100%);
         }
 
         [data-theme="dark"] {
-            --bg-primary: #1A1A1F;
-            --bg-secondary: #222228;
-            --bg-card: #2A2A32;
-            --text-primary: #FFFFFF;
-            --text-secondary: #A0A0AA;
-            --text-muted: #707078;
-            --accent: #FFF770;
-            --accent-bright: #FFF770;
-            --accent-dim: rgba(255, 247, 112, 0.15);
-            --border: rgba(255, 255, 255, 0.1);
-            --shadow: rgba(0, 0, 0, 0.4);
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #1a1a1a;
+            --bg-card: #181818;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --text-muted: #707070;
+            --accent: #4a9eff;
+            --accent-hover: #5fa8ff;
+            --border: #2a2a2a;
+            --shadow: rgba(0, 0, 0, 0.5);
         }
 
         body {
@@ -224,7 +221,10 @@
         .logo-text {
             font-size: 1.5rem;
             font-weight: 700;
-            color: var(--accent);
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .nav-controls {
@@ -265,13 +265,12 @@
         }
 
         .btn-primary {
-            background: var(--accent-bright);
-            color: #1A1A1F;
+            background: var(--gradient);
+            color: white;
         }
 
         .btn-primary:hover {
             transform: translateY(-1px);
-            filter: brightness(1.1);
             box-shadow: 0 4px 12px var(--shadow);
         }
 
@@ -283,7 +282,6 @@
 
         .btn-secondary:hover {
             background: var(--bg-secondary);
-            border-color: var(--accent);
         }
 
         .theme-toggle, .lang-toggle {
@@ -327,16 +325,11 @@
         }
 
         .gradient-text {
-            color: var(--accent-bright);
-            display: block;
-        }
-
-        [data-theme="light"] .gradient-text {
-            color: #1A1A1F;
-            background: linear-gradient(135deg, #1A1A1F 0%, #3A3A45 100%);
+            background: var(--gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            display: block;
         }
 
         .hero p {
@@ -387,15 +380,11 @@
             align-items: center;
             gap: 0.5rem;
             padding: 0.5rem 1rem;
-            background: var(--accent-dim);
+            background: var(--bg-secondary);
             border: 1px solid var(--border);
             border-radius: 2rem;
             font-size: 0.9rem;
             color: var(--text-secondary);
-        }
-
-        [data-theme="dark"] .hero-badge {
-            border-color: rgba(255, 247, 112, 0.3);
         }
 
         .hero-badge svg {
@@ -454,14 +443,13 @@
         .step:hover {
             transform: translateY(-4px);
             box-shadow: 0 8px 24px var(--shadow);
-            border-color: var(--accent-bright);
         }
 
         .step-number {
             width: 48px;
             height: 48px;
-            background: var(--accent-bright);
-            color: #1A1A1F;
+            background: var(--gradient);
+            color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -504,14 +492,14 @@
         }
 
         .feature:hover {
-            border-color: var(--accent-bright);
+            border-color: var(--accent);
             box-shadow: 0 4px 12px var(--shadow);
         }
 
         .feature-icon {
             width: 40px;
             height: 40px;
-            background: var(--accent-bright);
+            background: var(--gradient);
             border-radius: 0.5rem;
             display: flex;
             align-items: center;
@@ -522,7 +510,7 @@
         .feature-icon svg {
             width: 24px;
             height: 24px;
-            stroke: #1A1A1F;
+            stroke: white;
         }
 
         .feature h3 {
@@ -566,10 +554,9 @@
         }
 
         .ioc-badge:hover {
-            border-color: var(--accent-bright);
+            border-color: var(--accent);
             color: var(--accent);
             transform: translateY(-2px);
-            background: var(--accent-dim);
         }
 
         /* Stats */
@@ -588,12 +575,11 @@
 
         .stat h3 {
             font-size: 2.5rem;
-            color: var(--accent-bright);
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin-bottom: 0.5rem;
-        }
-
-        [data-theme="light"] .stat h3 {
-            color: #1A1A1F;
         }
 
         .stat p {
@@ -636,7 +622,7 @@
         .provider-logo:hover {
             transform: translateY(-4px);
             box-shadow: 0 8px 24px var(--shadow);
-            border-color: var(--accent-bright);
+            border-color: var(--accent);
         }
 
         .provider-logo img {
@@ -714,8 +700,8 @@
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: var(--accent-bright);
-            box-shadow: 0 0 0 3px var(--accent-dim);
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(74, 158, 255, 0.1);
         }
 
         .form-group textarea {
@@ -837,6 +823,236 @@
             }
         }
 
+        /* AI Analysis Section */
+        .ai-analysis-section {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ai-analysis-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(74, 158, 255, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(102, 126, 234, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .ai-analysis-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .ai-header-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--gradient);
+            color: white;
+            border-radius: 2rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .ai-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            text-align: center;
+            line-height: 1.7;
+        }
+
+        .ai-features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .ai-feature-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .ai-feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px var(--shadow);
+            border-color: var(--accent);
+        }
+
+        .ai-feature-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--gradient);
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+        }
+
+        .ai-feature-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: white;
+        }
+
+        .ai-feature-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .ai-feature-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .ai-providers-section {
+            margin-bottom: 3rem;
+        }
+
+        .ai-providers-title {
+            text-align: center;
+            font-size: 1.25rem;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .ai-providers-grid {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .ai-provider-card {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 0.75rem;
+            padding: 1rem 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .ai-provider-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px var(--shadow);
+        }
+
+        .ai-provider-logo {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+
+        .ai-provider-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .ai-provider-name {
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+        }
+
+        .ai-provider-model {
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+        }
+
+        .ai-modes-preview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .ai-mode-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .ai-mode-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px var(--shadow);
+        }
+
+        .ai-mode-card.summary:hover {
+            border-color: #22c55e;
+        }
+
+        .ai-mode-card.analysis:hover {
+            border-color: #f59e0b;
+        }
+
+        .ai-mode-card.detailed:hover {
+            border-color: #ef4444;
+        }
+
+        .ai-mode-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .ai-mode-icon-svg {
+            width: 32px;
+            height: 32px;
+            background: var(--gradient);
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ai-mode-icon-svg svg {
+            stroke: white;
+        }
+
+        .ai-mode-name {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--text-primary);
+        }
+
+        .ai-mode-meta {
+            display: flex;
+            gap: 0.5rem;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .ai-mode-desc {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
         /* Animations */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
@@ -848,7 +1064,7 @@
         }
     </style>
 </head>
-<body data-theme="dark" data-lang="en">
+<body data-theme="light" data-lang="en">
     <!-- Header -->
     <header>
         <nav>
@@ -856,7 +1072,7 @@
                 <img
                   id="logoImage"
                   class="logo-img"
-                  src="/assets/images/ahtapot-logo-white.png"
+                  src="/assets/images/ahtapot-logo-black.png"
                   alt="Ahtapot Extension Logo" />
             </a>
             
@@ -874,7 +1090,15 @@
                 
                 <button class="theme-toggle" onclick="toggleTheme()" title="Toggle Theme">
                     <svg id="themeIcon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                        <circle cx="12" cy="12" r="5"/>
+                        <line x1="12" y1="1" x2="12" y2="3"/>
+                        <line x1="12" y1="21" x2="12" y2="23"/>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                        <line x1="1" y1="12" x2="3" y2="12"/>
+                        <line x1="21" y1="12" x2="23" y2="12"/>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
                     </svg>
                 </button>
                 
@@ -901,7 +1125,7 @@
                     <span data-i18n="hero.badge">Free & Open Source</span>
                 </div>
                 <a href="https://www.producthunt.com/products/ahtapot?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-ahtapot" target="_blank" rel="noopener noreferrer" class="product-hunt-badge">
-                    <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1029486&theme=dark&t=1761229220244" alt="Ahtapot - IOC Analysis | Fast Threat Intel for Security Pros | Product Hunt" />
+                    <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1029486&theme=light&t=1761229220244" alt="Ahtapot - IOC Analysis | Fast Threat Intel for Security Pros | Product Hunt" />
                 </a>
             </div>
             <h1>
@@ -909,7 +1133,7 @@
                 <span class="gradient-text" data-i18n="hero.title2">Lightning Speed</span>
             </h1>
             <p data-i18n="hero.subtitle">
-                Fast, secure IOC analysis directly in your browser. Multi-source threat intelligence from 9 providers: VirusTotal, OTX AlienVault, AbuseIPDB, MalwareBazaar, ARIN, Shodan, GreyNoise, URLhaus, and Pulsedive.
+                Fast, secure IOC analysis directly in your browser. Multi-source threat intelligence from 10 providers + AI-powered analysis with Claude, Gemini, and GPT-4o.
             </p>
             <div class="hero-buttons">
                 <a href="https://chromewebstore.google.com/detail/ahtapot-ioc-analysis-tool/gmekhigahdiddngdhfdkeefcomcankpg" class="btn btn-primary">
@@ -1013,7 +1237,7 @@
                     </svg>
                 </div>
                 <h3 data-i18n="features.sources.title">10 Intelligence Sources</h3>
-                <p data-i18n="features.sources.desc">Integrates with VirusTotal, OTX AlienVault, AbuseIPDB, MalwareBazaar, ARIN, Shodan, GreyNoise, URLhaus, and Pulsedive for comprehensive threat intelligence.</p>
+                <p data-i18n="features.sources.desc">Integrates with VirusTotal, OTX AlienVault, AbuseIPDB, MalwareBazaar, ARIN, Shodan, GreyNoise, URLhaus, Pulsedive, and Scamalytics for comprehensive threat intelligence.</p>
             </div>
             <div class="feature">
                 <div class="feature-icon">
@@ -1052,6 +1276,143 @@
                 </div>
                 <h3 data-i18n="features.ui.title">Modern UI</h3>
                 <p data-i18n="features.ui.desc">Clean design with smooth animations and tab-based results view.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Analysis Section -->
+    <section class="ai-analysis-section">
+        <div class="ai-analysis-container">
+            <div class="ai-header-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                    <path d="M12 8V4H8"/>
+                    <rect width="16" height="12" x="4" y="8" rx="2"/>
+                    <path d="M2 14h2"/>
+                    <path d="M20 14h2"/>
+                    <path d="M15 13v2"/>
+                    <path d="M9 13v2"/>
+                </svg>
+                <span data-i18n="ai.badge">AI-Powered</span>
+            </div>
+            <h2 class="section-title" data-i18n="ai.title">Intelligent IOC Analysis</h2>
+            <p class="ai-subtitle" data-i18n="ai.subtitle">
+                Get instant verdicts, risk assessments, and actionable recommendations powered by leading AI models.
+            </p>
+            
+            <div class="ai-features-grid">
+                <div class="ai-feature-card">
+                    <div class="ai-feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                        </svg>
+                    </div>
+                    <h3 data-i18n="ai.feature1.title">3 Analysis Modes</h3>
+                    <p data-i18n="ai.feature1.desc">Summary (10 sec), Analysis (1-2 min), Detailed (3-5 min) - choose based on your workflow needs.</p>
+                </div>
+                <div class="ai-feature-card">
+                    <div class="ai-feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            <path d="m9 12 2 2 4-4"/>
+                        </svg>
+                    </div>
+                    <h3 data-i18n="ai.feature2.title">SOC-Ready Output</h3>
+                    <p data-i18n="ai.feature2.desc">MITRE ATT&CK mapping, IR playbooks, Sigma rules, and hunting queries ready for your SOC workflow.</p>
+                </div>
+                <div class="ai-feature-card">
+                    <div class="ai-feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 6v6l4 2"/>
+                        </svg>
+                    </div>
+                    <h3 data-i18n="ai.feature3.title">Instant Verdicts</h3>
+                    <p data-i18n="ai.feature3.desc">Color-coded risk indicators for quick triage decisions with confidence levels.</p>
+                </div>
+            </div>
+
+            <div class="ai-providers-section">
+                <h3 class="ai-providers-title" data-i18n="ai.providers.title">Supported AI Providers</h3>
+                <div class="ai-providers-grid">
+                    <div class="ai-provider-card">
+                        <img src="/assets/ai-icons/claude-logo.png" alt="Claude AI by Anthropic" class="ai-provider-logo">
+                        <div class="ai-provider-info">
+                            <span class="ai-provider-name">Claude</span>
+                            <span class="ai-provider-model">Sonnet 4</span>
+                        </div>
+                    </div>
+                    <div class="ai-provider-card">
+                        <img src="/assets/ai-icons/gemini-logo.png" alt="Gemini AI by Google" class="ai-provider-logo">
+                        <div class="ai-provider-info">
+                            <span class="ai-provider-name">Gemini</span>
+                            <span class="ai-provider-model">2.0 Flash</span>
+                        </div>
+                    </div>
+                    <div class="ai-provider-card">
+                        <img src="/assets/ai-icons/openai-logo.svg" alt="GPT-4 by OpenAI" class="ai-provider-logo">
+                        <div class="ai-provider-info">
+                            <span class="ai-provider-name">GPT-4o</span>
+                            <span class="ai-provider-model">Mini</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ai-modes-preview">
+                <div class="ai-mode-card summary">
+                    <div class="ai-mode-header">
+                        <div class="ai-mode-icon-svg">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                <polyline points="14 2 14 8 20 8"/>
+                                <line x1="16" y1="13" x2="8" y2="13"/>
+                                <line x1="16" y1="17" x2="8" y2="17"/>
+                            </svg>
+                        </div>
+                        <span class="ai-mode-name" data-i18n="ai.modes.summary">Summary</span>
+                    </div>
+                    <div class="ai-mode-meta">
+                        <span>~200 words</span>
+                        <span>•</span>
+                        <span>10 sec read</span>
+                    </div>
+                    <p class="ai-mode-desc" data-i18n="ai.modes.summaryDesc">Quick triage decisions for L1 analysts</p>
+                </div>
+                <div class="ai-mode-card analysis">
+                    <div class="ai-mode-header">
+                        <div class="ai-mode-icon-svg">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                                <circle cx="11" cy="11" r="8"/>
+                                <path d="m21 21-4.35-4.35"/>
+                            </svg>
+                        </div>
+                        <span class="ai-mode-name" data-i18n="ai.modes.analysis">Analysis</span>
+                    </div>
+                    <div class="ai-mode-meta">
+                        <span>400-600 words</span>
+                        <span>•</span>
+                        <span>1-2 min read</span>
+                    </div>
+                    <p class="ai-mode-desc" data-i18n="ai.modes.analysisDesc">Escalation decisions for L1/L2 handoff</p>
+                </div>
+                <div class="ai-mode-card detailed">
+                    <div class="ai-mode-header">
+                        <div class="ai-mode-icon-svg">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                                <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                                <line x1="12" y1="22.08" x2="12" y2="12"/>
+                            </svg>
+                        </div>
+                        <span class="ai-mode-name" data-i18n="ai.modes.detailed">Detailed</span>
+                    </div>
+                    <div class="ai-mode-meta">
+                        <span>800-1200 words</span>
+                        <span>•</span>
+                        <span>3-5 min read</span>
+                    </div>
+                    <p class="ai-mode-desc" data-i18n="ai.modes.detailedDesc">Full investigation for L2/L3 + IR teams</p>
+                </div>
             </div>
         </div>
     </section>
@@ -1116,7 +1477,7 @@
                     <img src="/assets/provider-icons/abuseipdb-logo.png" alt="AbuseIPDB - IP address reputation and abuse confidence scoring provider">
                 </div>
                 <div class="provider-logo">
-                    <img src="/assets/provider-icons/abuse-logo.png" alt="abuse.ch - MalwareBazaar & URLhaus malware intelligence provider">
+                    <img src="/assets/provider-icons/abuse-logo.png" alt="MalwareBazaar - Malware sample database and hash reputation provider">
                 </div>
                 <div class="provider-logo">
                     <img src="/assets/provider-icons/arin-logo.png" alt="ARIN - American Registry for Internet Numbers WHOIS provider">
@@ -1129,6 +1490,9 @@
                 </div>
                 <div class="provider-logo">
                     <img src="/assets/provider-icons/pulsedive-logo.png" alt="Pulsedive - Threat intelligence platform with IOC enrichment">
+                </div>
+                <div class="provider-logo">
+                    <img src="/assets/provider-icons/scamalytics-logo.png" alt="Scamalytics - IP fraud score and scam detection provider">
                 </div>
             </div>
         </div>
@@ -1166,7 +1530,7 @@
                 <a href="#feedback" data-i18n="footer.feedback">Feedback</a>
             </div>
             <div class="footer-text" data-i18n="footer.madeWith">
-                Made with ❤️ for the cybersecurity community
+                Built for the cybersecurity community
             </div>
         </div>
     </footer>
@@ -1181,7 +1545,7 @@
                 'hero.badge': 'Free & Open Source',
                 'hero.title1': 'Analyze IOCs with',
                 'hero.title2': 'Lightning Speed',
-                'hero.subtitle': 'Fast, secure IOC analysis directly in your browser. Multi-source threat intelligence from 9 providers: VirusTotal, OTX AlienVault, AbuseIPDB, MalwareBazaar, ARIN, Shodan, GreyNoise, URLhaus, and Pulsedive.',
+                'hero.subtitle': 'Fast, secure IOC analysis directly in your browser. Multi-source threat intelligence from 10 providers + AI-powered analysis with Claude, Gemini, and GPT-4o.',
                 'hero.installBtn': 'Install Extension',
                 'hero.githubBtn': 'View on GitHub',
                 'howItWorks.title': 'How It Works',
@@ -1203,7 +1567,7 @@
                 'features.speed.title': 'Lightning Fast',
                 'features.speed.desc': 'One-click analysis with instant results. Floating button appears automatically.',
                 'features.sources.title': '10 Intelligence Sources',
-                'features.sources.desc': 'Integrates with VirusTotal, OTX AlienVault, AbuseIPDB, MalwareBazaar, ARIN, Shodan, GreyNoise, URLhaus, and Pulsedive for comprehensive threat intelligence.',
+                'features.sources.desc': 'Integrates with VirusTotal, OTX AlienVault, AbuseIPDB, MalwareBazaar, ARIN, Shodan, GreyNoise, URLhaus, Pulsedive, and Scamalytics for comprehensive threat intelligence.',
                 'features.matching.title': 'Smart Provider Matching',
                 'features.matching.desc': 'See which threat intelligence providers support each indicator before analysis. No wasted API calls.',
                 'features.badges.title': 'Provider Support Badges',
@@ -1221,7 +1585,7 @@
                 'footer.license': 'MIT License',
                 'footer.support': 'Support',
                 'footer.feedback': 'Feedback',
-                'footer.madeWith': 'Made with ❤️ for the cybersecurity community',
+                'footer.madeWith': 'Built for the cybersecurity community',
                 'providers.title': 'Integrates with Leading Threat Intelligence Providers',
                 'providers.subtitle': 'Leverages industry-trusted APIs for comprehensive security analysis',
                 'feedback.title': 'Feedback',
@@ -1229,7 +1593,23 @@
                 'feedback.emailLabel': 'Your email:',
                 'feedback.messageLabel': 'Your message:',
                 'feedback.messagePlaceholder': 'Share your thoughts, suggestions, or report issues...',
-                'feedback.sendBtn': 'Send Feedback'
+                'feedback.sendBtn': 'Send Feedback',
+                'ai.badge': 'AI-Powered',
+                'ai.title': 'Intelligent IOC Analysis',
+                'ai.subtitle': 'Get instant verdicts, risk assessments, and actionable recommendations powered by leading AI models.',
+                'ai.feature1.title': '3 Analysis Modes',
+                'ai.feature1.desc': 'Summary (10 sec), Analysis (1-2 min), Detailed (3-5 min) - choose based on your workflow needs.',
+                'ai.feature2.title': 'SOC-Ready Output',
+                'ai.feature2.desc': 'MITRE ATT&CK mapping, IR playbooks, Sigma rules, and hunting queries ready for your SOC workflow.',
+                'ai.feature3.title': 'Instant Verdicts',
+                'ai.feature3.desc': 'Color-coded risk indicators for quick triage decisions with confidence levels.',
+                'ai.providers.title': 'Supported AI Providers',
+                'ai.modes.summary': 'Summary',
+                'ai.modes.summaryDesc': 'Quick triage decisions for L1 analysts',
+                'ai.modes.analysis': 'Analysis',
+                'ai.modes.analysisDesc': 'Escalation decisions for L1/L2 handoff',
+                'ai.modes.detailed': 'Detailed',
+                'ai.modes.detailedDesc': 'Full investigation for L2/L3 + IR teams'
             },
             tr: {
                 'nav.features': 'Özellikler',
@@ -1238,7 +1618,7 @@
                 'hero.badge': 'Ücretsiz ve Açık Kaynak',
                 'hero.title1': 'IOC\'leri',
                 'hero.title2': 'Işık Hızında Analiz Et',
-                'hero.subtitle': 'Tarayıcınızda hızlı ve güvenli IOC analizi. 9 sağlayıcıdan çoklu kaynak tehdit istihbaratı: VirusTotal, OTX AlienVault, AbuseIPDB, MalwareBazaar, ARIN, Shodan, GreyNoise, URLhaus ve Pulsedive.',
+                'hero.subtitle': 'Tarayıcınızda hızlı ve güvenli IOC analizi. 10 sağlayıcıdan çoklu kaynak tehdit istihbaratı + Claude, Gemini ve GPT-4o ile yapay zeka destekli analiz.',
                 'hero.installBtn': 'Eklentiyi Yükle',
                 'hero.githubBtn': 'GitHub\'da Görüntüle',
                 'howItWorks.title': 'Nasıl Çalışır',
@@ -1260,7 +1640,7 @@
                 'features.speed.title': 'Işık Hızında',
                 'features.speed.desc': 'Tek tıkla analiz, anında sonuçlar. Kayan buton otomatik olarak belirir.',
                 'features.sources.title': '10 İstihbarat Kaynağı',
-                'features.sources.desc': 'Kapsamlı tehdit istihbaratı için VirusTotal, OTX AlienVault, AbuseIPDB, MalwareBazaar, ARIN, Shodan, GreyNoise, URLhaus ve Pulsedive ile entegre.',
+                'features.sources.desc': 'Kapsamlı tehdit istihbaratı için VirusTotal, OTX AlienVault, AbuseIPDB, MalwareBazaar, ARIN, Shodan, GreyNoise, URLhaus, Pulsedive ve Scamalytics ile entegre.',
                 'features.matching.title': 'Akıllı Sağlayıcı Eşleştirme',
                 'features.matching.desc': 'Hangi tehdit istihbarat sağlayıcılarının her göstergeyi desteklediğini analiz öncesi görün. Boşa API çağrısı yok.',
                 'features.badges.title': 'Sağlayıcı Destek Rozetleri',
@@ -1278,7 +1658,7 @@
                 'footer.license': 'MIT Lisansı',
                 'footer.support': 'Destek',
                 'footer.feedback': 'Geri Bildirim',
-                'footer.madeWith': 'Siber güvenlik topluluğu için ❤️ ile yapıldı',
+                'footer.madeWith': 'Siber guvenlik toplulugu icin gelistirildi',
                 'providers.title': 'Önde Gelen Tehdit İstihbaratı Sağlayıcıları ile Entegre',
                 'providers.subtitle': 'Kapsamlı güvenlik analizi için sektörde güvenilir API\'ler kullanır',
                 'feedback.title': 'Geri Bildirim',
@@ -1286,7 +1666,23 @@
                 'feedback.emailLabel': 'E-posta adresiniz:',
                 'feedback.messageLabel': 'Mesajınız:',
                 'feedback.messagePlaceholder': 'Düşüncelerinizi, önerilerinizi paylaşın veya sorunları bildirin...',
-                'feedback.sendBtn': 'Geri Bildirim Gönder'
+                'feedback.sendBtn': 'Geri Bildirim Gönder',
+                'ai.badge': 'Yapay Zeka Destekli',
+                'ai.title': 'Akıllı IOC Analizi',
+                'ai.subtitle': 'Önde gelen yapay zeka modelleri ile anında karar, risk değerlendirmesi ve aksiyon önerileri alın.',
+                'ai.feature1.title': '3 Analiz Modu',
+                'ai.feature1.desc': 'Özet (10 sn), Analiz (1-2 dk), Detaylı (3-5 dk) - iş akışınıza göre seçin.',
+                'ai.feature2.title': 'SOC-Uyumlu Çıktı',
+                'ai.feature2.desc': 'MITRE ATT&CK eşleme, IR oyun kitapları, Sigma kuralları ve hunting sorguları.',
+                'ai.feature3.title': 'Anında Kararlar',
+                'ai.feature3.desc': 'Hizli triage kararlari icin renk kodlu risk gostergeleri ve guven seviyeleri.',
+                'ai.providers.title': 'Desteklenen Yapay Zeka Sağlayıcıları',
+                'ai.modes.summary': 'Özet',
+                'ai.modes.summaryDesc': 'L1 analistleri için hızlı triage kararları',
+                'ai.modes.analysis': 'Analiz',
+                'ai.modes.analysisDesc': 'L1/L2 aktarımı için eskalasyon kararları',
+                'ai.modes.detailed': 'Detaylı',
+                'ai.modes.detailedDesc': 'L2/L3 + IR ekipleri için tam araştırma'
             }
         };
 
@@ -1379,8 +1775,8 @@
 
         // Initialize
         document.addEventListener('DOMContentLoaded', () => {
-            // Load saved theme - default to dark
-            const savedTheme = localStorage.getItem('theme') || 'dark';
+            // Load saved theme
+            const savedTheme = localStorage.getItem('theme') || 'light';
             document.body.setAttribute('data-theme', savedTheme);
             updateThemeIcon(savedTheme);
             updateLogo(savedTheme);

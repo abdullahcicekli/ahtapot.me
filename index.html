@@ -91,7 +91,8 @@
       },
       "description": "AI-powered IOC analysis browser extension with Claude, Gemini, GPT-4o integration. Get instant AI security verdicts, MITRE ATT&CK mapping, Sigma rules generation, and automated threat intelligence from 10 providers. The ultimate AI security tool for SOC analysts and cybersecurity professionals.",
       "featureList": [
-        "AI-Powered Threat Analysis with Claude, Gemini, GPT-4o",
+        "16 AI Models from Claude, Gemini, OpenAI",
+        "AI-Powered Threat Analysis with Claude Sonnet 4, Gemini 2.5, GPT-4o",
         "Instant AI Security Verdicts",
         "MITRE ATT&CK Framework Mapping",
         "Automated Sigma Rules Generation",
@@ -172,7 +173,7 @@
           "name": "Which AI models does Ahtapot support?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Ahtapot supports Claude Sonnet 4 by Anthropic, Gemini 2.0 Flash by Google, and GPT-4o Mini by OpenAI for AI-powered security analysis."
+            "text": "Ahtapot supports 16 AI models from 3 providers: Claude (Sonnet 4, 3.5 Sonnet, 3.5 Haiku, 3 Opus), Gemini (2.5 Flash, 2.5 Pro, 2.0 Flash, 2.0 Flash Lite, 1.5 Pro, 1.5 Flash), and OpenAI (GPT-4o, GPT-4o Mini, GPT-4 Turbo, o1, o1 Mini, o3 Mini)."
           }
         },
         {
@@ -1049,13 +1050,16 @@
 
         .ai-provider-card {
             display: flex;
-            align-items: center;
+            flex-direction: column;
             gap: 1rem;
             background: var(--bg-card);
             border: 1px solid var(--border);
-            border-radius: 0.75rem;
-            padding: 1rem 1.5rem;
+            border-radius: 1rem;
+            padding: 1.25rem;
             transition: all 0.3s ease;
+            min-width: 280px;
+            flex: 1;
+            max-width: 360px;
         }
 
         .ai-provider-card:hover {
@@ -1065,25 +1069,54 @@
         }
 
         .ai-provider-logo {
-            width: 40px;
-            height: 40px;
+            width: 36px;
+            height: 36px;
             object-fit: contain;
+        }
+
+        .ai-provider-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
         }
 
         .ai-provider-info {
             display: flex;
             flex-direction: column;
+            gap: 0.25rem;
         }
 
         .ai-provider-name {
             font-weight: 600;
             color: var(--text-primary);
-            font-size: 0.95rem;
+            font-size: 1.1rem;
         }
 
-        .ai-provider-model {
+        .ai-provider-company {
             color: var(--text-secondary);
-            font-size: 0.8rem;
+            font-size: 0.75rem;
+        }
+
+        .ai-provider-models {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .ai-model-tag {
+            font-size: 0.7rem;
+            padding: 0.25rem 0.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            border-radius: 0.25rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .ai-model-tag.default {
+            background: var(--accent-dim);
+            border-color: var(--accent);
+            color: var(--accent);
         }
 
         .ai-modes-preview {
@@ -1435,24 +1468,52 @@
                 <h3 class="ai-providers-title" data-i18n="ai.providers.title">Supported AI Providers</h3>
                 <div class="ai-providers-grid">
                     <div class="ai-provider-card">
-                        <img src="/assets/ai-icons/claude-logo.png" alt="Claude AI by Anthropic" class="ai-provider-logo">
-                        <div class="ai-provider-info">
-                            <span class="ai-provider-name">Claude</span>
-                            <span class="ai-provider-model">Sonnet 4</span>
+                        <div class="ai-provider-header">
+                            <img src="/assets/ai-icons/claude-logo.png" alt="Claude AI by Anthropic" class="ai-provider-logo">
+                            <div class="ai-provider-info">
+                                <span class="ai-provider-name">Claude</span>
+                                <span class="ai-provider-company">Anthropic</span>
+                            </div>
+                        </div>
+                        <div class="ai-provider-models">
+                            <span class="ai-model-tag default">Sonnet 4</span>
+                            <span class="ai-model-tag">3.5 Sonnet</span>
+                            <span class="ai-model-tag">3.5 Haiku</span>
+                            <span class="ai-model-tag">3 Opus</span>
                         </div>
                     </div>
                     <div class="ai-provider-card">
-                        <img src="/assets/ai-icons/gemini-logo.png" alt="Gemini AI by Google" class="ai-provider-logo">
-                        <div class="ai-provider-info">
-                            <span class="ai-provider-name">Gemini</span>
-                            <span class="ai-provider-model">2.0 Flash</span>
+                        <div class="ai-provider-header">
+                            <img src="/assets/ai-icons/gemini-logo.png" alt="Gemini AI by Google" class="ai-provider-logo">
+                            <div class="ai-provider-info">
+                                <span class="ai-provider-name">Gemini</span>
+                                <span class="ai-provider-company">Google</span>
+                            </div>
+                        </div>
+                        <div class="ai-provider-models">
+                            <span class="ai-model-tag default">2.5 Flash</span>
+                            <span class="ai-model-tag">2.5 Pro</span>
+                            <span class="ai-model-tag">2.0 Flash</span>
+                            <span class="ai-model-tag">2.0 Flash Lite</span>
+                            <span class="ai-model-tag">1.5 Pro</span>
+                            <span class="ai-model-tag">1.5 Flash</span>
                         </div>
                     </div>
                     <div class="ai-provider-card">
-                        <img src="/assets/ai-icons/openai-logo.svg" alt="GPT-4 by OpenAI" class="ai-provider-logo">
-                        <div class="ai-provider-info">
-                            <span class="ai-provider-name">GPT-4o</span>
-                            <span class="ai-provider-model">Mini</span>
+                        <div class="ai-provider-header">
+                            <img src="/assets/ai-icons/openai-logo.svg" alt="GPT-4 by OpenAI" class="ai-provider-logo">
+                            <div class="ai-provider-info">
+                                <span class="ai-provider-name">OpenAI</span>
+                                <span class="ai-provider-company">OpenAI</span>
+                            </div>
+                        </div>
+                        <div class="ai-provider-models">
+                            <span class="ai-model-tag default">GPT-4o Mini</span>
+                            <span class="ai-model-tag">GPT-4o</span>
+                            <span class="ai-model-tag">GPT-4 Turbo</span>
+                            <span class="ai-model-tag">o1</span>
+                            <span class="ai-model-tag">o1 Mini</span>
+                            <span class="ai-model-tag">o3 Mini</span>
                         </div>
                     </div>
                 </div>

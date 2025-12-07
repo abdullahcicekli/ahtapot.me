@@ -1,0 +1,9 @@
+export { Hero } from './Hero';
+export { HowItWorks } from './HowItWorks';
+export { Features } from './Features';
+export { AIAnalysis } from './AIAnalysis';
+export { IOCTypes } from './IOCTypes';
+export { Stats } from './Stats';
+export { Testimonials } from './Testimonials';
+export { Providers } from './Providers';
+export { Feedback } from './Feedback';

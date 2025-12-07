@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-primary: #FAFAFA;
+    --bg-secondary: #F0F0F2;
+    --bg-card: #FFFFFF;
+    --text-primary: #1A1A1F;
+    --text-secondary: #5A5A65;
+    --text-muted: #8A8A95;
+    --accent: #1A1A1F;
+    --accent-bright: #C7F54D;
+    --accent-dim: rgba(199, 245, 77, 0.2);
+    --border: #E5E5EA;
+    --shadow: rgba(0, 0, 0, 0.08);
+  }
+
+  .dark {
+    --bg-primary: #1A1A1F;
+    --bg-secondary: #222228;
+    --bg-card: #2A2A32;
+    --text-primary: #FFFFFF;
+    --text-secondary: #A0A0AA;
+    --text-muted: #707078;
+    --accent: #C7F54D;
+    --accent-bright: #C7F54D;
+    --accent-dim: rgba(199, 245, 77, 0.15);
+    --border: rgba(255, 255, 255, 0.1);
+    --shadow: rgba(0, 0, 0, 0.4);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-[var(--bg-primary)] text-[var(--text-primary)] transition-colors duration-300;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-5 py-2 rounded-lg font-medium transition-all duration-300 inline-flex items-center gap-2 text-sm;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-primary-dark hover:brightness-110 hover:-translate-y-0.5;
+  }
+
+  .btn-secondary {
+    @apply bg-transparent border border-[var(--border)] text-[var(--text-primary)] hover:bg-[var(--bg-secondary)] hover:border-primary;
+  }
+
+  .section-title {
+    @apply text-2xl md:text-3xl font-bold text-center mb-8;
+  }
+
+  .card {
+    @apply p-6 border border-[var(--border)] rounded-xl bg-[var(--bg-card)] transition-all duration-300;
+  }
+
+  .card:hover {
+    @apply border-primary shadow-lg -translate-y-1;
+  }
+}
+
+@layer utilities {
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary-dark to-gray-700 bg-clip-text text-transparent;
+  }
+
+  .dark .gradient-text {
+    @apply text-primary bg-none;
+  }
+}

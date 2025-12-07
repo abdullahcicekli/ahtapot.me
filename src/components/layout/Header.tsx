@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import { Menu, Xmark, HalfMoon, SunLight, Language } from 'iconoir-react';
 import { useLanguage } from '@/lib/language-context';
 import { useTheme } from '@/lib/theme-context';
@@ -11,8 +12,13 @@ export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { language, t } = useLanguage();
   const { theme, toggleTheme } = useTheme();
+  const pathname = usePathname();
 
   const otherLang = language === 'en' ? 'tr' : 'en';
+
+  // Get the path after the language segment and preserve it when switching languages
+  const pathWithoutLang = pathname.replace(/^\/(en|tr)/, '');
+  const otherLangHref = `/${otherLang}${pathWithoutLang || '/'}`;
 
   const navLinks = [
     { href: `/${language}/#features`, label: t('nav.features') },
@@ -51,7 +57,7 @@ export function Header() {
 
           {/* Language Toggle */}
           <Link
-            href={`/${otherLang}/`}
+            href={otherLangHref}
             className="text-[var(--text-secondary)] text-sm font-medium hover:text-primary transition-colors"
             title={otherLang === 'tr' ? 'Türkçe' : 'English'}
           >
@@ -112,7 +118,7 @@ export function Header() {
           ))}
           <div className="flex items-center gap-4 pt-2 border-t border-[var(--border)]">
             <Link
-              href={`/${otherLang}/`}
+              href={otherLangHref}
               className="text-[var(--text-secondary)] hover:text-primary transition-colors"
             >
               {otherLang === 'tr' ? 'Türkçe' : 'English'}

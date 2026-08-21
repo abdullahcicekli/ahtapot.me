@@ -59,5 +59,7 @@ describe('privacy page provider count', () => {
   it('never types the provider count as a literal 10', () => {
     expect(page).not.toMatch(/\b10\s+security services\b/);
     expect(page).not.toMatch(/\b10\s+güvenlik servisi\b/);
+    expect(page).not.toMatch(/\(10\s+Services\)/);
+    expect(page).not.toMatch(/\(10\s+Servis\)/);
   });
 });

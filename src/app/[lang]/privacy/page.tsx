@@ -194,7 +194,7 @@ function PrivacyEN() {
           When you analyze IOCs, the extension sends requests <strong>directly</strong> to third-party security APIs using your API keys. We act as a client only:
         </p>
 
-        <h3 className="text-xl font-semibold mt-6 mb-3">Security Providers (10 Services)</h3>
+        <h3 className="text-xl font-semibold mt-6 mb-3">Security Providers ({providers.length} Services)</h3>
         <ul className="list-disc list-inside space-y-2 text-[var(--text-2)]">
           <li><strong>VirusTotal</strong> - File, URL, and IP address malware scanning</li>
           <li><strong>OTX AlienVault</strong> - Open Threat Exchange intelligence</li>
@@ -513,7 +513,7 @@ function PrivacyTR() {
           IOC'leri analiz ettiğinizde, eklenti API anahtarlarınızı kullanarak <strong>doğrudan</strong> üçüncü taraf güvenlik API'lerine istek gönderir. Biz sadece bir istemci olarak hareket ediyoruz.
         </p>
 
-        <h3 className="text-xl font-semibold mt-6 mb-3">Güvenlik Sağlayıcıları (10 Servis)</h3>
+        <h3 className="text-xl font-semibold mt-6 mb-3">Güvenlik Sağlayıcıları ({providers.length} Servis)</h3>
         <ul className="list-disc list-inside space-y-2 text-[var(--text-2)]">
           <li><strong>VirusTotal</strong> - Dosya, URL ve IP adresi zararlı yazılım taraması</li>
           <li><strong>OTX AlienVault</strong> - Açık Tehdit Değişim istihbaratı</li>

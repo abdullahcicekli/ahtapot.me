@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest';
 import { translations } from '@/data/translations';
 
 const REQUIRED = [
-  'nav.product', 'nav.docs', 'nav.install',
+  'nav.product', 'nav.install',
   'hero.eyebrow', 'hero.title1', 'hero.title2', 'hero.subtitle', 'hero.install', 'hero.github',
   'providers.title',
   'showcase.title',
@@ -11,7 +11,7 @@ const REQUIRED = [
   'showcase.privacy.title', 'showcase.privacy.desc',
   'social.rating', 'social.users', 'social.openSource',
   'cta.title', 'cta.install',
-  'footer.privacy', 'footer.license', 'footer.feedback', 'footer.madeWith',
+  'footer.privacy', 'footer.license', 'footer.madeWith',
 ] as const;
 
 describe('translations', () => {

@@ -1,7 +1,6 @@
 export const translations = {
   en: {
     'nav.product': 'Product',
-    'nav.docs': 'Docs',
     'nav.install': 'Install',
 
     'hero.eyebrow': 'Free and open source',
@@ -27,7 +26,7 @@ export const translations = {
 
     'social.rating': 'on the Chrome Web Store',
     'social.ratings': 'ratings',
-    'social.users': 'analysts',
+    'social.users': 'users',
     'social.openSource': 'MIT licensed',
 
     'cta.title': 'Add it to your browser.',
@@ -35,12 +34,10 @@ export const translations = {
 
     'footer.privacy': 'Privacy',
     'footer.license': 'License',
-    'footer.feedback': 'Feedback',
     'footer.madeWith': 'Built for the security community',
   },
   tr: {
     'nav.product': 'Ürün',
-    'nav.docs': 'Dokümanlar',
     'nav.install': 'Yükle',
 
     'hero.eyebrow': 'Ücretsiz ve açık kaynak',
@@ -66,7 +63,7 @@ export const translations = {
 
     'social.rating': 'Chrome Web Store puanı',
     'social.ratings': 'değerlendirme',
-    'social.users': 'analist',
+    'social.users': 'kullanıcı',
     'social.openSource': 'MIT lisanslı',
 
     'cta.title': 'Tarayıcına ekle.',
@@ -74,7 +71,6 @@ export const translations = {
 
     'footer.privacy': 'Gizlilik',
     'footer.license': 'Lisans',
-    'footer.feedback': 'Geri bildirim',
     'footer.madeWith': 'Güvenlik topluluğu için geliştirildi',
   },
 } as const;

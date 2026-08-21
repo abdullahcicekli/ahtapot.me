@@ -36,7 +36,9 @@ describe('Tabs', () => {
     setup();
     await userEvent.click(screen.getByRole('tab', { name: 'Detect' }));
     await userEvent.keyboard('{ArrowRight}');
-    expect(screen.getByRole('tab', { name: 'Analyze' })).toHaveAttribute('aria-selected', 'true');
+    const analyzeTab = screen.getByRole('tab', { name: 'Analyze' });
+    expect(analyzeTab).toHaveAttribute('aria-selected', 'true');
+    expect(document.activeElement).toBe(analyzeTab);
     await userEvent.keyboard('{ArrowLeft}');
     expect(screen.getByRole('tab', { name: 'Detect' })).toHaveAttribute('aria-selected', 'true');
   });
@@ -46,6 +48,24 @@ describe('Tabs', () => {
     await userEvent.click(screen.getByRole('tab', { name: 'Detect' }));
     await userEvent.keyboard('{ArrowLeft}');
     expect(screen.getByRole('tab', { name: 'AI' })).toHaveAttribute('aria-selected', 'true');
+  });
+
+  it('jumps to and focuses the first tab on Home from a middle tab', async () => {
+    setup();
+    await userEvent.click(screen.getByRole('tab', { name: 'Analyze' }));
+    await userEvent.keyboard('{Home}');
+    const detectTab = screen.getByRole('tab', { name: 'Detect' });
+    expect(detectTab).toHaveAttribute('aria-selected', 'true');
+    expect(document.activeElement).toBe(detectTab);
+  });
+
+  it('jumps to and focuses the last tab on End from a middle tab', async () => {
+    setup();
+    await userEvent.click(screen.getByRole('tab', { name: 'Analyze' }));
+    await userEvent.keyboard('{End}');
+    const aiTab = screen.getByRole('tab', { name: 'AI' });
+    expect(aiTab).toHaveAttribute('aria-selected', 'true');
+    expect(document.activeElement).toBe(aiTab);
   });
 
   it('keeps only the active tab in the tab order', () => {

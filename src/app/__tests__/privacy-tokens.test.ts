@@ -63,3 +63,31 @@ describe('privacy page provider count', () => {
     expect(page).not.toMatch(/\(10\s+Servis\)/);
   });
 });
+
+describe('privacy page Tailwind color classes', () => {
+  const page = readFileSync(
+    resolve(process.cwd(), 'src/app/[lang]/privacy/page.tsx'),
+    'utf8',
+  );
+
+  it('never uses text-primary or other colour classes removed from the palette', () => {
+    // 'primary', 'secondary', 'muted', 'background', 'success', 'warning'
+    // and 'danger' were colour names in the pre-rebrand tailwind.config.ts
+    // and are absent from the current theme.extend.colors map. Any
+    // text-/bg-/border- class built on one of them renders invisible or
+    // wrong, the same way text-primary matched the body text colour
+    // byte-for-byte. A generic parser that reads tailwind.config.ts and
+    // flags every undefined text-/bg-/border- class was tried and produces
+    // false positives against ordinary Tailwind utilities (e.g. text-2xl,
+    // text-center, border-2), because most of the *-<word> class space is
+    // sizing/alignment/style, not colour, and Tailwind's own default
+    // palette (slate, red, blue, ...) is also legal. Enumerating the
+    // retired brand names directly is narrower but reliable.
+    for (const family of ['primary', 'secondary', 'muted', 'background', 'success', 'warning', 'danger']) {
+      for (const prefix of ['text', 'bg', 'border']) {
+        const cls = `${prefix}-${family}`;
+        expect(page, `privacy page still uses ${cls}`).not.toContain(cls);
+      }
+    }
+  });
+});

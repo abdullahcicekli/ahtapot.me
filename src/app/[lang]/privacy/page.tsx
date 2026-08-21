@@ -26,7 +26,7 @@ export default function PrivacyPage() {
       '@type': 'SoftwareApplication',
       name: 'Ahtapot - IOC Analyzer Extension',
     },
-    dateModified: '2025-12-07',
+    dateModified: '2026-08-21',
     breadcrumb: {
       '@type': 'BreadcrumbList',
       itemListElement: [
@@ -78,7 +78,7 @@ function PrivacyEN() {
         <h1 className="text-4xl font-bold mb-2">Privacy Policy for Ahtapot Security Extension</h1>
         <p className="text-[var(--text-2)] mb-8"><strong>Last Updated:</strong> August 21, 2026 | <strong>Version:</strong> 3.0.0</p>
 
-        <Link href="/tr/privacy" className="text-primary hover:underline mb-8 inline-block">
+        <Link href="/tr/privacy" className="text-ink underline underline-offset-2 decoration-hairline hover:decoration-ink transition-colors mb-8 inline-block">
           Türkçe versiyonu için tıklayın
         </Link>
 
@@ -88,7 +88,7 @@ function PrivacyEN() {
         </p>
         <p className="text-[var(--text-2)] leading-relaxed">
           <strong>Install from Chrome Web Store:</strong>{' '}
-          <a href={CHROME_STORE_URL} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+          <a href={CHROME_STORE_URL} target="_blank" rel="noopener noreferrer" className="text-ink underline underline-offset-2 decoration-hairline hover:decoration-ink transition-colors">
             Chrome Web Store
           </a>
         </p>
@@ -226,22 +226,22 @@ function PrivacyEN() {
 
         <p className="text-[var(--text-2)] font-semibold mt-4 mb-2">Security Providers:</p>
         <ul className="list-disc list-inside space-y-1 text-[var(--text-2)]">
-          <li><a href="https://support.virustotal.com/hc/en-us/articles/115002168385-Privacy-Policy" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">VirusTotal</a></li>
-          <li><a href="https://otx.alienvault.com/privacy" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">OTX AlienVault</a></li>
-          <li><a href="https://www.abuseipdb.com/privacy" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">AbuseIPDB</a></li>
-          <li><a href="https://abuse.ch/privacy/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">MalwareBazaar & URLhaus (abuse.ch)</a></li>
-          <li><a href="https://www.arin.net/resources/registry/whois/privacy/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">ARIN</a></li>
-          <li><a href="https://account.shodan.io/privacy" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Shodan</a></li>
-          <li><a href="https://www.greynoise.io/privacy" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">GreyNoise</a></li>
-          <li><a href="https://pulsedive.com/privacy" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Pulsedive</a></li>
-          <li><a href="https://scamalytics.com/privacy" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Scamalytics</a></li>
+          <li><a href="https://support.virustotal.com/hc/en-us/articles/115002168385-Privacy-Policy" target="_blank" rel="noopener noreferrer" className="text-ink underline underline-offset-2 decoration-hairline hover:decoration-ink transition-colors">VirusTotal</a></li>
+          <li><a href="https://otx.alienvault.com/privacy" target="_blank" rel="noopener noreferrer" className="text-ink underline underline-offset-2 decoration-hairline hover:decoration-ink transition-colors">OTX AlienVault</a></li>
+          <li><a href="https://www.abuseipdb.com/privacy" target="_blank" rel="noopener noreferrer" className="text-ink underline underline-offset-2 decoration-hairline hover:decoration-ink transition-colors">AbuseIPDB</a></li>
+          <li><a href="https://abuse.ch/privacy/" target="_blank" rel="noopener noreferrer" className="text-ink underline underline-offset-2 decoration-hairline hover:decoration-ink transition-colors">MalwareBazaar & URLhaus (abuse.ch)</a></li>
+          <li><a href="https://www.arin.net/resources/registry/whois/privacy/" target="_blank" rel="noopener noreferrer" className="text-ink underline underline-offset-2 decoration-hairline hover:decoration-ink transition-colors">ARIN</a></li>
+          <li><a href="https://account.shodan.io/privacy" target="_blank" rel="noopener noreferrer" className="text-ink underline underline-offset-2 decoration-hairline hover:decoration-ink transition-colors">Shodan</a></li>
+          <li><a href="https://www.greynoise.io/privacy" target="_blank" rel="noopener noreferrer" className="text-ink underline underline-offset-2 decoration-hairline hover:decoration-ink transition-colors">GreyNoise</a></li>
+          <li><a href="https://pulsedive.com/privacy" target="_blank" rel="noopener noreferrer" className="text-ink underline underline-offset-2 decoration-hairline hover:decoration-ink transition-colors">Pulsedive</a></li>
+          <li><a href="https://scamalytics.com/privacy" target="_blank" rel="noopener noreferrer" className="text-ink underline underline-offset-2 decoration-hairline hover:decoration-ink transition-colors">Scamalytics</a></li>
         </ul>
 
         <p className="text-[var(--text-2)] font-semibold mt-4 mb-2">AI Providers:</p>
         <ul className="list-disc list-inside space-y-1 text-[var(--text-2)]">
-          <li><a href="https://www.anthropic.com/privacy" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Anthropic (Claude)</a></li>
-          <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Google (Gemini)</a></li>
-          <li><a href="https://openai.com/privacy" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">OpenAI (GPT)</a></li>
+          <li><a href="https://www.anthropic.com/privacy" target="_blank" rel="noopener noreferrer" className="text-ink underline underline-offset-2 decoration-hairline hover:decoration-ink transition-colors">Anthropic (Claude)</a></li>
+          <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-ink underline underline-offset-2 decoration-hairline hover:decoration-ink transition-colors">Google (Gemini)</a></li>
+          <li><a href="https://openai.com/privacy" target="_blank" rel="noopener noreferrer" className="text-ink underline underline-offset-2 decoration-hairline hover:decoration-ink transition-colors">OpenAI (GPT)</a></li>
         </ul>
         <p className="text-[var(--text-2)] mt-4">
           <strong>Important</strong>: We do not control these services. Data you send to them is subject to their privacy policies, not ours.
@@ -278,7 +278,7 @@ function PrivacyEN() {
           <li><strong>No Transmission</strong>: No data sent to our servers (we don't have any)</li>
           <li><strong>Local Processing</strong>: All IOC extraction happens on your device</li>
           <li><strong>No Tracking</strong>: No analytics, no tracking, no telemetry</li>
-          <li><strong>Open Source</strong>: Code is available for review on <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">GitHub</a></li>
+          <li><strong>Open Source</strong>: Code is available for review on <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" className="text-ink underline underline-offset-2 decoration-hairline hover:decoration-ink transition-colors">GitHub</a></li>
         </ul>
 
         <h2 className="text-2xl font-bold mt-10 mb-4">Permissions Explained</h2>
@@ -360,7 +360,7 @@ function PrivacyEN() {
         <h2 className="text-2xl font-bold mt-10 mb-4">Contact and Support</h2>
         <p className="text-[var(--text-2)] mb-4">For privacy-related questions, please:</p>
         <ul className="list-disc list-inside space-y-1 text-[var(--text-2)]">
-          <li>Open an issue on our <a href={`${GITHUB_URL}/issues`} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">GitHub repository</a></li>
+          <li>Open an issue on our <a href={`${GITHUB_URL}/issues`} target="_blank" rel="noopener noreferrer" className="text-ink underline underline-offset-2 decoration-hairline hover:decoration-ink transition-colors">GitHub repository</a></li>
           <li>Label it with "privacy" tag</li>
           <li>We typically respond within 48 hours</li>
         </ul>
@@ -368,7 +368,7 @@ function PrivacyEN() {
         <h2 className="text-2xl font-bold mt-10 mb-4">Transparency Commitment</h2>
         <p className="text-[var(--text-2)] mb-4">We believe in complete transparency:</p>
         <ul className="space-y-2 text-[var(--text-2)]">
-          <li><strong>Open Source</strong>: Code is published on <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">GitHub</a></li>
+          <li><strong>Open Source</strong>: Code is published on <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" className="text-ink underline underline-offset-2 decoration-hairline hover:decoration-ink transition-colors">GitHub</a></li>
           <li><strong>No Hidden Features</strong>: All functionality is documented</li>
           <li><strong>No Telemetry</strong>: Zero tracking or analytics</li>
           <li><strong>Clear Communication</strong>: Privacy policy in plain language</li>
@@ -388,7 +388,7 @@ function PrivacyEN() {
 
         <p className="text-[var(--text-2)] text-center mt-4">
           For the complete source code and updates, visit our{' '}
-          <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">GitHub repository</a>.
+          <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" className="text-ink underline underline-offset-2 decoration-hairline hover:decoration-ink transition-colors">GitHub repository</a>.
         </p>
 
         <p className="text-[var(--text-2)] text-sm mt-8 italic">
@@ -406,7 +406,7 @@ function PrivacyTR() {
         <h1 className="text-4xl font-bold mb-2">Ahtapot Güvenlik Eklentisi Gizlilik Politikası</h1>
         <p className="text-[var(--text-2)] mb-8"><strong>Son Güncelleme:</strong> 21 Ağustos 2026 | <strong>Versiyon:</strong> 3.0.0</p>
 
-        <Link href="/en/privacy" className="text-primary hover:underline mb-8 inline-block">
+        <Link href="/en/privacy" className="text-ink underline underline-offset-2 decoration-hairline hover:decoration-ink transition-colors mb-8 inline-block">
           Click for English version
         </Link>
 
@@ -416,7 +416,7 @@ function PrivacyTR() {
         </p>
         <p className="text-[var(--text-2)] leading-relaxed">
           <strong>Chrome Web Store'dan yükleyin:</strong>{' '}
-          <a href={CHROME_STORE_URL} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+          <a href={CHROME_STORE_URL} target="_blank" rel="noopener noreferrer" className="text-ink underline underline-offset-2 decoration-hairline hover:decoration-ink transition-colors">
             Chrome Web Store
           </a>
         </p>
@@ -571,7 +571,7 @@ function PrivacyTR() {
           <li><strong>İletim Yok</strong>: Sunucularımıza hiçbir veri gönderilmez (sunucumuz yok)</li>
           <li><strong>Yerel İşleme</strong>: Tüm IOC çıkarımı cihazınızda gerçekleşir</li>
           <li><strong>İzleme Yok</strong>: Analitik yok, izleme yok, telemetri yok</li>
-          <li><strong>Açık Kaynak</strong>: Kod <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">GitHub</a>'da incelenebilir</li>
+          <li><strong>Açık Kaynak</strong>: Kod <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" className="text-ink underline underline-offset-2 decoration-hairline hover:decoration-ink transition-colors">GitHub</a>'da incelenebilir</li>
         </ul>
 
         <h2 className="text-2xl font-bold mt-10 mb-4">İzin Açıklamaları</h2>
@@ -642,7 +642,7 @@ function PrivacyTR() {
         <h2 className="text-2xl font-bold mt-10 mb-4">İletişim ve Destek</h2>
         <p className="text-[var(--text-2)] mb-4">Gizlilikle ilgili sorular için lütfen:</p>
         <ul className="list-disc list-inside space-y-1 text-[var(--text-2)]">
-          <li><a href={`${GITHUB_URL}/issues`} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">GitHub deposunda</a> bir sorun açın</li>
+          <li><a href={`${GITHUB_URL}/issues`} target="_blank" rel="noopener noreferrer" className="text-ink underline underline-offset-2 decoration-hairline hover:decoration-ink transition-colors">GitHub deposunda</a> bir sorun açın</li>
           <li>"privacy" etiketi ile işaretleyin</li>
           <li>Genellikle 48 saat içinde yanıt veriyoruz</li>
         </ul>
@@ -650,7 +650,7 @@ function PrivacyTR() {
         <h2 className="text-2xl font-bold mt-10 mb-4">Şeffaflık Taahhüdümüz</h2>
         <p className="text-[var(--text-2)] mb-4">Tam şeffaflığa inanıyoruz:</p>
         <ul className="space-y-2 text-[var(--text-2)]">
-          <li><strong>Açık Kaynak</strong>: Kod <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">GitHub</a>'da yayınlandı</li>
+          <li><strong>Açık Kaynak</strong>: Kod <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" className="text-ink underline underline-offset-2 decoration-hairline hover:decoration-ink transition-colors">GitHub</a>'da yayınlandı</li>
           <li><strong>Gizli Özellik Yok</strong>: Tüm işlevler belgelenmiştir</li>
           <li><strong>Telemetri Yok</strong>: Sıfır izleme veya analitik</li>
           <li><strong>Açık İletişim</strong>: Sade dilde gizlilik politikası</li>
@@ -670,7 +670,7 @@ function PrivacyTR() {
 
         <p className="text-[var(--text-2)] text-center mt-4">
           Tam kaynak kodu ve güncellemeler için{' '}
-          <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">GitHub deposumuzu</a> ziyaret edin.
+          <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" className="text-ink underline underline-offset-2 decoration-hairline hover:decoration-ink transition-colors">GitHub deposumuzu</a> ziyaret edin.
         </p>
 
         <p className="text-[var(--text-2)] text-sm mt-8 italic">

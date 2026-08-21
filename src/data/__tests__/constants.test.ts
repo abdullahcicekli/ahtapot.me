@@ -1,6 +1,4 @@
 import { describe, it, expect } from 'vitest';
-import { existsSync } from 'node:fs';
-import { resolve } from 'node:path';
 import { providers } from '@/data/constants';
 
 describe('providers', () => {
@@ -17,18 +15,5 @@ describe('providers', () => {
       'ARIN', 'AbuseIPDB', 'AlienVault OTX', 'GreyNoise', 'MalwareBazaar',
       'Pulsedive', 'Scamalytics', 'Shodan', 'URLhaus', 'VirusTotal',
     ]);
-  });
-
-  it('gives every provider a logo path', () => {
-    for (const p of providers) {
-      expect(p.logo).toMatch(/^\/provider-icons\/.+\.(png|svg)$/);
-    }
-  });
-
-  it('ships the asset each logo path points at', () => {
-    for (const p of providers) {
-      const onDisk = resolve(process.cwd(), 'public', p.logo.replace(/^\//, ''));
-      expect(existsSync(onDisk), `missing asset for ${p.name}: ${p.logo}`).toBe(true);
-    }
   });
 });

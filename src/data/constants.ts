@@ -23,14 +23,14 @@ export const testimonials: Testimonial[] = [
 ];
 
 export const providers: Provider[] = [
-  { name: 'VirusTotal', logo: '/provider-icons/virustotal_logo.png', alt: 'VirusTotal - Malware and URL scanning' },
-  { name: 'AlienVault OTX', logo: '/provider-icons/alienVaultOtx-logo.png', alt: 'AlienVault OTX - Open Threat Exchange' },
-  { name: 'AbuseIPDB', logo: '/provider-icons/abuseipdb-logo.png', alt: 'AbuseIPDB - IP address reputation' },
-  { name: 'MalwareBazaar', logo: '/provider-icons/malwarebazaar-logo.png', alt: 'MalwareBazaar - Malware sample database' },
-  { name: 'ARIN', logo: '/provider-icons/arin-logo.png', alt: 'ARIN - WHOIS provider' },
-  { name: 'Shodan', logo: '/provider-icons/shodan-logo.png', alt: 'Shodan - Internet-connected device search' },
-  { name: 'GreyNoise', logo: '/provider-icons/greynoise-logo.png', alt: 'GreyNoise - Internet noise detection' },
-  { name: 'URLhaus', logo: '/provider-icons/urlhaus-logo.png', alt: 'URLhaus - Malicious URL database' },
-  { name: 'Pulsedive', logo: '/provider-icons/pulsedive-logo.png', alt: 'Pulsedive - Threat intelligence platform' },
-  { name: 'Scamalytics', logo: '/provider-icons/scamalytics-logo.png', alt: 'Scamalytics - IP fraud score' },
+  { name: 'VirusTotal' },
+  { name: 'AlienVault OTX' },
+  { name: 'AbuseIPDB' },
+  { name: 'MalwareBazaar' },
+  { name: 'ARIN' },
+  { name: 'Shodan' },
+  { name: 'GreyNoise' },
+  { name: 'URLhaus' },
+  { name: 'Pulsedive' },
+  { name: 'Scamalytics' },
 ];

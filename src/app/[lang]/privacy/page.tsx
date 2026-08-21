@@ -323,7 +323,7 @@ function PrivacyEN() {
 
         <h2 className="text-2xl font-bold mt-10 mb-4">International Users</h2>
         <p className="text-[var(--text-2)] leading-relaxed">
-          This extension can be used worldwide. All data processing happens locally on your device, regardless of your location.
+          This extension can be used worldwide and has no backend of its own — your API keys, cache, and settings stay only on your device. When you analyze an IOC, however, it's sent directly from your browser to whichever third-party providers you choose to enable, and those providers operate under their own jurisdictions and privacy policies.
         </p>
 
         <h2 className="text-2xl font-bold mt-10 mb-4">Changes to Privacy Policy</h2>
@@ -383,7 +383,7 @@ function PrivacyEN() {
         <hr className="my-10 border-[var(--border)]" />
 
         <p className="text-[var(--text-2)] text-center">
-          <strong>Summary</strong>: We don't collect your data. Everything stays on your device. You're in control.
+          <strong>Summary</strong>: We don't collect your data. Your keys and settings stay on your device — only the indicators you submit go to the providers you choose. You're in control.
         </p>
 
         <p className="text-[var(--text-2)] text-center mt-4">
@@ -616,7 +616,7 @@ function PrivacyTR() {
 
         <h2 className="text-2xl font-bold mt-10 mb-4">Uluslararası Kullanıcılar</h2>
         <p className="text-[var(--text-2)] leading-relaxed">
-          Bu eklenti dünya çapında kullanılabilir. Konumunuzdan bağımsız olarak tüm veri işleme yerel olarak cihazınızda gerçekleşir.
+          Bu eklenti dünya çapında kullanılabilir ve kendi sunucusu yoktur; API anahtarlarınız, önbelleğiniz ve ayarlarınız yalnızca cihazınızda saklanır. Ancak bir IOC'yi analiz ettiğinizde, bu veri tarayıcınızdan doğrudan etkinleştirdiğiniz üçüncü taraf sağlayıcılara gönderilir ve bu sağlayıcılar kendi yargı yetkileri ve gizlilik politikaları çerçevesinde faaliyet gösterir.
         </p>
 
         <h2 className="text-2xl font-bold mt-10 mb-4">Uyumluluk</h2>
@@ -665,7 +665,7 @@ function PrivacyTR() {
         <hr className="my-10 border-[var(--border)]" />
 
         <p className="text-[var(--text-2)] text-center">
-          <strong>Özet</strong>: Verilerinizi toplamıyoruz. Her şey cihazınızda kalır. Kontrol sizdedir.
+          <strong>Özet</strong>: Verilerinizi toplamıyoruz. Anahtarlarınız ve ayarlarınız cihazınızda kalır; analiz için gönderdiğiniz göstergeler yalnızca seçtiğiniz sağlayıcılara ulaşır. Kontrol sizdedir.
         </p>
 
         <p className="text-[var(--text-2)] text-center mt-4">

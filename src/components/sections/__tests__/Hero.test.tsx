@@ -40,15 +40,20 @@ describe('Hero', () => {
 });
 
 describe('Providers', () => {
-  it('renders a logo for every registered provider', () => {
+  it('renders every provider name as text', () => {
     wrap(<Providers />);
-    expect(screen.getAllByRole('img')).toHaveLength(providers.length);
+    for (const provider of providers) {
+      expect(screen.getByText(provider.name)).toBeInTheDocument();
+    }
   });
 
-  it('gives every logo alt text', () => {
-    wrap(<Providers />);
-    for (const img of screen.getAllByRole('img')) {
-      expect(img.getAttribute('alt')).toBeTruthy();
-    }
+  it('renders no img element', () => {
+    const { container } = wrap(<Providers />);
+    expect(container.querySelector('img')).toBeNull();
+  });
+
+  it('renders exactly one entry per provider', () => {
+    const { container } = wrap(<Providers />);
+    expect(container.querySelectorAll('li')).toHaveLength(providers.length);
   });
 });

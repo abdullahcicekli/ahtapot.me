@@ -30,7 +30,14 @@ describe('Header', () => {
 
   it('links to the other language', () => {
     renderHeader('en');
-    expect(screen.getByRole('link', { name: 'TR' })).toHaveAttribute('href', '/tr');
+    expect(screen.getByRole('link', { name: 'Türkçe' })).toHaveAttribute('href', '/tr');
+  });
+
+  it('gives the language switch an accessible name naming the target language', () => {
+    renderHeader('en');
+    const link = screen.getByRole('link', { name: /türkçe/i });
+    expect(link).toHaveAttribute('hreflang', 'tr');
+    expect(link).toHaveTextContent('TR');
   });
 
   it('shows Turkish copy on the Turkish route', () => {

@@ -17,6 +17,7 @@ export function Header() {
   const otherLang = language === 'en' ? 'tr' : 'en';
   const pathWithoutLang = pathname.replace(/^\/(en|tr)/, '');
   const otherLangHref = `/${otherLang}${pathWithoutLang || '/'}`;
+  const otherLangLabel = otherLang === 'tr' ? 'Türkçe' : 'English';
 
   const links = [
     { href: `/${language}/#showcase`, label: t('nav.product') },
@@ -44,6 +45,8 @@ export function Header() {
           ))}
           <Link
             href={otherLangHref}
+            aria-label={otherLangLabel}
+            hrefLang={otherLang}
             className="text-[14px] text-ink-2 transition-colors hover:text-ink"
           >
             {otherLang.toUpperCase()}
@@ -77,7 +80,12 @@ export function Header() {
               {link.label}
             </a>
           ))}
-          <Link href={otherLangHref} className="text-ink-2 hover:text-ink">
+          <Link
+            href={otherLangHref}
+            aria-label={otherLangLabel}
+            hrefLang={otherLang}
+            className="text-ink-2 hover:text-ink"
+          >
             {otherLang.toUpperCase()}
           </Link>
           <Button as="a" href={CHROME_STORE_URL} target="_blank" rel="noopener noreferrer">

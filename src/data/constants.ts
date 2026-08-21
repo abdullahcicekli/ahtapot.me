@@ -34,15 +34,3 @@ export const providers: Provider[] = [
   { name: 'Pulsedive', logo: '/provider-icons/pulsedive-logo.png', alt: 'Pulsedive - Threat intelligence platform' },
   { name: 'Scamalytics', logo: '/provider-icons/scamalytics-logo.png', alt: 'Scamalytics - IP fraud score' },
 ];
-
-export const features = [
-  { id: 'detection', titleKey: 'features.detection.title', descKey: 'features.detection.desc', icon: 'Search' },
-  { id: 'search', titleKey: 'features.search.title', descKey: 'features.search.desc', icon: 'SearchCircle' },
-  { id: 'privacy', titleKey: 'features.privacy.title', descKey: 'features.privacy.desc', icon: 'Shield' },
-  { id: 'speed', titleKey: 'features.speed.title', descKey: 'features.speed.desc', icon: 'Flash' },
-  { id: 'sources', titleKey: 'features.sources.title', descKey: 'features.sources.desc', icon: 'Book' },
-  { id: 'matching', titleKey: 'features.matching.title', descKey: 'features.matching.desc', icon: 'CheckCircle' },
-  { id: 'badges', titleKey: 'features.badges.title', descKey: 'features.badges.desc', icon: 'Badge' },
-  { id: 'secure', titleKey: 'features.secure.title', descKey: 'features.secure.desc', icon: 'Lock' },
-  { id: 'ui', titleKey: 'features.ui.title', descKey: 'features.ui.desc', icon: 'Sparks' },
-];

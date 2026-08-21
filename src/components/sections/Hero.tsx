@@ -33,7 +33,7 @@ export function Hero() {
         </Button>
       </div>
 
-      <IOCPanel fixture={heroFixture} className="max-w-[560px]" />
+      <IOCPanel fixture={heroFixture} />
     </Section>
   );
 }

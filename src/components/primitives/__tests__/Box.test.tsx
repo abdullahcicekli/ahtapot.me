@@ -48,7 +48,19 @@ describe('Section', () => {
   it('hides the decorative rules from assistive technology', () => {
     const { container } = render(<Section>x</Section>);
     for (const rule of container.querySelectorAll('[data-rule]')) {
-      expect(rule).toHaveAttribute('aria-hidden', 'true');
+      expect(rule.closest('[aria-hidden="true"]')).not.toBeNull();
     }
+  });
+
+  it('gives the rule layer its own full-height child of the section, not the content div', () => {
+    const { container } = render(
+      <Section>
+        <div style={{ height: '2000px' }}>tall content</div>
+      </Section>
+    );
+    const section = container.querySelector('section');
+    const ruleLayer = container.querySelector('[data-rule]')?.parentElement;
+    expect(ruleLayer).not.toBeNull();
+    expect(ruleLayer?.parentElement).toBe(section);
   });
 });

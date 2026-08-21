@@ -10,19 +10,14 @@ interface SectionProps {
 export function Section({ id, className, children }: SectionProps) {
   return (
     <section id={id} className={cn('relative px-6 py-24 md:py-32', className)}>
-      <div className="relative mx-auto w-full max-w-container">
-        <span
-          data-rule
-          aria-hidden="true"
-          className="pointer-events-none absolute -left-6 top-0 hidden h-full w-px bg-hairline md:block"
-        />
-        <span
-          data-rule
-          aria-hidden="true"
-          className="pointer-events-none absolute -right-6 top-0 hidden h-full w-px bg-hairline md:block"
-        />
-        {children}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-y-0 left-1/2 hidden w-full max-w-container -translate-x-1/2 md:block"
+      >
+        <span data-rule className="absolute -left-6 top-0 h-full w-px bg-hairline" />
+        <span data-rule className="absolute -right-6 top-0 h-full w-px bg-hairline" />
       </div>
+      <div className="relative mx-auto w-full max-w-container">{children}</div>
     </section>
   );
 }

@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 import { SocialProof } from '@/components/sections/SocialProof';
 import { CTA } from '@/components/sections/CTA';
 import { LanguageProvider } from '@/lib/language-context';
-import { storeStats, testimonials } from '@/data/constants';
+import { testimonials } from '@/data/constants';
 
 vi.mock('next/navigation', () => ({
   usePathname: () => '/en/',
@@ -14,23 +14,22 @@ const wrap = (ui: React.ReactNode) =>
   render(<LanguageProvider initialLang="en">{ui}</LanguageProvider>);
 
 describe('SocialProof', () => {
-  it('renders figures from the single store-stats source', () => {
+  it('renders all seven Chrome Web Store reviews', () => {
     wrap(<SocialProof />);
-    expect(screen.getByText(String(storeStats.rating.toFixed(1)))).toBeInTheDocument();
-    expect(screen.getByText(String(storeStats.ratingCount))).toBeInTheDocument();
-    expect(screen.getByText(String(storeStats.userCount))).toBeInTheDocument();
+    expect(screen.getAllByRole('blockquote')).toHaveLength(7);
   });
 
-  it('shows exactly two quotes', () => {
-    wrap(<SocialProof />);
-    expect(screen.getAllByRole('blockquote')).toHaveLength(2);
+  it('renders no store figures, which drift and need manual refresh', () => {
+    const { container } = wrap(<SocialProof />);
+    const text = container.textContent ?? '';
+    expect(text).not.toMatch(/\b5\.0\b/);
+    expect(text).not.toMatch(/\b14\b/);
+    expect(text).not.toMatch(/\b68\b/);
   });
 
-  it('attributes every quote to a named reviewer', () => {
+  it('attributes every quote', () => {
     wrap(<SocialProof />);
-    for (const testimonial of testimonials) {
-      expect(screen.getByText(testimonial.author)).toBeInTheDocument();
-    }
+    for (const t of testimonials) expect(screen.getByText(t.author)).toBeInTheDocument();
   });
 });
 

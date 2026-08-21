@@ -24,9 +24,7 @@ export const translations = {
     'showcase.privacy.desc':
       'No accounts, no servers, no telemetry. Requests go straight from your browser to the providers you configure, using your own keys that Ahtapot never sees.',
 
-    'social.rating': 'on the Chrome Web Store',
-    'social.ratings': 'ratings',
-    'social.users': 'users',
+    'social.title': 'From the Chrome Web Store',
     'social.openSource': 'MIT licensed',
 
     'cta.title': 'Add it to your browser.',
@@ -61,9 +59,7 @@ export const translations = {
     'showcase.privacy.desc':
       "Hesap yok, sunucu yok, telemetri yok. İstekler tarayıcından doğrudan senin yapılandırdığın sağlayıcılara, Ahtapot'un asla görmediği kendi anahtarlarınla gider.",
 
-    'social.rating': 'Chrome Web Store puanı',
-    'social.ratings': 'değerlendirme',
-    'social.users': 'kullanıcı',
+    'social.title': "Chrome Web Store'dan",
     'social.openSource': 'MIT lisanslı',
 
     'cta.title': 'Tarayıcına ekle.',

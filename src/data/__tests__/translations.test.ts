@@ -9,7 +9,7 @@ const REQUIRED = [
   'showcase.select.title', 'showcase.select.desc',
   'showcase.ai.title', 'showcase.ai.desc',
   'showcase.privacy.title', 'showcase.privacy.desc',
-  'social.rating', 'social.users', 'social.openSource',
+  'social.title', 'social.openSource',
   'cta.title', 'cta.install',
   'footer.privacy', 'footer.license', 'footer.madeWith',
 ] as const;

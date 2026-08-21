@@ -21,9 +21,9 @@ export const translations = {
     'showcase.ai.title': 'A verdict, not a data dump',
     'showcase.ai.desc':
       'Claude, Gemini and GPT turn raw provider output into a triage decision, with MITRE ATT&CK mapping and hunting queries ready to paste into your workflow.',
-    'showcase.privacy.title': 'Nothing leaves your machine',
+    'showcase.privacy.title': 'We never see your data',
     'showcase.privacy.desc':
-      'No accounts, no servers, no telemetry. Your API keys live in encrypted browser storage and talk only to the providers you configured.',
+      'No accounts, no servers, no telemetry. Requests go straight from your browser to the providers you configure, using your own keys — Ahtapot never sees them.',
 
     'social.rating': 'on the Chrome Web Store',
     'social.ratings': 'ratings',
@@ -60,9 +60,9 @@ export const translations = {
     'showcase.ai.title': 'Veri yığını değil, karar',
     'showcase.ai.desc':
       'Claude, Gemini ve GPT ham sağlayıcı çıktısını triage kararına dönüştürür; MITRE ATT&CK eşlemesi ve hunting sorguları iş akışına yapıştırmaya hazır gelir.',
-    'showcase.privacy.title': 'Hiçbir şey cihazından çıkmaz',
+    'showcase.privacy.title': 'Verini asla görmeyiz',
     'showcase.privacy.desc':
-      'Hesap yok, sunucu yok, telemetri yok. API anahtarların şifreli tarayıcı deposunda durur ve yalnızca senin yapılandırdığın sağlayıcılarla konuşur.',
+      'Hesap yok, sunucu yok, telemetri yok. İstekler tarayıcından doğrudan senin yapılandırdığın sağlayıcılara, kendi anahtarlarınla gider — Ahtapot bunları asla görmez.',
 
     'social.rating': 'Chrome Web Store puanı',
     'social.ratings': 'değerlendirme',

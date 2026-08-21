@@ -33,8 +33,8 @@ export function buildSoftwareApplicationSchema(lang: Lang, description: string) 
     },
     description,
     featureList: [
-      'AI-assisted analysis with Claude, Gemini and GPT',
-      'MITRE ATT&CK mapping',
+      'AI-assisted analysis with Claude, Gemini and GPT (requires your own API key)',
+      'MITRE ATT&CK mapping via AI analysis (requires your own API key)',
       `${providers.length} threat intelligence providers (${providerNames})`,
       'Smart IOC detection: IPv4, IPv6, Domain, URL, MD5, SHA1, SHA256, Email, CVE, Bitcoin, Ethereum',
       'Privacy-first architecture with no data collection',

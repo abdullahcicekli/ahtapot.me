@@ -32,6 +32,6 @@ export const privacyFixture: IOCFixture = {
   kind: 'SHA256',
   verdict: 'clean',
   headline: 'No detections',
-  tags: ['Analyzed locally', 'Keys never leave device'],
+  tags: ['No backend', 'Direct to your providers'],
   meta: ['0 telemetry', '0 servers', 'MIT licensed'],
 };

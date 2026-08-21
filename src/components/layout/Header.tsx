@@ -2,27 +2,15 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { Menu, Xmark } from 'iconoir-react';
+import { Github, Menu, Xmark } from 'iconoir-react';
 import { useLanguage } from '@/lib/language-context';
 import { Wordmark } from '@/components/primitives';
-import { Button } from '@/components/ui';
+import { Button, LanguageSelect } from '@/components/ui';
 import { CHROME_STORE_URL, GITHUB_URL } from '@/data/constants';
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { language, t } = useLanguage();
-  const pathname = usePathname();
-
-  const otherLang = language === 'en' ? 'tr' : 'en';
-  const pathWithoutLang = pathname.replace(/^\/(en|tr)/, '');
-  const otherLangHref = `/${otherLang}${pathWithoutLang || '/'}`;
-  const otherLangLabel = otherLang === 'tr' ? 'Türkçe' : 'English';
-
-  const links = [
-    { href: `/${language}/#product`, label: t('nav.product') },
-    { href: GITHUB_URL, label: 'GitHub', external: true },
-  ];
 
   return (
     <header className="fixed top-0 z-50 w-full border-b border-hairline bg-bg/80 backdrop-blur-md">
@@ -31,26 +19,17 @@ export function Header() {
           <Wordmark />
         </Link>
 
-        <div className="hidden items-center gap-7 md:flex">
-          {links.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              target={link.external ? '_blank' : undefined}
-              rel={link.external ? 'noopener noreferrer' : undefined}
-              className="text-[14px] text-ink-2 transition-colors hover:text-ink"
-            >
-              {link.label}
-            </a>
-          ))}
-          <Link
-            href={otherLangHref}
-            aria-label={otherLangLabel}
-            hrefLang={otherLang}
-            className="text-[14px] text-ink-2 transition-colors hover:text-ink"
+        <div className="hidden items-center gap-5 md:flex">
+          <a
+            href={GITHUB_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+            className="p-1 text-ink-2 transition-colors hover:text-ink"
           >
-            {otherLang.toUpperCase()}
-          </Link>
+            <Github width={19} height={19} />
+          </a>
+          <LanguageSelect />
           <Button
             as="a"
             href={CHROME_STORE_URL}
@@ -73,27 +52,18 @@ export function Header() {
       </nav>
 
       {isMenuOpen && (
-        <div className="flex flex-col gap-4 border-b border-hairline bg-bg p-6 md:hidden">
-          {links.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              target={link.external ? '_blank' : undefined}
-              rel={link.external ? 'noopener noreferrer' : undefined}
-              className="text-ink-2 hover:text-ink"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              {link.label}
-            </a>
-          ))}
-          <Link
-            href={otherLangHref}
-            aria-label={otherLangLabel}
-            hrefLang={otherLang}
-            className="text-ink-2 hover:text-ink"
+        <div className="flex flex-col items-start gap-5 border-b border-hairline bg-bg p-6 md:hidden">
+          <a
+            href={GITHUB_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 text-ink-2 hover:text-ink"
+            onClick={() => setIsMenuOpen(false)}
           >
-            {otherLang.toUpperCase()}
-          </Link>
+            <Github width={18} height={18} />
+            GitHub
+          </a>
+          <LanguageSelect />
           <Button as="a" href={CHROME_STORE_URL} target="_blank" rel="noopener noreferrer">
             {t('nav.install')}
           </Button>

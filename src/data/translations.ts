@@ -2,6 +2,7 @@ export const translations = {
   en: {
     'nav.product': 'Product',
     'nav.install': 'Install',
+    'nav.language': 'Language',
 
     'hero.title1': 'Threat intel,',
     'hero.title2': 'in your browser.',
@@ -37,11 +38,14 @@ export const translations = {
 
     'footer.privacy': 'Privacy',
     'footer.license': 'License',
+    'footer.project': 'Project',
+    'footer.legal': 'Legal',
     'footer.madeWith': 'Built for the security community',
   },
   tr: {
     'nav.product': 'Ürün',
     'nav.install': 'Yükle',
+    'nav.language': 'Dil',
 
     'hero.title1': 'Tehdit istihbaratı,',
     'hero.title2': 'tarayıcının içinde.',
@@ -77,6 +81,8 @@ export const translations = {
 
     'footer.privacy': 'Gizlilik',
     'footer.license': 'Lisans',
+    'footer.project': 'Proje',
+    'footer.legal': 'Yasal',
     'footer.madeWith': 'Güvenlik topluluğu için geliştirildi',
   },
 } as const;

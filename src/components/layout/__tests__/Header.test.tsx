@@ -28,21 +28,28 @@ describe('Header', () => {
     expect(screen.queryByTitle(/toggle theme/i)).toBeNull();
   });
 
-  it('links to the other language', () => {
+  it('offers both languages in a select, current one selected', () => {
     renderHeader('en');
-    expect(screen.getByRole('link', { name: 'Türkçe' })).toHaveAttribute('href', '/tr');
+    const select = screen.getByRole('combobox', { name: 'Language' });
+    expect(select).toHaveValue('en');
+    expect(screen.getByRole('option', { name: 'English' })).toBeInTheDocument();
+    expect(screen.getByRole('option', { name: 'Türkçe' })).toBeInTheDocument();
   });
 
-  it('gives the language switch an accessible name naming the target language', () => {
-    renderHeader('en');
-    const link = screen.getByRole('link', { name: /türkçe/i });
-    expect(link).toHaveAttribute('hreflang', 'tr');
-    expect(link).toHaveTextContent('TR');
+  it('names the language select in the page language', () => {
+    renderHeader('tr');
+    expect(screen.getByRole('combobox', { name: 'Dil' })).toHaveValue('tr');
+  });
+
+  it('links to the repository by icon, with an accessible name', () => {
+    renderHeader();
+    const github = screen.getByRole('link', { name: 'GitHub' });
+    expect(github).toHaveAttribute('href', expect.stringContaining('github.com'));
   });
 
   it('shows Turkish copy on the Turkish route', () => {
     renderHeader('tr');
-    expect(screen.getByText('Ürün')).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: 'Yükle' })).toBeInTheDocument();
   });
 
   it('points the install CTA at the Chrome Web Store', () => {

@@ -4,55 +4,22 @@ export const CHROME_STORE_URL = 'https://chromewebstore.google.com/detail/ahtapo
 export const GITHUB_URL = 'https://github.com/abdullahcicekli/ahtapot';
 export const FORMSPREE_URL = 'https://formspree.io/f/xeordlbz';
 
+export { storeStats } from './store-stats';
+
 export const testimonials: Testimonial[] = [
   {
     id: '1',
-    quote: "Absolutely love this extension! It's simple, fast, and works exactly as promised. Highly recommend it!",
+    quote: "Absolutely love this extension! It's simple, fast, and works exactly as promised.",
     author: 'Halil Enes Özdemir',
     source: 'Chrome Web Store',
     avatarColor: 'green',
   },
   {
     id: '2',
-    quote: 'Özellikle SOC alanında çalışanlar için çok kullanışlı ve verimli bir araç. Kullanım kolaylığı ve hızlı sonuç alma özelliği harika.',
+    quote: 'Özellikle SOC alanında çalışanlar için çok kullanışlı ve verimli bir araç.',
     author: 'Mehmet Kadir Cırık',
     source: 'Chrome Web Store',
     avatarColor: 'blue',
-  },
-  {
-    id: '3',
-    quote: 'Great tool for quick IOC analysis. Simple, fast, and privacy-focused. Well done!',
-    author: 'Sueda Çiçekli',
-    source: 'Chrome Web Store',
-    avatarColor: 'purple',
-  },
-  {
-    id: '4',
-    quote: "It's a good extension for end-users. Makes IOC analysis accessible to everyone.",
-    author: 'Furkan Doğmuş',
-    source: 'Chrome Web Store',
-    avatarColor: 'yellow',
-  },
-  {
-    id: '5',
-    quote: 'Elinize emeğinize sağlık. Çok iyi bir eklenti olmuş!',
-    author: 'Altuğ Tekiner',
-    source: 'Chrome Web Store',
-    avatarColor: 'pink',
-  },
-  {
-    id: '6',
-    quote: 'Çok iyi bir eklenti. Faydalı bir extension!',
-    author: 'Ömer Faruk Çiçekli',
-    source: 'Chrome Web Store',
-    avatarColor: 'orange',
-  },
-  {
-    id: '7',
-    quote: 'Çok iyi bir eklenti',
-    author: 'Muaz Memiş',
-    source: 'Chrome Web Store',
-    avatarColor: 'teal',
   },
 ];
 

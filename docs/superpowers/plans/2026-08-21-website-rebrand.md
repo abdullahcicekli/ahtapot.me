@@ -2903,7 +2903,7 @@ git commit -m "refactor: extract JSON-LD builders and refresh stale figures"
 
 ---
 
-## Task 15: Migrate the privacy page to the new tokens
+## Task 15: Migrate the privacy page to the new tokens and strip model names
 
 `src/app/[lang]/privacy/page.tsx` makes 90 CSS-variable references, nearly all to names
 Task 4 deleted. It is a live page linked from the footer, and it now renders inside the
@@ -2912,6 +2912,12 @@ back to inherited colors.
 
 The page imports no deleted component — only `useLanguage`, `Link`, `Script` and the
 constants — so this is a token migration, not a rewrite.
+
+It also carries 24 AI model version references across its English and Turkish copy —
+`Sonnet 4`, `3.5 Haiku`, `GPT-4o Mini`, and the rest — which violate the global
+no-model-names constraint. No other task touches this file's copy, so they are removed
+here. The page is a privacy disclosure: naming the *vendors* data may reach is the
+substance and must stay. Only the version lists go.
 
 **Files:**
 - Modify: `src/app/[lang]/privacy/page.tsx`
@@ -3004,7 +3010,49 @@ Expected: PASS. If orphans remain, the report names each file and variable — f
 too. Do not add alias definitions to `tokens.css` to silence the test; the point is that
 the old names are gone.
 
-- [ ] **Step 6: Check the page for legacy visual idioms**
+- [ ] **Step 6: Strip the AI model version lists**
+
+Find them:
+
+Run: `grep -nE "Sonnet|Haiku|Opus|GPT-4|o1 |o3 |Flash|1\.5 Pro" "src/app/[lang]/privacy/page.tsx"`
+
+Each hit is a list item naming a vendor followed by its models. Keep the vendor, drop
+the versions. For example:
+
+```tsx
+// before
+<li><strong>Claude (Anthropic)</strong> - Sonnet 4, 3.5 Sonnet, 3.5 Haiku, 3 Opus</li>
+<li><strong>Google Gemini</strong> - 2.5 Flash, 2.5 Pro, 2.0 Flash, 1.5 Pro</li>
+<li><strong>OpenAI</strong> - GPT-4o, GPT-4o Mini, GPT-4 Turbo, o1, o3 Mini</li>
+
+// after
+<li><strong>Claude</strong> (Anthropic)</li>
+<li><strong>Gemini</strong> (Google)</li>
+<li><strong>GPT</strong> (OpenAI)</li>
+```
+
+Apply the same edit to both the English and the Turkish copy — the file contains two
+parallel blocks. Re-run the grep afterwards; it must return nothing.
+
+Add this assertion to `src/app/__tests__/privacy-tokens.test.ts`:
+
+```ts
+describe('privacy page copy', () => {
+  it('names AI vendors but no model versions', () => {
+    const page = readFileSync(
+      resolve(process.cwd(), 'src/app/[lang]/privacy/page.tsx'),
+      'utf8',
+    );
+    for (const stale of ['Sonnet', 'Haiku', 'Opus', 'GPT-4', 'o3 Mini', '2.5 Flash', '1.5 Pro']) {
+      expect(page, `privacy page still names ${stale}`).not.toContain(stale);
+    }
+    expect(page).toContain('Claude');
+    expect(page).toContain('Gemini');
+  });
+});
+```
+
+- [ ] **Step 7: Check the page for legacy visual idioms**
 
 Run: `grep -n "gradient-text\|animate-float\|hover:-translate-y\|dark:" "src/app/[lang]/privacy/page.tsx"`
 
@@ -3013,11 +3061,11 @@ should read as plain typographic content on the new canvas. `dark:` variants in
 particular are dead — Tailwind's `darkMode` key is gone from the config, so they never
 apply.
 
-- [ ] **Step 7: Commit**
+- [ ] **Step 8: Commit**
 
 ```bash
 git add "src/app/[lang]/privacy/page.tsx" src/app/__tests__/privacy-tokens.test.ts
-git commit -m "fix: migrate privacy page to the new token names"
+git commit -m "fix: migrate privacy page tokens and drop stale model names"
 ```
 
 ---
@@ -3094,13 +3142,19 @@ describe.skipIf(!hasBuild)('static export', () => {
     }
   });
 
-  it('names no AI model version in the rendered output', () => {
-    for (const page of ['en/index.html', 'tr/index.html']) {
+  it('names no AI model version in any rendered page', () => {
+    const pages = ['en/index.html', 'tr/index.html', 'en/privacy/index.html', 'tr/privacy/index.html'];
+    for (const page of pages) {
       const html = read(page);
-      for (const stale of ['GPT-4o', 'Sonnet', 'Haiku', '2.0 Flash', '1.5 Pro']) {
+      for (const stale of ['GPT-4o', 'Sonnet', 'Haiku', 'Opus', '2.0 Flash', '1.5 Pro', 'o3 Mini']) {
         expect(html, `${page} contains ${stale}`).not.toContain(stale);
       }
     }
+  });
+
+  it('emits the privacy routes it links to from every footer', () => {
+    expect(existsSync(resolve(outDir, 'en/privacy/index.html'))).toBe(true);
+    expect(existsSync(resolve(outDir, 'tr/privacy/index.html'))).toBe(true);
   });
 
   it('renders the Turkish page with real Turkish characters', () => {

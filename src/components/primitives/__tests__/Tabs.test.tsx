@@ -68,11 +68,16 @@ describe('Tabs', () => {
     expect(document.activeElement).toBe(aiTab);
   });
 
-  it('keeps only the active tab in the tab order', () => {
+  it('keeps only the active tab in the tab order', async () => {
     setup();
     const tabs = screen.getAllByRole('tab');
     expect(tabs[0]).toHaveAttribute('tabindex', '0');
     expect(tabs[1]).toHaveAttribute('tabindex', '-1');
+
+    await userEvent.click(tabs[0]);
+    await userEvent.keyboard('{ArrowRight}');
+    expect(screen.getByRole('tab', { name: 'Detect' })).toHaveAttribute('tabindex', '-1');
+    expect(screen.getByRole('tab', { name: 'Analyze' })).toHaveAttribute('tabindex', '0');
   });
 
   it('links each panel back to its tab', () => {

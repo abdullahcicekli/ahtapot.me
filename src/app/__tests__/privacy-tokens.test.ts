@@ -45,3 +45,19 @@ describe('privacy page copy', () => {
     expect(page).toContain('Gemini');
   });
 });
+
+describe('privacy page provider count', () => {
+  const page = readFileSync(
+    resolve(process.cwd(), 'src/app/[lang]/privacy/page.tsx'),
+    'utf8',
+  );
+
+  it('imports providers instead of typing a count', () => {
+    expect(page).toMatch(/import\s*\{[^}]*\bproviders\b[^}]*\}\s*from\s*['"]@\/data\/constants['"]/);
+  });
+
+  it('never types the provider count as a literal 10', () => {
+    expect(page).not.toMatch(/\b10\s+security services\b/);
+    expect(page).not.toMatch(/\b10\s+güvenlik servisi\b/);
+  });
+});

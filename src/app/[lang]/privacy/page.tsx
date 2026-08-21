@@ -2,7 +2,7 @@
 
 import { useLanguage } from '@/lib/language-context';
 import Link from 'next/link';
-import { CHROME_STORE_URL, GITHUB_URL } from '@/data/constants';
+import { CHROME_STORE_URL, GITHUB_URL, providers } from '@/data/constants';
 import Script from 'next/script';
 
 export default function PrivacyPage() {
@@ -76,7 +76,7 @@ function PrivacyEN() {
     <div className="min-h-screen pt-24 pb-16 px-6">
       <div className="max-w-4xl mx-auto prose prose-invert prose-lg">
         <h1 className="text-4xl font-bold mb-2">Privacy Policy for Ahtapot Security Extension</h1>
-        <p className="text-[var(--text-2)] mb-8"><strong>Last Updated:</strong> December 7, 2025 | <strong>Version:</strong> 3.0.0</p>
+        <p className="text-[var(--text-2)] mb-8"><strong>Last Updated:</strong> August 21, 2026 | <strong>Version:</strong> 3.0.0</p>
 
         <Link href="/tr/privacy" className="text-primary hover:underline mb-8 inline-block">
           Türkçe versiyonu için tıklayın
@@ -104,7 +104,7 @@ function PrivacyEN() {
           <li>
             <strong>Security API Keys</strong>
             <ul className="list-disc list-inside ml-4 mt-2 space-y-1">
-              <li>Your API keys for 10 security services (VirusTotal, Shodan, AbuseIPDB, OTX, GreyNoise, etc.)</li>
+              <li>Your API keys for {providers.length} security services (VirusTotal, Shodan, AbuseIPDB, OTX, GreyNoise, etc.)</li>
               <li>Stored securely in Chrome's encrypted local storage</li>
               <li>Never transmitted to our servers (we don't have any)</li>
               <li>Only used to authenticate with respective security services</li>
@@ -392,7 +392,7 @@ function PrivacyEN() {
         </p>
 
         <p className="text-[var(--text-2)] text-sm mt-8 italic">
-          This privacy policy is effective as of December 7, 2025, and will remain in effect except with respect to any changes in its provisions in the future, which will be in effect immediately after being posted on this page.
+          This privacy policy is effective as of August 21, 2026, and will remain in effect except with respect to any changes in its provisions in the future, which will be in effect immediately after being posted on this page.
         </p>
       </div>
     </div>
@@ -404,7 +404,7 @@ function PrivacyTR() {
     <div className="min-h-screen pt-24 pb-16 px-6">
       <div className="max-w-4xl mx-auto prose prose-invert prose-lg">
         <h1 className="text-4xl font-bold mb-2">Ahtapot Güvenlik Eklentisi Gizlilik Politikası</h1>
-        <p className="text-[var(--text-2)] mb-8"><strong>Son Güncelleme:</strong> 7 Aralık 2025 | <strong>Versiyon:</strong> 3.0.0</p>
+        <p className="text-[var(--text-2)] mb-8"><strong>Son Güncelleme:</strong> 21 Ağustos 2026 | <strong>Versiyon:</strong> 3.0.0</p>
 
         <Link href="/en/privacy" className="text-primary hover:underline mb-8 inline-block">
           Click for English version
@@ -432,7 +432,7 @@ function PrivacyTR() {
           <li>
             <strong>Güvenlik API Anahtarları</strong>
             <ul className="list-disc list-inside ml-4 mt-2 space-y-1">
-              <li>10 güvenlik servisi için API anahtarlarınız (VirusTotal, Shodan, AbuseIPDB, OTX, GreyNoise vb.)</li>
+              <li>{providers.length} güvenlik servisi için API anahtarlarınız (VirusTotal, Shodan, AbuseIPDB, OTX, GreyNoise vb.)</li>
               <li>Chrome'un şifreli yerel depolamasında güvenli şekilde saklanır</li>
               <li>Sunucularımıza asla iletilmez (sunucumuz yok)</li>
               <li>Yalnızca ilgili güvenlik servislerinde kimlik doğrulaması için kullanılır</li>
@@ -674,7 +674,7 @@ function PrivacyTR() {
         </p>
 
         <p className="text-[var(--text-2)] text-sm mt-8 italic">
-          Bu gizlilik politikası 7 Aralık 2025 tarihinden itibaren geçerlidir ve gelecekte hükümlerinde yapılacak değişiklikler hariç olmak üzere yürürlükte kalacaktır; bu değişiklikler bu sayfada yayınlandıktan hemen sonra geçerli olacaktır.
+          Bu gizlilik politikası 21 Ağustos 2026 tarihinden itibaren geçerlidir ve gelecekte hükümlerinde yapılacak değişiklikler hariç olmak üzere yürürlükte kalacaktır; bu değişiklikler bu sayfada yayınlandıktan hemen sonra geçerli olacaktır.
         </p>
       </div>
     </div>

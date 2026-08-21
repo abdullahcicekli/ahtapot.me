@@ -9,9 +9,15 @@ export function Providers() {
 
   return (
     <Section className="py-16 md:py-20">
-      <p className="label mb-8 text-ink-3">{t('providers.title')}</p>
+      <p id="providers-label" className="label mb-8 text-ink-3">
+        {t('providers.title')}
+      </p>
 
-      <ul className="flex flex-wrap items-center gap-x-12 gap-y-6">
+      <ul
+        role="list"
+        aria-labelledby="providers-label"
+        className="flex flex-wrap items-center gap-x-12 gap-y-6"
+      >
         {providers.map((provider) => (
           <li
             key={provider.name}

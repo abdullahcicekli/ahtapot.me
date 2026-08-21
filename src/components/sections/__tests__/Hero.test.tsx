@@ -56,4 +56,14 @@ describe('Providers', () => {
     const { container } = wrap(<Providers />);
     expect(container.querySelectorAll('li')).toHaveLength(providers.length);
   });
+
+  it('exposes the list with an accessible name matching the section label', () => {
+    wrap(<Providers />);
+    expect(screen.getByRole('list', { name: /sources/i })).toBeInTheDocument();
+  });
+
+  it('contains exactly providers.length items', () => {
+    wrap(<Providers />);
+    expect(screen.getAllByRole('listitem')).toHaveLength(providers.length);
+  });
 });

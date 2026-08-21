@@ -9,7 +9,8 @@
     "lint": "next lint",
     "export": "next build",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "test:build": "next build && vitest run"
   },
   "dependencies": {
     "clsx": "^2.1.1",

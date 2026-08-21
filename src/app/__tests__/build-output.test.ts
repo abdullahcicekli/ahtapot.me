@@ -5,7 +5,19 @@ import { resolve } from 'node:path';
 const outDir = resolve(process.cwd(), 'out');
 const hasBuild = existsSync(outDir);
 
-describe.skipIf(!hasBuild)('static export', () => {
+describe('static export', () => {
+  if (!hasBuild) {
+    it('requires a production build to run these assertions', () => {
+      throw new Error(
+        'out/ not found. These are the highest-value checks in the suite (no third-party ' +
+          'fonts, no leaked AI model names, both language routes, refreshed store figures) ' +
+          'and they cannot run against source alone. Run `npm run build` first, then re-run ' +
+          '`npm test` (or use `npm run test:build`, which does both).'
+      );
+    });
+    return;
+  }
+
   const read = (p: string) => readFileSync(resolve(outDir, p), 'utf8');
 
   it('emits both language routes', () => {

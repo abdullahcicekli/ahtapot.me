@@ -45,6 +45,7 @@ export const testimonials: Testimonial[] = [
 
 export const providers: Provider[] = [
   { name: 'VirusTotal', logo: '/provider-icons/virustotal_logo.png' },
+  { name: 'Turkiye SGB', logo: '/provider-icons/siberguvenlik-logo.png' },
   { name: 'AlienVault OTX', logo: '/provider-icons/alienVaultOtx-logo.png' },
   { name: 'AbuseIPDB', logo: '/provider-icons/abuseipdb-logo.png' },
   { name: 'MalwareBazaar', logo: '/provider-icons/malwarebazaar-logo.png', wordmark: true },

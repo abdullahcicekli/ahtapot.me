@@ -13,16 +13,18 @@ export function Providers() {
         {t('providers.title')}
       </p>
 
+      {/* Flex, not grid: with eleven entries the last row centers instead of
+          leaving a lone item hanging on the left. */}
       <ul
         role="list"
         aria-labelledby="providers-label"
-        className="grid grid-cols-2 gap-px sm:grid-cols-3 lg:grid-cols-5"
+        className="flex flex-wrap justify-center"
       >
         {providers.map((provider) => (
           <li
             key={provider.name}
             lang="en"
-            className="group flex h-24 min-w-0 items-center justify-center gap-2.5 px-4"
+            className="group flex h-24 w-1/2 min-w-0 items-center justify-center gap-2.5 px-4 sm:w-1/3 lg:w-1/5"
           >
             {/* Logos render monochrome so mixed brand palettes read as one wall;
                 grayscale+brightness lifts dark marks without clipping light ones. */}

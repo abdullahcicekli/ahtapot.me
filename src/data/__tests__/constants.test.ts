@@ -4,8 +4,8 @@ import { describe, it, expect } from 'vitest';
 import { providers } from '@/data/constants';
 
 describe('providers', () => {
-  it('lists all ten providers registered by the extension', () => {
-    expect(providers).toHaveLength(10);
+  it('lists all eleven providers registered by the extension', () => {
+    expect(providers).toHaveLength(11);
   });
 
   it('includes URLhaus, which was missing from the site', () => {
@@ -15,7 +15,7 @@ describe('providers', () => {
   it('matches the extension ServiceRegistry exactly', () => {
     expect(providers.map((p) => p.name).sort()).toEqual([
       'ARIN', 'AbuseIPDB', 'AlienVault OTX', 'GreyNoise', 'MalwareBazaar',
-      'Pulsedive', 'Scamalytics', 'Shodan', 'URLhaus', 'VirusTotal',
+      'Pulsedive', 'Scamalytics', 'Shodan', 'Turkiye SGB', 'URLhaus', 'VirusTotal',
     ]);
   });
 

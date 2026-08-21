@@ -61,6 +61,18 @@ Implementation must add URLhaus to the `providers` array (a logo asset is needed
 existing `abuse-logo.png` belongs to MalwareBazaar) and render any count in copy from
 `providers.length` rather than as a typed literal, in both TR and EN.
 
+### Store figures
+
+Verified from the Chrome Web Store listing on 2026-08-21: rating **5.0**, **14
+ratings**, **68 users**. The listing is now titled "Ahtapot — AI-Powered IOC Threat
+Intelligence".
+
+The JSON-LD in `src/app/[lang]/layout.tsx` carries `ratingCount: '9'` and
+`dateModified: '2025-01-01'`, both stale. These figures move into a single
+`src/data/store-stats.ts` module consumed by both the social proof section and the
+structured data, so they cannot drift apart again. Figures are typed once and
+manually refreshed; no number is written inline in a component or a schema.
+
 
 ### Reference analysis
 
@@ -147,7 +159,7 @@ height — the structural signature borrowed from mastra.
 │  │  │ [DOM]  │ │ [DOM]  │ │ [DOM]  │         │  │  absorbed here
 │  │  └────────┘ └────────┘ └────────┘         │  │
 ├──┼───────────────────────────────────────────┼──┤
-│  │  ★ 4.9   ·   70+ analysts   ·  Open source│  │  ④ SOCIAL PROOF
+│  │  ★ 5.0 · 14 ratings · 68 users · Open src │  │  ④ SOCIAL PROOF
 │  │  "…"   ·   "…"                  2 quotes  │  │
 ├──┼───────────────────────────────────────────┼──┤
 │  │  Add it to your browser.   [ Install ]    │  │  ⑤ CTA
@@ -221,9 +233,10 @@ so the keywords survive.
 - Provider strip renders all ten registered providers, and any count in copy equals
   `providers.length` in both languages
 
-## Open item
+## Deployment
 
-`ahtapot.me/workflows/deploy.yml` sits at the repo root rather than under
-`.github/workflows/`, so it is not an active GitHub Actions workflow. Site deployment
-may currently be manual. This is checked and corrected as the first task of
-implementation — a rebuilt site that cannot deploy is not shipped.
+Deployment is already automated and correct: `.github/workflows/deploy.yml` is tracked
+and builds on push to `main`, uploading `./out` to GitHub Pages. An identical stray
+copy sits at `workflows/deploy.yml` in the repo root, where it does nothing; it is
+deleted during implementation. No deployment work is otherwise needed for this
+workstream.

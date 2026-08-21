@@ -29,9 +29,12 @@ interface TabsProps {
    active tab, like a folder tab. Drawn clockwise from the cap's top-left.
    r1 is the convex corner radius; the concave joints where the cap meets the
    panel top need r1 + r2 to equal the panel's top offset so the arcs land
-   exactly on both edges. */
+   exactly on both edges. r1 is half the tab height, so the cap's corners
+   continue the stadium-shaped tab pills, and the r1:r2 ratio stays close to
+   the reference's 40:64 — a balanced S-curve, not a tight corner into a
+   wide sweep. */
 function shellPath(W: number, H: number, P: number, L: number, R: number) {
-  const r1 = 20;
+  const r1 = 32;
   const r2 = P - r1;
   const flushLeft = L <= 1;
   const flushRight = R >= W - 1;
@@ -192,7 +195,7 @@ export function Tabs({ items, children, className, panelClassName }: TabsProps) 
               tabIndex={selected ? 0 : -1}
               onClick={() => setActive(item.id)}
               className={cn(
-                'flex h-14 min-w-0 items-center justify-center gap-2.5 rounded-card border px-4 transition-colors md:h-16',
+                'flex h-14 min-w-0 items-center justify-center gap-2.5 rounded-full border px-4 transition-colors md:h-16',
                 selected
                   ? shell
                     ? 'border-transparent text-ink'
@@ -220,8 +223,9 @@ export function Tabs({ items, children, className, panelClassName }: TabsProps) 
         aria-labelledby={tabId(active)}
         tabIndex={0}
         className={cn(
-          'relative z-10 mt-5 overflow-hidden rounded-outer p-6 md:p-10',
-          !shell && 'border border-hairline bg-raised',
+          'relative z-10 mt-5 overflow-hidden p-6 md:p-10',
+          // Clip radius matches the shell's 32px corners; fallback draws its own box.
+          shell ? 'rounded-[32px]' : 'rounded-outer border border-hairline bg-raised',
           panelClassName,
         )}
       >

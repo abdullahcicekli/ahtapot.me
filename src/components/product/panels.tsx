@@ -25,6 +25,11 @@ const AI_MODE_LABEL: Record<AIMode, string> = {
   detailed: 'Detailed',
 };
 
+// Matches what AIService's detection_engineering.suggested_rules field actually holds:
+// a rule description or pseudocode, not a formatted, named hunting query.
+const AI_RULE_SUGGESTION =
+  'IF signature == "CVE-2024-3400" AND protocol == "PAN-OS" THEN escalate';
+
 export function DetectPanel() {
   const { t } = useLanguage();
   return (
@@ -65,13 +70,15 @@ export function AnalyzePanel() {
 
 export function AIPanel() {
   const { t } = useLanguage();
-  const [mode, setMode] = useState<AIMode>('summary');
+  // Analysis, not Summary, is the default: it is the more representative depth and
+  // gives the panel a substantial first paint without requiring a click.
+  const [mode, setMode] = useState<AIMode>('analysis');
 
   return (
     <div className="grid gap-6 md:grid-cols-2 md:items-center">
       <p className="text-[14px] leading-relaxed text-ink-2">{t('product.ai.desc')}</p>
 
-      <Box tone="card" className="space-y-3 p-4">
+      <div className="space-y-3">
         <div role="group" aria-label="AI analysis depth" className="flex gap-1.5">
           {AI_MODES.map((m) => (
             <button
@@ -92,28 +99,19 @@ export function AIPanel() {
           ))}
         </div>
 
-        <div className="space-y-2 border-t border-hairline pt-3">
-          <div className="flex items-center justify-between gap-3">
-            <span lang="en" className="label text-ink">
-              {aiFixture.verdict}
-            </span>
-            <span className="font-mono text-[12px] text-ink-2">{aiFixture.headline}</span>
-          </div>
+        {/* The tag row (which carries the MITRE technique id) is part of IOCPanel
+            and renders in every mode, compact or not, so the ATT&CK mapping persists
+            across all three depths rather than appearing only after a click. */}
+        <IOCPanel fixture={aiFixture} compact={mode === 'summary'} />
 
-          {mode !== 'summary' && (
-            <p className="text-[12px] text-ink-3">
-              <span lang="en" className="label">MITRE ATT&CK</span>{' '}
-              <span className="font-mono">{aiFixture.tags[1]}</span>
-            </p>
-          )}
-
-          {mode === 'detailed' && (
-            <p className="font-mono text-[12px] text-ink-3">
-              event.category:network AND cve:&quot;{aiFixture.query}&quot;
-            </p>
-          )}
-        </div>
-      </Box>
+        {mode !== 'summary' && (
+          <Box tone="card" className="space-y-1 p-4">
+            {/* Translated label, not a literal English product term, so no lang="en" */}
+            <span className="label text-ink-3">{t('product.ai.ruleLabel')}</span>
+            <p lang="en" className="font-mono text-[12px] text-ink-2">{AI_RULE_SUGGESTION}</p>
+          </Box>
+        )}
+      </div>
     </div>
   );
 }

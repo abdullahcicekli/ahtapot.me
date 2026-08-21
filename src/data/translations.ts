@@ -23,7 +23,8 @@ export const translations = {
     'product.analyze.desc':
       'Every provider that supports that indicator answers at once, with results grouped in tabs in the side panel.',
     'product.ai.desc':
-      'Three depths turn provider output into a decision: Summary for triage, Analysis for escalation, Detailed for investigation. MITRE ATT&CK mapping and hunting queries come with the deeper two, powered by Claude, Gemini or GPT.',
+      'Three depths turn provider output into a decision: Summary for triage, Analysis for escalation, Detailed for investigation. MITRE ATT&CK mapping and detection rule suggestions come with the deeper two, powered by Claude, Gemini or GPT.',
+    'product.ai.ruleLabel': 'Detection rule suggestion',
     'product.privacy.desc':
       "Your API keys live in the browser's encrypted storage. There is no Ahtapot server; requests go straight from your browser to the providers you enabled.",
 
@@ -61,7 +62,8 @@ export const translations = {
     'product.analyze.desc':
       'Göstergeyi destekleyen tüm sağlayıcılar aynı anda yanıt verir; sonuçlar yan paneldeki sekmelerde gruplanır.',
     'product.ai.desc':
-      'Üç derinlik, sağlayıcı çıktısını karara dönüştürür: triyaj için Summary, yükseltme için Analysis, soruşturma için Detailed. Daha derin ikisinde MITRE ATT&CK eşlemesi ve hunting sorguları gelir; Claude, Gemini veya GPT ile çalışır.',
+      'Üç derinlik, sağlayıcı çıktısını karara dönüştürür: triyaj için Summary, yükseltme için Analysis, soruşturma için Detailed. Daha derin ikisinde MITRE ATT&CK eşlemesi ve tehdit avı için kural önerileri gelir; Claude, Gemini veya GPT ile çalışır.',
+    'product.ai.ruleLabel': 'Önerilen tespit kuralı',
     'product.privacy.desc':
       "API anahtarların tarayıcının şifreli deposunda tutulur. Ahtapot sunucusu yoktur; istekler tarayıcından doğrudan etkinleştirdiğin sağlayıcılara gider.",
 

@@ -7,7 +7,7 @@ const REQUIRED = [
   'providers.title',
   'product.title',
   'product.tabs.detect', 'product.tabs.analyze', 'product.tabs.ai', 'product.tabs.privacy',
-  'product.detect.desc', 'product.analyze.desc', 'product.ai.desc', 'product.privacy.desc',
+  'product.detect.desc', 'product.analyze.desc', 'product.ai.desc', 'product.ai.ruleLabel', 'product.privacy.desc',
   'social.title', 'social.openSource',
   'cta.title', 'cta.install',
   'footer.privacy', 'footer.license', 'footer.madeWith',

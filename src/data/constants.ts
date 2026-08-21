@@ -1,8 +1,7 @@
-import type { Testimonial, Provider, AIProvider, AIMode, Step, IOCType, Stat } from '@/types';
+import type { Testimonial, Provider } from '@/types';
 
 export const CHROME_STORE_URL = 'https://chromewebstore.google.com/detail/ahtapot-ioc-analysis-tool/gmekhigahdiddngdhfdkeefcomcankpg';
 export const GITHUB_URL = 'https://github.com/abdullahcicekli/ahtapot';
-export const FORMSPREE_URL = 'https://formspree.io/f/xeordlbz';
 
 export { storeStats } from './store-stats';
 
@@ -34,67 +33,6 @@ export const providers: Provider[] = [
   { name: 'URLhaus', logo: '/provider-icons/urlhaus-logo.png', alt: 'URLhaus - Malicious URL database' },
   { name: 'Pulsedive', logo: '/provider-icons/pulsedive-logo.png', alt: 'Pulsedive - Threat intelligence platform' },
   { name: 'Scamalytics', logo: '/provider-icons/scamalytics-logo.png', alt: 'Scamalytics - IP fraud score' },
-];
-
-export const aiProviders: AIProvider[] = [
-  { name: 'Claude', company: 'Anthropic', logo: '/ai-icons/claude-logo.png' },
-  { name: 'Gemini', company: 'Google', logo: '/ai-icons/gemini-logo.png' },
-  { name: 'GPT', company: 'OpenAI', logo: '/ai-icons/openai-logo.svg' },
-];
-
-export const aiModes: AIMode[] = [
-  {
-    id: 'summary',
-    nameKey: 'ai.modes.summary',
-    descKey: 'ai.modes.summaryDesc',
-    words: '~200 words',
-    time: '10 sec read',
-    color: 'green',
-  },
-  {
-    id: 'analysis',
-    nameKey: 'ai.modes.analysis',
-    descKey: 'ai.modes.analysisDesc',
-    words: '400-600 words',
-    time: '1-2 min read',
-    color: 'blue',
-  },
-  {
-    id: 'detailed',
-    nameKey: 'ai.modes.detailed',
-    descKey: 'ai.modes.detailedDesc',
-    words: '800-1200 words',
-    time: '3-5 min read',
-    color: 'purple',
-  },
-];
-
-export const steps: Step[] = [
-  { number: 1, titleKey: 'howItWorks.step1.title', descKey: 'howItWorks.step1.desc' },
-  { number: 2, titleKey: 'howItWorks.step2.title', descKey: 'howItWorks.step2.desc' },
-  { number: 3, titleKey: 'howItWorks.step3.title', descKey: 'howItWorks.step3.desc' },
-  { number: 4, titleKey: 'howItWorks.step4.title', descKey: 'howItWorks.step4.desc' },
-];
-
-export const iocTypes: IOCType[] = [
-  { name: 'IPv4' },
-  { name: 'IPv6' },
-  { name: 'Domain' },
-  { name: 'URL' },
-  { name: 'MD5' },
-  { name: 'SHA1' },
-  { name: 'SHA256' },
-  { name: 'Email' },
-  { name: 'CVE' },
-  { name: 'Bitcoin' },
-  { name: 'Ethereum' },
-];
-
-export const stats: Stat[] = [
-  { value: '11', labelKey: 'stats.iocTypes' },
-  { value: '10', labelKey: 'stats.sources' },
-  { value: '100%', labelKey: 'stats.privacy' },
-  { value: '0', labelKey: 'stats.dataCollected' },
 ];
 
 export const features = [

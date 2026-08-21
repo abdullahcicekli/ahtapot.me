@@ -17,7 +17,7 @@ export const translations = {
     'showcase.title': 'Select, analyze, move on.',
     'showcase.select.title': 'Select anything',
     'showcase.select.desc':
-      'IPv4, IPv6, domains, URLs, MD5, SHA1, SHA256, emails, CVEs, Bitcoin and Ethereum addresses are detected automatically. Highlight one, and every provider that supports it answers at once.',
+      'IPv4, IPv6, domains, URLs, MD5, SHA1, SHA256, emails, CVEs, Bitcoin and Ethereum addresses are detected automatically. Highlight one, right-click, and every provider that supports it answers at once.',
     'showcase.ai.title': 'A verdict, not a data dump',
     'showcase.ai.desc':
       'Claude, Gemini and GPT turn raw provider output into a triage decision, with MITRE ATT&CK mapping and hunting queries ready to paste into your workflow.',
@@ -56,7 +56,7 @@ export const translations = {
     'showcase.title': 'Seç, analiz et, devam et.',
     'showcase.select.title': 'Her şeyi seç',
     'showcase.select.desc':
-      "IPv4, IPv6, domain, URL, MD5, SHA1, SHA256, e-posta, CVE, Bitcoin ve Ethereum adresleri otomatik tespit edilir. Birini işaretle, destekleyen tüm sağlayıcılar aynı anda cevap versin.",
+      "IPv4, IPv6, domain, URL, MD5, SHA1, SHA256, e-posta, CVE, Bitcoin ve Ethereum adresleri otomatik tespit edilir. Birini işaretle, sağ tıkla, destekleyen tüm sağlayıcılar aynı anda cevap versin.",
     'showcase.ai.title': 'Veri yığını değil, karar',
     'showcase.ai.desc':
       'Claude, Gemini ve GPT ham sağlayıcı çıktısını triage kararına dönüştürür; MITRE ATT&CK eşlemesi ve hunting sorguları iş akışına yapıştırmaya hazır gelir.',

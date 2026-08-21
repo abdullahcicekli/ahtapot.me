@@ -10,7 +10,7 @@ export interface IOCFixture {
 }
 
 export const heroFixture: IOCFixture = {
-  query: '103.77.241.135',
+  query: '198.51.100.23',
   kind: 'IPv4',
   verdict: 'malicious',
   headline: 'VirusTotal 42/94',
@@ -28,7 +28,7 @@ export const aiFixture: IOCFixture = {
 };
 
 export const privacyFixture: IOCFixture = {
-  query: 'a3f5c9e1b2d4f6a8',
+  query: 'a3f5c9e1…b2d4f6a8',
   kind: 'SHA256',
   verdict: 'clean',
   headline: 'No detections',

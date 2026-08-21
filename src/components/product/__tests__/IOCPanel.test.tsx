@@ -6,12 +6,12 @@ import { heroFixture } from '@/components/product/fixtures';
 describe('IOCPanel', () => {
   it('renders the queried indicator as selectable text, not an image', () => {
     render(<IOCPanel fixture={heroFixture} />);
-    expect(screen.getByText('103.77.241.135')).toBeInTheDocument();
+    expect(screen.getByText('198.51.100.23')).toBeInTheDocument();
   });
 
   it('sets indicator and metadata in the mono face for legibility', () => {
     render(<IOCPanel fixture={heroFixture} />);
-    expect(screen.getByText('103.77.241.135').className).toContain('font-mono');
+    expect(screen.getByText('198.51.100.23').className).toContain('font-mono');
   });
 
   it('renders the verdict label', () => {

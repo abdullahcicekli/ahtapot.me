@@ -7,7 +7,7 @@ const read = (p: string) => readFileSync(resolve(process.cwd(), p), 'utf8');
 describe('home page', () => {
   it('renders exactly the five approved blocks', () => {
     const page = read('src/app/[lang]/page.tsx');
-    for (const block of ['Hero', 'Providers', 'Showcase', 'SocialProof', 'CTA']) {
+    for (const block of ['Hero', 'Providers', 'FeatureTabs', 'SocialProof', 'CTA']) {
       expect(page).toContain(`<${block} />`);
     }
   });
@@ -23,6 +23,8 @@ describe('home page', () => {
 describe('dead code', () => {
   const removed = [
     'src/lib/theme-context.tsx',
+    'src/components/sections/Showcase.tsx',
+    'src/components/sections/__tests__/Showcase.test.tsx',
     'src/components/sections/Features.tsx',
     'src/components/sections/HowItWorks.tsx',
     'src/components/sections/AIAnalysis.tsx',

@@ -13,16 +13,19 @@ export const translations = {
 
     'providers.title': 'Queries the sources your SOC already runs on',
 
-    'showcase.title': 'Select, analyze, move on.',
-    'showcase.select.title': 'Select anything',
-    'showcase.select.desc':
-      'IPv4, IPv6, domains, URLs, MD5, SHA1, SHA256, emails, CVEs, Bitcoin and Ethereum addresses are detected automatically. Highlight one, right-click, and every provider that supports it answers at once.',
-    'showcase.ai.title': 'A verdict, not a data dump',
-    'showcase.ai.desc':
-      'Claude, Gemini and GPT turn raw provider output into a triage decision, with MITRE ATT&CK mapping and hunting queries ready to paste into your workflow.',
-    'showcase.privacy.title': 'We never see your data',
-    'showcase.privacy.desc':
-      'No accounts, no servers, no telemetry. Requests go straight from your browser to the providers you configure, using your own keys that Ahtapot never sees.',
+    'product.title': 'Select, analyze, decide.',
+    'product.tabs.detect': 'Detect',
+    'product.tabs.analyze': 'Analyze',
+    'product.tabs.ai': 'AI',
+    'product.tabs.privacy': 'Privacy',
+    'product.detect.desc':
+      'Select text anywhere on the page, right-click, and Ahtapot recognizes which of eleven indicator types it is.',
+    'product.analyze.desc':
+      'Every provider that supports that indicator answers at once, with results grouped in tabs in the side panel.',
+    'product.ai.desc':
+      'Three depths turn provider output into a decision: Summary for triage, Analysis for escalation, Detailed for investigation. MITRE ATT&CK mapping and hunting queries come with the deeper two, powered by Claude, Gemini or GPT.',
+    'product.privacy.desc':
+      "Your API keys live in the browser's encrypted storage. There is no Ahtapot server; requests go straight from your browser to the providers you enabled.",
 
     'social.title': 'From the Chrome Web Store',
     'social.openSource': 'MIT licensed',
@@ -48,16 +51,19 @@ export const translations = {
 
     'providers.title': "SOC'unun zaten kullandığı kaynakları sorgular",
 
-    'showcase.title': 'Seç, analiz et, devam et.',
-    'showcase.select.title': 'Her şeyi seç',
-    'showcase.select.desc':
-      "IPv4, IPv6, domain, URL, MD5, SHA1, SHA256, e-posta, CVE, Bitcoin ve Ethereum adresleri otomatik tespit edilir. Birini işaretle, sağ tıkla, destekleyen tüm sağlayıcılar aynı anda cevap versin.",
-    'showcase.ai.title': 'Veri yığını değil, karar',
-    'showcase.ai.desc':
-      'Claude, Gemini ve GPT ham sağlayıcı çıktısını triage kararına dönüştürür; MITRE ATT&CK eşlemesi ve hunting sorguları iş akışına yapıştırmaya hazır gelir.',
-    'showcase.privacy.title': 'Verini asla görmeyiz',
-    'showcase.privacy.desc':
-      "Hesap yok, sunucu yok, telemetri yok. İstekler tarayıcından doğrudan senin yapılandırdığın sağlayıcılara, Ahtapot'un asla görmediği kendi anahtarlarınla gider.",
+    'product.title': 'Seç, analiz et, karar ver.',
+    'product.tabs.detect': 'Algıla',
+    'product.tabs.analyze': 'Analiz',
+    'product.tabs.ai': 'AI',
+    'product.tabs.privacy': 'Gizlilik',
+    'product.detect.desc':
+      'Sayfadaki herhangi bir metni seç, sağ tıkla; Ahtapot on bir gösterge türünden hangisi olduğunu tanır.',
+    'product.analyze.desc':
+      'Göstergeyi destekleyen tüm sağlayıcılar aynı anda yanıt verir; sonuçlar yan paneldeki sekmelerde gruplanır.',
+    'product.ai.desc':
+      'Üç derinlik, sağlayıcı çıktısını karara dönüştürür: triyaj için Summary, yükseltme için Analysis, soruşturma için Detailed. Daha derin ikisinde MITRE ATT&CK eşlemesi ve hunting sorguları gelir; Claude, Gemini veya GPT ile çalışır.',
+    'product.privacy.desc':
+      "API anahtarların tarayıcının şifreli deposunda tutulur. Ahtapot sunucusu yoktur; istekler tarayıcından doğrudan etkinleştirdiğin sağlayıcılara gider.",
 
     'social.title': "Chrome Web Store'dan",
     'social.openSource': 'MIT lisanslı',

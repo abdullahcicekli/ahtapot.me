@@ -28,18 +28,19 @@ interface TabsProps {
 /* The shell outline: a rounded panel whose top edge rises up and wraps the
    active tab, like a folder tab. Drawn clockwise from the cap's top-left.
    r1 is the convex corner radius; the concave joints where the cap meets the
-   panel top need r1 + r2 to equal the panel's top offset so the arcs land
+   panel top need T + r1 + r2 to equal the panel's top offset so the arcs land
    exactly on both edges. r1 is half the tab height, so the cap's corners
    continue the stadium-shaped tab pills, and the r1:r2 ratio stays close to
    the reference's 40:64, a balanced S-curve rather than a tight corner into
-   a wide sweep. */
-function shellPath(W: number, H: number, P: number, L: number, R: number) {
-  const r1 = 32;
-  const r2 = P - r1;
+   a wide sweep. T is the cap's top: 0 on desktop; the last tab row's offset
+   when the grid wraps and the active tab has been reordered next to the
+   panel. */
+function shellPath(W: number, H: number, P: number, L: number, R: number, T: number, r1: number) {
+  const r2 = P - T - r1;
   const flushLeft = L <= 1;
   const flushRight = R >= W - 1;
 
-  const p = [`M ${L + r1} 0`, `H ${R - r1}`, `A ${r1} ${r1} 0 0 1 ${R} ${r1}`];
+  const p = [`M ${L + r1} ${T}`, `H ${R - r1}`, `A ${r1} ${r1} 0 0 1 ${R} ${T + r1}`];
   if (flushRight) {
     p.push(`V ${H - r1}`);
   } else {
@@ -48,12 +49,12 @@ function shellPath(W: number, H: number, P: number, L: number, R: number) {
   }
   p.push(`A ${r1} ${r1} 0 0 1 ${W - r1} ${H}`, `H ${r1}`, `A ${r1} ${r1} 0 0 1 0 ${H - r1}`);
   if (flushLeft) {
-    p.push(`V ${r1}`);
+    p.push(`V ${T + r1}`);
   } else {
     p.push(`V ${P + r1}`, `A ${r1} ${r1} 0 0 1 ${r1} ${P}`);
-    p.push(`H ${L - r2}`, `A ${r2} ${r2} 0 0 0 ${L} ${r1}`);
+    p.push(`H ${L - r2}`, `A ${r2} ${r2} 0 0 0 ${L} ${T + r1}`);
   }
-  p.push(`A ${r1} ${r1} 0 0 1 ${L + r1} 0`, 'Z');
+  p.push(`A ${r1} ${r1} 0 0 1 ${L + r1} ${T}`, 'Z');
   return p.join(' ');
 }
 
@@ -64,11 +65,27 @@ interface Shell {
   /* Active tab bounds, so the glow/grain spotlight tracks the selected cap. */
   l: number;
   r: number;
+  t: number;
+}
+
+/* Visual grid order: identity, except when the tab grid wraps to multiple
+   rows. The folder cap only reads next to the panel, so the active tab trades
+   places with the tab occupying its column in the bottom row. */
+function gridOrders(count: number, cols: number, activeIndex: number): number[] {
+  const orders = Array.from({ length: count }, (_, i) => i);
+  if (cols >= count || activeIndex < 0) return orders;
+
+  let target = activeIndex;
+  while (target + cols < count) target += cols;
+  orders[activeIndex] = target;
+  orders[target] = activeIndex;
+  return orders;
 }
 
 export function Tabs({ items, children, className, panelClassName }: TabsProps) {
   const [active, setActive] = useState(items[0]?.id ?? '');
   const [shell, setShell] = useState<Shell | null>(null);
+  const [orders, setOrders] = useState<number[] | null>(null);
   const base = useId();
   const refs = useRef<Record<string, HTMLButtonElement | null>>({});
   const rootRef = useRef<HTMLDivElement | null>(null);
@@ -85,17 +102,28 @@ export function Tabs({ items, children, className, panelClassName }: TabsProps) 
     const btn = refs.current[active];
     if (!root || !panel || !btn) return setShell(null);
 
+    // When the grid wraps, first move the active tab into the bottom row and
+    // let the state change re-run this measurement against the new layout.
+    const cols = items.filter((item) => (refs.current[item.id]?.offsetTop ?? 0) < 4).length;
+    const activeIndex = items.findIndex((item) => item.id === active);
+    const desired = gridOrders(items.length, cols, activeIndex);
+    if (JSON.stringify(desired) !== JSON.stringify(orders ?? gridOrders(items.length, cols, -1))) {
+      return setOrders(desired);
+    }
+
     const W = root.clientWidth;
     const H = root.clientHeight;
     const P = panel.offsetTop;
-    // The cap only makes sense when the tab row is a single line and there is
-    // room for the concave joints; otherwise fall back to a plain panel box.
-    if (!W || !H || !P || btn.offsetTop > 4 || btn.offsetHeight >= P) return setShell(null);
+    const T = btn.offsetTop;
+    const r1 = btn.offsetHeight / 2;
+    // The cap needs room for the concave joints between the tab bottom and
+    // the panel top; otherwise fall back to a plain panel box.
+    if (!W || !H || !P || !r1 || P - T - r1 < 8) return setShell(null);
 
     const L = btn.offsetLeft;
     const R = L + btn.offsetWidth;
-    setShell({ d: shellPath(W, H, P, L, R), w: W, h: H, l: L, r: R });
-  }, [active]);
+    setShell({ d: shellPath(W, H, P, L, R, T, r1), w: W, h: H, l: L, r: R, t: T });
+  }, [active, items, orders]);
 
   useLayoutEffect(measure, [measure, items.length]);
 
@@ -147,7 +175,7 @@ export function Tabs({ items, children, className, panelClassName }: TabsProps) 
               id={glowId}
               gradientUnits="userSpaceOnUse"
               cx={(shell.l + shell.r) / 2}
-              cy={0}
+              cy={shell.t}
               r={shell.w * 0.42}
             >
               <stop offset="0%" stopColor="white" stopOpacity="0.34" />
@@ -179,11 +207,12 @@ export function Tabs({ items, children, className, panelClassName }: TabsProps) 
         onKeyDown={onKeyDown}
         className="relative z-10 grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-5"
       >
-        {items.map((item) => {
+        {items.map((item, index) => {
           const selected = item.id === active;
           return (
             <button
               key={item.id}
+              style={orders ? { order: orders[index] } : undefined}
               ref={(el) => {
                 refs.current[item.id] = el;
               }}

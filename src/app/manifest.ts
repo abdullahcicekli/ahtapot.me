@@ -7,8 +7,8 @@ export default function manifest(): MetadataRoute.Manifest {
     description: 'Free IOC Analyzer Browser Extension for Cyber Security and SOC Analysts',
     start_url: '/en/',
     display: 'standalone',
-    background_color: '#1A1A1F',
-    theme_color: '#1A1A1F',
+    background_color: '#0B0B0D',
+    theme_color: '#0B0B0D',
     icons: [
       {
         src: '/icons/android-chrome-192x192.png',

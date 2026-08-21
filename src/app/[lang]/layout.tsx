@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { ThemeProvider } from '@/lib/theme-context';
 import { LanguageProvider } from '@/lib/language-context';
 import { Header, Footer } from '@/components/layout';
 
@@ -100,8 +99,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       },
     },
     other: {
-      'theme-color': '#1A1A1F',
-      'msapplication-TileColor': '#1A1A1F',
+      'theme-color': '#0B0B0D',
+      'msapplication-TileColor': '#0B0B0D',
     },
   };
 }
@@ -555,13 +554,11 @@ export default function LangLayout({ children, params }: Props) {
         />
       </head>
       <body className="antialiased">
-        <ThemeProvider>
-          <LanguageProvider initialLang={lang}>
-            <Header />
-            <main>{children}</main>
-            <Footer />
-          </LanguageProvider>
-        </ThemeProvider>
+        <LanguageProvider initialLang={lang}>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </LanguageProvider>
       </body>
     </html>
   );

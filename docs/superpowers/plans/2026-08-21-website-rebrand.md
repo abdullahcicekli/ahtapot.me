@@ -1297,12 +1297,12 @@ import { heroFixture } from '@/components/product/fixtures';
 describe('IOCPanel', () => {
   it('renders the queried indicator as selectable text, not an image', () => {
     render(<IOCPanel fixture={heroFixture} />);
-    expect(screen.getByText('103.77.241.135')).toBeInTheDocument();
+    expect(screen.getByText('198.51.100.23')).toBeInTheDocument();
   });
 
   it('sets indicator and metadata in the mono face for legibility', () => {
     render(<IOCPanel fixture={heroFixture} />);
-    expect(screen.getByText('103.77.241.135').className).toContain('font-mono');
+    expect(screen.getByText('198.51.100.23').className).toContain('font-mono');
   });
 
   it('renders the verdict label', () => {
@@ -1346,8 +1346,10 @@ Expected: FAIL — cannot resolve `IOCPanel`.
 
 - [ ] **Step 3: Write the fixtures**
 
-`src/components/product/fixtures.ts`. These are illustrative, not live lookups — the
-IP is from `TEST-NET`-adjacent documentation usage already present on the current site.
+`src/components/product/fixtures.ts`. These are illustrative, not live lookups. The IP
+is from `198.51.100.0/24` (TEST-NET-2), reserved by RFC 5737 for documentation — never
+a real address, because the panel attributes malicious activity to whatever it shows.
+The hash is rendered middle-truncated the way real tooling displays one.
 
 ```ts
 export type Verdict = 'malicious' | 'suspicious' | 'clean' | 'unknown';
@@ -1362,7 +1364,7 @@ export interface IOCFixture {
 }
 
 export const heroFixture: IOCFixture = {
-  query: '103.77.241.135',
+  query: '198.51.100.23',
   kind: 'IPv4',
   verdict: 'malicious',
   headline: 'VirusTotal 42/94',
@@ -1380,7 +1382,7 @@ export const aiFixture: IOCFixture = {
 };
 
 export const privacyFixture: IOCFixture = {
-  query: 'a3f5c9e1b2d4f6a8',
+  query: 'a3f5c9e1…b2d4f6a8',
   kind: 'SHA256',
   verdict: 'clean',
   headline: 'No detections',
@@ -2006,7 +2008,7 @@ describe('Hero', () => {
 
   it('renders the product visual as DOM, not an img', () => {
     const { container } = wrap(<Hero />);
-    expect(screen.getByText('103.77.241.135')).toBeInTheDocument();
+    expect(screen.getByText('198.51.100.23')).toBeInTheDocument();
     expect(container.querySelector('img')).toBeNull();
   });
 
@@ -2201,9 +2203,9 @@ describe('Showcase', () => {
 
   it('renders a product visual in every box', () => {
     wrap();
-    expect(screen.getByText('103.77.241.135')).toBeInTheDocument();
+    expect(screen.getByText('198.51.100.23')).toBeInTheDocument();
     expect(screen.getByText('CVE-2024-3400')).toBeInTheDocument();
-    expect(screen.getByText('a3f5c9e1b2d4f6a8')).toBeInTheDocument();
+    expect(screen.getByText('a3f5c9e1…b2d4f6a8')).toBeInTheDocument();
   });
 
   it('renders Turkish copy on the Turkish route', () => {

@@ -25,7 +25,6 @@ export interface AIProvider {
   name: string;
   company: string;
   logo: string;
-  models: { name: string; isDefault?: boolean }[];
 }
 
 export interface AIMode {

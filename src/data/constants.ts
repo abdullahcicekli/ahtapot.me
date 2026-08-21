@@ -60,52 +60,19 @@ export const providers: Provider[] = [
   { name: 'VirusTotal', logo: '/provider-icons/virustotal_logo.png', alt: 'VirusTotal - Malware and URL scanning' },
   { name: 'AlienVault OTX', logo: '/provider-icons/alienVaultOtx-logo.png', alt: 'AlienVault OTX - Open Threat Exchange' },
   { name: 'AbuseIPDB', logo: '/provider-icons/abuseipdb-logo.png', alt: 'AbuseIPDB - IP address reputation' },
-  { name: 'MalwareBazaar', logo: '/provider-icons/abuse-logo.png', alt: 'MalwareBazaar - Malware sample database' },
+  { name: 'MalwareBazaar', logo: '/provider-icons/malwarebazaar-logo.png', alt: 'MalwareBazaar - Malware sample database' },
   { name: 'ARIN', logo: '/provider-icons/arin-logo.png', alt: 'ARIN - WHOIS provider' },
   { name: 'Shodan', logo: '/provider-icons/shodan-logo.png', alt: 'Shodan - Internet-connected device search' },
   { name: 'GreyNoise', logo: '/provider-icons/greynoise-logo.png', alt: 'GreyNoise - Internet noise detection' },
+  { name: 'URLhaus', logo: '/provider-icons/urlhaus-logo.png', alt: 'URLhaus - Malicious URL database' },
   { name: 'Pulsedive', logo: '/provider-icons/pulsedive-logo.png', alt: 'Pulsedive - Threat intelligence platform' },
   { name: 'Scamalytics', logo: '/provider-icons/scamalytics-logo.png', alt: 'Scamalytics - IP fraud score' },
 ];
 
 export const aiProviders: AIProvider[] = [
-  {
-    name: 'Claude',
-    company: 'Anthropic',
-    logo: '/ai-icons/claude-logo.png',
-    models: [
-      { name: 'Sonnet 4', isDefault: true },
-      { name: '3.5 Sonnet' },
-      { name: '3.5 Haiku' },
-      { name: '3 Opus' },
-    ],
-  },
-  {
-    name: 'Gemini',
-    company: 'Google',
-    logo: '/ai-icons/gemini-logo.png',
-    models: [
-      { name: '2.5 Flash', isDefault: true },
-      { name: '2.5 Pro' },
-      { name: '2.0 Flash' },
-      { name: '2.0 Flash Lite' },
-      { name: '1.5 Pro' },
-      { name: '1.5 Flash' },
-    ],
-  },
-  {
-    name: 'OpenAI',
-    company: 'OpenAI',
-    logo: '/ai-icons/openai-logo.svg',
-    models: [
-      { name: 'GPT-4o Mini', isDefault: true },
-      { name: 'GPT-4o' },
-      { name: 'GPT-4 Turbo' },
-      { name: 'o1' },
-      { name: 'o1 Mini' },
-      { name: 'o3 Mini' },
-    ],
-  },
+  { name: 'Claude', company: 'Anthropic', logo: '/ai-icons/claude-logo.png' },
+  { name: 'Gemini', company: 'Google', logo: '/ai-icons/gemini-logo.png' },
+  { name: 'GPT', company: 'OpenAI', logo: '/ai-icons/openai-logo.svg' },
 ];
 
 export const aiModes: AIMode[] = [

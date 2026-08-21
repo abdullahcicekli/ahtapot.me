@@ -33,14 +33,16 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      # Build first: the suite's build-output tests assert against out/ and
+      # fail loudly when no production build exists.
+      - name: Build with Next.js
+        run: npm run build
+
       - name: Run tests
         run: npm test
 
       - name: Type check
         run: npx tsc --noEmit
-
-      - name: Build with Next.js
-        run: npm run build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

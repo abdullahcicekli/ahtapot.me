@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { Github, Menu, Xmark } from 'iconoir-react';
 import { useLanguage } from '@/lib/language-context';
 import { Wordmark } from '@/components/primitives';
-import { Button, LanguageSelect } from '@/components/ui';
+import { Button } from '@/components/ui';
 import { CHROME_STORE_URL, GITHUB_URL } from '@/data/constants';
 
 export function Header() {
@@ -29,7 +29,6 @@ export function Header() {
           >
             <Github width={19} height={19} />
           </a>
-          <LanguageSelect />
           <Button
             as="a"
             href={CHROME_STORE_URL}
@@ -63,7 +62,6 @@ export function Header() {
             <Github width={18} height={18} />
             GitHub
           </a>
-          <LanguageSelect />
           <Button as="a" href={CHROME_STORE_URL} target="_blank" rel="noopener noreferrer">
             {t('nav.install')}
           </Button>

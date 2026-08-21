@@ -28,17 +28,9 @@ describe('Header', () => {
     expect(screen.queryByTitle(/toggle theme/i)).toBeNull();
   });
 
-  it('offers both languages in a select, current one selected', () => {
+  it('keeps the language select out of the nav; it lives in the footer', () => {
     renderHeader('en');
-    const select = screen.getByRole('combobox', { name: 'Language' });
-    expect(select).toHaveValue('en');
-    expect(screen.getByRole('option', { name: 'English' })).toBeInTheDocument();
-    expect(screen.getByRole('option', { name: 'Türkçe' })).toBeInTheDocument();
-  });
-
-  it('names the language select in the page language', () => {
-    renderHeader('tr');
-    expect(screen.getByRole('combobox', { name: 'Dil' })).toHaveValue('tr');
+    expect(screen.queryByRole('combobox')).toBeNull();
   });
 
   it('links to the repository by icon, with an accessible name', () => {

@@ -3,11 +3,10 @@ export const translations = {
     'nav.product': 'Product',
     'nav.install': 'Install',
 
-    'hero.eyebrow': 'Free and open source',
     'hero.title1': 'Threat intel,',
     'hero.title2': 'in your browser.',
     'hero.subtitle':
-      'Select any indicator on any page and get a verdict from every source you already trust without breaking your flow.',
+      'Free and open source. Select any indicator on any page and get a verdict from every source you already trust without breaking your flow.',
     'hero.install': 'Install',
     'hero.github': 'View source',
 
@@ -44,11 +43,10 @@ export const translations = {
     'nav.product': 'Ürün',
     'nav.install': 'Yükle',
 
-    'hero.eyebrow': 'Ücretsiz ve açık kaynak',
     'hero.title1': 'Tehdit istihbaratı,',
     'hero.title2': 'tarayıcının içinde.',
     'hero.subtitle':
-      'Herhangi bir sayfadaki göstergeyi seç, akışını bölmeden güvendiğin tüm kaynaklardan tek seferde sonuç al.',
+      'Ücretsiz ve açık kaynak. Herhangi bir sayfadaki göstergeyi seç, akışını bölmeden güvendiğin tüm kaynaklardan tek seferde sonuç al.',
     'hero.install': 'Yükle',
     'hero.github': 'Kaynağı gör',
 

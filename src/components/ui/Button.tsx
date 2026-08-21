@@ -1,7 +1,7 @@
 import { ReactNode, ButtonHTMLAttributes, AnchorHTMLAttributes } from 'react';
 import { cn } from '@/lib/utils';
 
-type ButtonVariant = 'primary' | 'ghost';
+type ButtonVariant = 'primary' | 'soft' | 'ghost';
 
 interface BaseButtonProps {
   variant?: ButtonVariant;
@@ -18,10 +18,13 @@ type ButtonAsLink = BaseButtonProps &
 type ButtonProps = ButtonAsButton | ButtonAsLink;
 
 const base =
-  'inline-flex items-center gap-2 rounded-control px-4 py-2 text-[14px] font-medium transition-colors';
+  'inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-[14px] font-medium transition-colors';
 
+/* Neutral pills, per the reference: the page's only saturated accent stays on
+   the mark and data, never on chrome. */
 const variants: Record<ButtonVariant, string> = {
-  primary: 'bg-accent text-accent-ink hover:brightness-95',
+  primary: 'bg-ink text-bg hover:bg-white',
+  soft: 'border border-hairline-hi bg-input text-ink hover:bg-card',
   ghost: 'text-ink-2 hover:text-ink',
 };
 

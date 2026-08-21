@@ -31,8 +31,8 @@ interface TabsProps {
    panel top need r1 + r2 to equal the panel's top offset so the arcs land
    exactly on both edges. r1 is half the tab height, so the cap's corners
    continue the stadium-shaped tab pills, and the r1:r2 ratio stays close to
-   the reference's 40:64 — a balanced S-curve, not a tight corner into a
-   wide sweep. */
+   the reference's 40:64, a balanced S-curve rather than a tight corner into
+   a wide sweep. */
 function shellPath(W: number, H: number, P: number, L: number, R: number) {
   const r1 = 32;
   const r2 = P - r1;

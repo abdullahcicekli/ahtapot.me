@@ -20,7 +20,7 @@ export function Header() {
   const otherLangLabel = otherLang === 'tr' ? 'Türkçe' : 'English';
 
   const links = [
-    { href: `/${language}/#showcase`, label: t('nav.product') },
+    { href: `/${language}/#product`, label: t('nav.product') },
     { href: GITHUB_URL, label: 'GitHub', external: true },
   ];
 
@@ -51,7 +51,13 @@ export function Header() {
           >
             {otherLang.toUpperCase()}
           </Link>
-          <Button as="a" href={CHROME_STORE_URL} target="_blank" rel="noopener noreferrer">
+          <Button
+            as="a"
+            href={CHROME_STORE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-4 py-2"
+          >
             {t('nav.install')}
           </Button>
         </div>

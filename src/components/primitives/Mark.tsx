@@ -41,7 +41,7 @@ export function Wordmark({ className }: { className?: string }) {
   return (
     <span className={`inline-flex items-center gap-2.5 ${className ?? ''}`}>
       <Mark size={26} />
-      <span className="font-display text-[17px] font-medium tracking-[-0.02em] text-ink">
+      <span className="font-display text-[18px] font-semibold tracking-[-0.01em] text-ink">
         ahtapot
       </span>
     </span>

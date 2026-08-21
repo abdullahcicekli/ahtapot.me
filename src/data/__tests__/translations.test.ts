@@ -3,7 +3,7 @@ import { translations } from '@/data/translations';
 
 const REQUIRED = [
   'nav.product', 'nav.install',
-  'hero.eyebrow', 'hero.title1', 'hero.title2', 'hero.subtitle', 'hero.install', 'hero.github',
+  'hero.title1', 'hero.title2', 'hero.subtitle', 'hero.install', 'hero.github',
   'providers.title',
   'product.title',
   'product.tabs.detect', 'product.tabs.analyze', 'product.tabs.ai', 'product.tabs.privacy',

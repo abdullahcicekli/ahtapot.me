@@ -1,5 +1,6 @@
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
 vi.mock('next/navigation', () => ({
   usePathname: () => '/en/',
@@ -18,17 +19,25 @@ function renderFooter(lang: 'en' | 'tr' = 'en') {
 }
 
 describe('Footer', () => {
-  it('offers both languages in a select, current one selected', () => {
+  it('offers both languages in the dropdown, current one selected', async () => {
     renderFooter('en');
-    const select = screen.getByRole('combobox', { name: 'Language' });
-    expect(select).toHaveValue('en');
-    expect(screen.getByRole('option', { name: 'English' })).toBeInTheDocument();
-    expect(screen.getByRole('option', { name: 'Türkçe' })).toBeInTheDocument();
+    const trigger = screen.getByRole('combobox', { name: 'Language' });
+    expect(trigger).toHaveTextContent('English');
+
+    await userEvent.click(trigger);
+    expect(screen.getByRole('option', { name: /English/ })).toHaveAttribute(
+      'aria-selected',
+      'true',
+    );
+    expect(screen.getByRole('option', { name: 'Türkçe' })).toHaveAttribute(
+      'aria-selected',
+      'false',
+    );
   });
 
   it('names the language select in the page language', () => {
     renderFooter('tr');
-    expect(screen.getByRole('combobox', { name: 'Dil' })).toHaveValue('tr');
+    expect(screen.getByRole('combobox', { name: 'Dil' })).toHaveTextContent('Türkçe');
   });
 
   it('links privacy within the current language', () => {

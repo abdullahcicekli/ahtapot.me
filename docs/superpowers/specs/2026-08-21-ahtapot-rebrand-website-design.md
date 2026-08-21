@@ -240,3 +240,97 @@ and builds on push to `main`, uploading `./out` to GitHub Pages. An identical st
 copy sits at `workflows/deploy.yml` in the repo root, where it does nothing; it is
 deleted during implementation. No deployment work is otherwise needed for this
 workstream.
+
+---
+
+# Phase 2 — Feedback round
+
+Added 2026-08-21 after reviewing the built phase-1 site. Phase 1's decisions stand
+except where contradicted below.
+
+## Defects found on the built page
+
+**Turkish uppercase-I.** `.label` applies `text-transform: uppercase` and the Turkish
+route sets `<html lang="tr">`, so the browser applies Turkish casing rules and every
+lowercase `i` in an English technical term becomes `İ`. The Turkish page renders
+`MALİCİOUS`, `VİRUSTOTAL`, `ALİENVAULT OTX`, `PULSEDİVE`, `SCAMALYTİCS`. Fix: mark
+English technical tokens `lang="en"`, which is both semantically correct and restores
+English casing.
+
+**FAQ structured data has no visible counterpart.** The page ships a `FAQPage` schema
+with six questions and renders none of them. Google requires marked-up content to be
+visible to the user; as built this risks losing rich results or drawing a manual action.
+A visible FAQ section is therefore required, not optional, and its content must match
+the schema exactly.
+
+**Em dashes.** Eight in the copy. Removed.
+
+## Revised decisions
+
+| Decision | Phase 1 | Phase 2 | Why |
+| --- | --- | --- | --- |
+| Store figures on the page | rating, ratingCount, userCount | **none rendered** | All three drift and need manual refresh. `storeStats` stays for JSON-LD, where the rich snippet needs it. |
+| Testimonials | 2 | **all 7** | With the numbers gone, the reviews carry the social proof alone. |
+| Feature presentation | three static boxes | **tabbed panel** | The boxes read as generic. Tabs let each real product surface get a full panel, and give the AI capability the description it never had. |
+| Provider logos | deleted with the text strip | **restored in a directory grid** | A card grid gives them a size where they read, and answers a question a SOC analyst actually has. |
+| Footer | one row | **three columns plus a bottom bar** | |
+
+## Added sections
+
+**Feature tabs.** Replaces the three-box showcase. Real ARIA tabs (`role="tablist"`,
+`aria-selected`), with a desktop trigger row and a horizontally scrolling mobile row.
+Four tabs, each mapping to a surface the extension actually has:
+
+| Tab | Surface | Content |
+| --- | --- | --- |
+| Detect | content script | select, right-click, 11 IOC types recognised automatically |
+| Analyze | side panel | ten providers answer, results in tabs |
+| AI | AI service | three modes — summary, analysis, detailed — plus MITRE ATT&CK mapping |
+| Privacy | options page | keys in local encrypted storage, no backend |
+
+The three modes are real: `AIAnalysisMode` in `ahtapot/src/services/ai/AIService.ts`
+takes `summary | analysis | detailed`.
+
+**Provider directory.** Ten cards, each carrying the provider name, what it answers, and
+the IOC types it supports. The type lists are ground truth, read from each service's
+`supportedIOCTypes` getter in the extension:
+
+| Provider | Supported types |
+| --- | --- |
+| VirusTotal | IPv4, IPv6, Domain, URL, MD5, SHA1, SHA256 |
+| OTX AlienVault | IPv4, IPv6, Domain, URL, MD5, SHA1, SHA256, CVE |
+| AbuseIPDB | IPv4, IPv6 |
+| MalwareBazaar | MD5, SHA1, SHA256 |
+| ARIN | IPv4, IPv6 |
+| Shodan | IPv4, IPv6, Domain |
+| GreyNoise | IPv4 |
+| URLhaus | URL, Domain, IPv4, IPv6, MD5, SHA256 |
+| Pulsedive | IPv4, IPv6, Domain, URL, MD5, SHA1, SHA256 |
+| Scamalytics | IPv4, IPv6 |
+
+**FAQ.** Visible, six questions, matching `buildFaqSchema` exactly in both languages.
+Plain accordion, no icons.
+
+**Footer.** Tagline, three link columns of at most three links each, bottom bar with
+copyright and legal links.
+
+## Page architecture
+
+```
+① Hero              unchanged
+② Provider strip    unchanged, quiet early trust signal
+③ Feature tabs      new, replaces the three-box showcase
+④ Provider directory new
+⑤ Testimonials      all seven, no figures
+⑥ FAQ               new, matches the schema
+⑦ CTA               unchanged
+⑧ Footer            three columns
+```
+
+## On minimalism
+
+Phase 2 adds sections while the brief also asks for more restraint. These are not in
+conflict: sunday.ai runs nine sections. Its calm comes from each section doing one
+thing, not from having few. So the constraint is per-section — one `h2` and one idea
+each, at most three facts per provider card, an accordion with no ornament, three links
+per footer column. The accent budget is unchanged.

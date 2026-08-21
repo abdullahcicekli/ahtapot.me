@@ -82,7 +82,7 @@ export function AIAnalysis() {
                   </div>
                 </div>
                 <div className="flex flex-wrap gap-2">
-                  {provider.models.map((model) => (
+                  {(provider.models ?? []).map((model) => (
                     <span
                       key={model.name}
                       className={`text-xs px-2 py-1 rounded border ${

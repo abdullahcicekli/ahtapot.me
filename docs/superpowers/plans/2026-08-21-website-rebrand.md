@@ -275,6 +275,8 @@ describe('storeStats', () => {
 
 ```ts
 import { describe, it, expect } from 'vitest';
+import { existsSync } from 'node:fs';
+import { resolve } from 'node:path';
 import { providers, aiProviders } from '@/data/constants';
 
 describe('providers', () => {
@@ -296,6 +298,13 @@ describe('providers', () => {
   it('gives every provider a logo path', () => {
     for (const p of providers) {
       expect(p.logo).toMatch(/^\/provider-icons\/.+\.(png|svg)$/);
+    }
+  });
+
+  it('ships the asset each logo path points at', () => {
+    for (const p of providers) {
+      const onDisk = resolve(process.cwd(), 'public', p.logo.replace(/^\//, ''));
+      expect(existsSync(onDisk), `missing asset for ${p.name}: ${p.logo}`).toBe(true);
     }
   });
 });
@@ -534,6 +543,7 @@ git commit -m "feat: self-host Uncut Sans and Commit Mono subsets"
 - Create: `src/app/__tests__/tokens.test.ts`
 - Modify: `src/app/globals.css`
 - Modify: `tailwind.config.ts`
+- Modify: `postcss.config.js`
 
 **Interfaces:**
 - Consumes: `public/fonts/*.woff2` from Task 3
@@ -731,7 +741,29 @@ Replace the entire contents of `src/app/globals.css`:
 }
 ```
 
-- [ ] **Step 5: Rewrite the Tailwind config**
+- [ ] **Step 5: Enable `@import` resolution in PostCSS**
+
+`globals.css` now begins with an `@import`. Tailwind's documentation requires
+`postcss-import` ahead of `tailwindcss` for that to inline correctly; relying on
+Next.js's internal css-loader to do it is undocumented behavior.
+
+```bash
+npm install -D postcss-import@^16.1.0
+```
+
+`postcss.config.js`:
+
+```js
+module.exports = {
+  plugins: {
+    'postcss-import': {},
+    tailwindcss: {},
+    autoprefixer: {},
+  },
+};
+```
+
+- [ ] **Step 6: Rewrite the Tailwind config**
 
 Replace `tailwind.config.ts`:
 
@@ -784,22 +816,28 @@ export default config;
 
 Note there is no `darkMode` key — the site has one theme.
 
-- [ ] **Step 6: Run the tests to verify they pass**
+- [ ] **Step 7: Run the tests to verify they pass**
 
 Run: `npm test`
 Expected: PASS.
 
-- [ ] **Step 7: Verify the app still builds**
+- [ ] **Step 8: Verify the app still builds and the tokens actually inlined**
 
 Run: `npm run build`
 Expected: succeeds. Components still referencing deleted variables like
 `var(--bg-primary)` will render wrong but will not fail the build — they are replaced in
-Tasks 9–13.
+Tasks 9-13 and 15.
 
-- [ ] **Step 8: Commit**
+Confirm the `@import` resolved rather than being passed through to the browser:
+
+Run: `grep -rl "Uncut Sans" .next/static/css/ 2>/dev/null || grep -rl "Uncut Sans" out/_next/static/css/`
+Expected: at least one compiled stylesheet contains the `@font-face`. If nothing
+matches, `postcss-import` is not wired up — fix Step 5, do not proceed.
+
+- [ ] **Step 9: Commit**
 
 ```bash
-git add src/styles/tokens.css src/app/globals.css tailwind.config.ts src/app/__tests__/tokens.test.ts
+git add src/styles/tokens.css src/app/globals.css tailwind.config.ts postcss.config.js package.json package-lock.json src/app/__tests__/tokens.test.ts
 git commit -m "feat: add dark-only design token system"
 ```
 
@@ -2377,6 +2415,7 @@ git commit -m "feat: add SocialProof and CTA sections"
 - Delete: `src/components/sections/{Features,HowItWorks,AIAnalysis,IOCTypes,Stats,Testimonials,Feedback}.tsx`
 - Delete: `src/components/ui/{Card,Badge,SectionTitle,Avatar}.tsx`
 - Modify: `src/components/ui/index.ts`
+- Modify: `src/app/manifest.ts`
 - Create: `src/app/__tests__/page-structure.test.ts`
 
 **Interfaces:**
@@ -2501,6 +2540,13 @@ Also correct the theme color, which still points at the logo tile:
       'theme-color': '#0B0B0D',
       'msapplication-TileColor': '#0B0B0D',
     },
+```
+
+`src/app/manifest.ts` carries the same stale colors. Update both:
+
+```ts
+    background_color: '#0B0B0D',
+    theme_color: '#0B0B0D',
 ```
 
 - [ ] **Step 5: Delete the dead files**
@@ -2857,7 +2903,126 @@ git commit -m "refactor: extract JSON-LD builders and refresh stale figures"
 
 ---
 
-## Task 15: Build verification and asset cleanup
+## Task 15: Migrate the privacy page to the new tokens
+
+`src/app/[lang]/privacy/page.tsx` makes 90 CSS-variable references, nearly all to names
+Task 4 deleted. It is a live page linked from the footer, and it now renders inside the
+new Header and Footer. Left alone it ships as a half-rebranded page with text falling
+back to inherited colors.
+
+The page imports no deleted component — only `useLanguage`, `Link`, `Script` and the
+constants — so this is a token migration, not a rewrite.
+
+**Files:**
+- Modify: `src/app/[lang]/privacy/page.tsx`
+- Create: `src/app/__tests__/privacy-tokens.test.ts`
+
+**Interfaces:**
+- Consumes: tokens from Task 4
+- Produces: nothing other tasks depend on
+
+- [ ] **Step 1: Write the failing test**
+
+`src/app/__tests__/privacy-tokens.test.ts`:
+
+```ts
+import { describe, it, expect } from 'vitest';
+import { readFileSync, readdirSync } from 'node:fs';
+import { resolve } from 'node:path';
+
+const TOKENS = readFileSync(resolve(process.cwd(), 'src/styles/tokens.css'), 'utf8');
+
+/** Every custom property the token file actually defines. */
+const defined = new Set(
+  [...TOKENS.matchAll(/^\s*(--[a-z0-9-]+):/gm)].map((m) => m[1]),
+);
+
+function sourceFiles(dir: string): string[] {
+  return readdirSync(resolve(process.cwd(), dir), { withFileTypes: true, recursive: true })
+    .filter((e) => e.isFile() && /\.tsx?$/.test(e.name))
+    .map((e) => resolve(e.parentPath ?? (e as any).path, e.name));
+}
+
+describe('CSS variable references', () => {
+  it('references no variable the token file does not define', () => {
+    const orphans: string[] = [];
+
+    for (const file of sourceFiles('src')) {
+      const source = readFileSync(file, 'utf8');
+      for (const match of source.matchAll(/var\((--[a-z0-9-]+)\)/g)) {
+        if (!defined.has(match[1])) {
+          orphans.push(`${file.replace(process.cwd() + '/', '')}: ${match[1]}`);
+        }
+      }
+    }
+
+    expect(orphans).toEqual([]);
+  });
+});
+```
+
+This test guards the whole `src` tree, not just the privacy page — it catches any
+orphaned reference left behind by Tasks 9 through 13 as well.
+
+- [ ] **Step 2: Run the test to verify it fails**
+
+Run: `npm test`
+Expected: FAIL, listing roughly 90 orphaned references, nearly all in
+`src/app/[lang]/privacy/page.tsx`.
+
+- [ ] **Step 3: Map the old names to the new ones**
+
+| Old | New | Why |
+| --- | --- | --- |
+| `--text-primary` | `--text` | Primary body text |
+| `--text-secondary` | `--text-2` | Secondary text |
+| `--text-muted` | `--text-3` | Muted text |
+| `--bg-primary` | `--bg` | Page canvas |
+| `--bg-secondary` | `--bg-raised` | Raised surface |
+| `--bg-card` | `--bg-card` | Unchanged |
+| `--border` | `--border` | Unchanged |
+| `--accent-dim` | `--accent-dim` | Unchanged |
+
+- [ ] **Step 4: Apply the rename**
+
+Order matters: rewrite the longest names first so `--text-primary` is not partially
+matched by a `--text` rule.
+
+```bash
+F="src/app/[lang]/privacy/page.tsx"
+perl -pi -e 's/var\(--text-primary\)/var(--text)/g;
+             s/var\(--text-secondary\)/var(--text-2)/g;
+             s/var\(--text-muted\)/var(--text-3)/g;
+             s/var\(--bg-primary\)/var(--bg)/g;
+             s/var\(--bg-secondary\)/var(--bg-raised)/g;' "$F"
+```
+
+- [ ] **Step 5: Run the test to verify it passes**
+
+Run: `npm test`
+Expected: PASS. If orphans remain, the report names each file and variable — fix those
+too. Do not add alias definitions to `tokens.css` to silence the test; the point is that
+the old names are gone.
+
+- [ ] **Step 6: Check the page for legacy visual idioms**
+
+Run: `grep -n "gradient-text\|animate-float\|hover:-translate-y\|dark:" "src/app/[lang]/privacy/page.tsx"`
+
+Any match is a leftover from the deleted design language. Remove the class; the page
+should read as plain typographic content on the new canvas. `dark:` variants in
+particular are dead — Tailwind's `darkMode` key is gone from the config, so they never
+apply.
+
+- [ ] **Step 7: Commit**
+
+```bash
+git add "src/app/[lang]/privacy/page.tsx" src/app/__tests__/privacy-tokens.test.ts
+git commit -m "fix: migrate privacy page to the new token names"
+```
+
+---
+
+## Task 16: Build verification and asset cleanup
 
 **Files:**
 - Delete: `public/images/{octopus.png,landing.png,ahtapot-logo-black.png,ahtapot-logo-white.png,logo-black.png,logo-white.png}`
@@ -3044,6 +3209,6 @@ are not lost:
   Intelligence", but `CHROME_STORE_URL` still uses the old `ahtapot-ioc-analysis-tool`
   slug. The old slug redirects, so nothing is broken; update it when workstream 5
   touches store metadata.
-- `src/app/[lang]/privacy/page.tsx` was not redesigned. It renders inside the new
-  Header and Footer and inherits the tokens, but its own layout was written against the
-  old card components. Give it a pass before or during workstream 2.
+- `src/app/[lang]/privacy/page.tsx` was migrated to the new tokens in Task 15 but not
+  redesigned. It reads as plain typographic content on the new canvas, which is
+  adequate; a proper layout pass belongs with workstream 2.

@@ -23,7 +23,7 @@ describe('Header', () => {
     expect(screen.getByText('ahtapot')).toBeInTheDocument();
   });
 
-  it('offers no theme toggle — the site is dark-only', () => {
+  it('offers no theme toggle since the site is dark-only', () => {
     renderHeader();
     expect(screen.queryByTitle(/toggle theme/i)).toBeNull();
   });

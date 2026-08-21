@@ -21,6 +21,7 @@ export function Providers() {
         {providers.map((provider) => (
           <li
             key={provider.name}
+            lang="en"
             className="label text-ink-3 transition hover:text-ink-2"
           >
             {provider.name}

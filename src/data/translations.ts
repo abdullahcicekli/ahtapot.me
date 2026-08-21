@@ -7,7 +7,7 @@ export const translations = {
     'hero.title1': 'Threat intel,',
     'hero.title2': 'in your browser.',
     'hero.subtitle':
-      'Select any indicator on any page and get a verdict from every source you already trust — without breaking your flow.',
+      'Select any indicator on any page and get a verdict from every source you already trust without breaking your flow.',
     'hero.install': 'Install',
     'hero.github': 'View source',
 
@@ -22,7 +22,7 @@ export const translations = {
       'Claude, Gemini and GPT turn raw provider output into a triage decision, with MITRE ATT&CK mapping and hunting queries ready to paste into your workflow.',
     'showcase.privacy.title': 'We never see your data',
     'showcase.privacy.desc':
-      'No accounts, no servers, no telemetry. Requests go straight from your browser to the providers you configure, using your own keys — Ahtapot never sees them.',
+      'No accounts, no servers, no telemetry. Requests go straight from your browser to the providers you configure, using your own keys that Ahtapot never sees.',
 
     'social.rating': 'on the Chrome Web Store',
     'social.ratings': 'ratings',
@@ -44,7 +44,7 @@ export const translations = {
     'hero.title1': 'Tehdit istihbaratı,',
     'hero.title2': 'tarayıcının içinde.',
     'hero.subtitle':
-      'Herhangi bir sayfadaki göstergeyi seç, güvendiğin tüm kaynaklardan tek seferde sonuç al — akışını bölmeden.',
+      'Herhangi bir sayfadaki göstergeyi seç, akışını bölmeden güvendiğin tüm kaynaklardan tek seferde sonuç al.',
     'hero.install': 'Yükle',
     'hero.github': 'Kaynağı gör',
 
@@ -59,7 +59,7 @@ export const translations = {
       'Claude, Gemini ve GPT ham sağlayıcı çıktısını triage kararına dönüştürür; MITRE ATT&CK eşlemesi ve hunting sorguları iş akışına yapıştırmaya hazır gelir.',
     'showcase.privacy.title': 'Verini asla görmeyiz',
     'showcase.privacy.desc':
-      'Hesap yok, sunucu yok, telemetri yok. İstekler tarayıcından doğrudan senin yapılandırdığın sağlayıcılara, kendi anahtarlarınla gider — Ahtapot bunları asla görmez.',
+      "Hesap yok, sunucu yok, telemetri yok. İstekler tarayıcından doğrudan senin yapılandırdığın sağlayıcılara, Ahtapot'un asla görmediği kendi anahtarlarınla gider.",
 
     'social.rating': 'Chrome Web Store puanı',
     'social.ratings': 'değerlendirme',

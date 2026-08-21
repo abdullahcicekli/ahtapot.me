@@ -323,7 +323,7 @@ function PrivacyEN() {
 
         <h2 className="text-2xl font-bold mt-10 mb-4">International Users</h2>
         <p className="text-[var(--text-2)] leading-relaxed">
-          This extension can be used worldwide and has no backend of its own — your API keys, cache, and settings stay only on your device. When you analyze an IOC, however, it's sent directly from your browser to whichever third-party providers you choose to enable, and those providers operate under their own jurisdictions and privacy policies.
+          This extension can be used worldwide. It has no backend of its own, so your API keys, cache, and settings stay only on your device. When you analyze an IOC, however, it's sent directly from your browser to whichever third-party providers you choose to enable, and those providers operate under their own jurisdictions and privacy policies.
         </p>
 
         <h2 className="text-2xl font-bold mt-10 mb-4">Changes to Privacy Policy</h2>
@@ -383,7 +383,7 @@ function PrivacyEN() {
         <hr className="my-10 border-[var(--border)]" />
 
         <p className="text-[var(--text-2)] text-center">
-          <strong>Summary</strong>: We don't collect your data. Your keys and settings stay on your device — only the indicators you submit go to the providers you choose. You're in control.
+          <strong>Summary</strong>: We don't collect your data. Your keys and settings stay on your device, and only the indicators you submit go to the providers you choose. You're in control.
         </p>
 
         <p className="text-[var(--text-2)] text-center mt-4">

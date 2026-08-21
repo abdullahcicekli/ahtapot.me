@@ -33,7 +33,7 @@ describe('Hero', () => {
     expect(screen.getByRole('link', { name: /view source/i })).toBeInTheDocument();
   });
 
-  it('shows no Product Hunt badge — it moved to the footer', () => {
+  it('shows no Product Hunt badge because it moved to the footer', () => {
     const { container } = wrap(<Hero />);
     expect(container.innerHTML).not.toContain('producthunt');
   });

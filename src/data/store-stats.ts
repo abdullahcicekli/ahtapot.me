@@ -1,7 +1,7 @@
 /**
- * Figures from the Chrome Web Store listing. Manually refreshed — update
- * `verifiedOn` whenever you change a number, and change nothing else in the app:
- * every consumer reads from here.
+ * Figures from the Chrome Web Store listing, refreshed manually. When you
+ * change a number, update `verifiedOn` and change nothing else in the app,
+ * since every consumer reads from here.
  *
  * Source: https://chromewebstore.google.com/detail/gmekhigahdiddngdhfdkeefcomcankpg
  */

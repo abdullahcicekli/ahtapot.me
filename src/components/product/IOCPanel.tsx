@@ -20,7 +20,7 @@ export function IOCPanel({ fixture, compact = false, className }: IOCPanelProps)
     <Box aria-hidden="true" className={cn('space-y-2 p-2', className)}>
       <Box tone="card" className="flex items-center justify-between gap-3 px-4 py-3">
         <span className="font-mono text-[13px] text-ink">{fixture.query}</span>
-        <span className="label rounded-control bg-input px-2 py-1 text-ink-3">
+        <span lang="en" className="label rounded-control bg-input px-2 py-1 text-ink-3">
           {fixture.kind}
         </span>
       </Box>
@@ -32,7 +32,7 @@ export function IOCPanel({ fixture, compact = false, className }: IOCPanelProps)
               data-verdict-dot
               className={cn('h-1.5 w-1.5 rounded-full', dotTone[fixture.verdict])}
             />
-            <span className="label text-ink">{fixture.verdict}</span>
+            <span lang="en" className="label text-ink">{fixture.verdict}</span>
           </span>
           <span className="font-mono text-[12px] text-ink-2">{fixture.headline}</span>
         </div>

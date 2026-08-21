@@ -26,6 +26,7 @@ export const translations = {
       'No accounts, no servers, no telemetry. Your API keys live in encrypted browser storage and talk only to the providers you configured.',
 
     'social.rating': 'on the Chrome Web Store',
+    'social.ratings': 'ratings',
     'social.users': 'analysts',
     'social.openSource': 'MIT licensed',
 
@@ -64,6 +65,7 @@ export const translations = {
       'Hesap yok, sunucu yok, telemetri yok. API anahtarların şifreli tarayıcı deposunda durur ve yalnızca senin yapılandırdığın sağlayıcılarla konuşur.',
 
     'social.rating': 'Chrome Web Store puanı',
+    'social.ratings': 'değerlendirme',
     'social.users': 'analist',
     'social.openSource': 'MIT lisanslı',
 

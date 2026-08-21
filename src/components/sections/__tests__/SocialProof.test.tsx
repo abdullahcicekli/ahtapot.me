@@ -17,6 +17,7 @@ describe('SocialProof', () => {
   it('renders figures from the single store-stats source', () => {
     wrap(<SocialProof />);
     expect(screen.getByText(String(storeStats.rating.toFixed(1)))).toBeInTheDocument();
+    expect(screen.getByText(String(storeStats.ratingCount))).toBeInTheDocument();
     expect(screen.getByText(String(storeStats.userCount))).toBeInTheDocument();
   });
 

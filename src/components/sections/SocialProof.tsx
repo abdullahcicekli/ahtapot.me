@@ -19,6 +19,13 @@ export function SocialProof() {
 
         <p className="text-[14px] text-ink-3">
           <span className="mr-2 font-display text-[32px] font-medium tracking-[-0.02em] text-ink">
+            {storeStats.ratingCount}
+          </span>{' '}
+          {t('social.ratings')}
+        </p>
+
+        <p className="text-[14px] text-ink-3">
+          <span className="mr-2 font-display text-[32px] font-medium tracking-[-0.02em] text-ink">
             {storeStats.userCount}
           </span>{' '}
           {t('social.users')}

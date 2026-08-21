@@ -1,0 +1,49 @@
+@font-face {
+  font-family: 'Uncut Sans';
+  src: url('/fonts/UncutSans-Variable.woff2') format('woff2-variations');
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Commit Mono';
+  src: url('/fonts/CommitMono-400.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* Canvas layers. --bg is deliberately darker than --logo-tile: at the same
+     value the mark's own dark square dissolves into the page. */
+  --bg: #0B0B0D;
+  --bg-raised: #121215;
+  --bg-card: #171719;
+  --bg-input: #1E1E22;
+  --logo-tile: #1A1A1F;
+
+  --border: rgba(255, 255, 255, 0.07);
+  --border-hi: rgba(255, 255, 255, 0.12);
+
+  --text: #F2F2F3;
+  --text-2: #9B9BA3;
+  --text-3: #6B6B73;
+
+  /* At most three uses per page: primary CTA, the live dot in IOCPanel, the mark. */
+  --accent: #C7F54D;
+  --accent-dim: rgba(199, 245, 77, 0.12);
+  --accent-ink: #1A1A1F;
+
+  /* Data only. Never used for page chrome. */
+  --verdict-malicious: #F2555A;
+  --verdict-suspicious: #F0B23C;
+  --verdict-clean: #7BD88F;
+  --verdict-unknown: #6B6B73;
+
+  --r-outer: 24px;
+  --r-card: 16px;
+  --r-control: 10px;
+
+  --container: 1200px;
+}

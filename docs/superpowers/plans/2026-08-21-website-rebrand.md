@@ -2481,7 +2481,25 @@ git commit -m "feat: add SocialProof and CTA sections"
 - Delete: `src/components/ui/{Card,Badge,SectionTitle,Avatar}.tsx`
 - Modify: `src/components/ui/index.ts`
 - Modify: `src/app/manifest.ts`
+- Modify: `tsconfig.json`
 - Create: `src/app/__tests__/page-structure.test.ts`
+
+### Also: give TypeScript a target
+
+`tsconfig.json` declares no `target`, so TypeScript falls back to ES5. That is why
+`src/components/primitives/__tests__/Box.test.tsx:50` fails to compile when it iterates
+a `NodeList` with `for...of`, despite `dom.iterable` being in `lib`. Once this task
+deletes the legacy sections, that is the **only** remaining `tsc --noEmit` error in the
+tree — and Task 16 requires a clean typecheck. Next.js 14's own scaffold sets ES2017.
+
+Add to `compilerOptions` in `tsconfig.json`:
+
+```json
+"target": "ES2017",
+```
+
+Verify with `npx tsc --noEmit`, which must print nothing once the deletions below are
+done.
 
 **Interfaces:**
 - Consumes: all five section components

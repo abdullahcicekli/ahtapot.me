@@ -34,6 +34,32 @@ tree is green at every commit: `npm test`, `npx tsc --noEmit`, `npm run build` a
 The plan for tasks 5–8 is written and committed:
 `docs/superpowers/plans/2026-08-21-website-rebrand-phase-2.md`.
 
+### 2026-08-21 user-directed Mastra-alignment round (after the plan above)
+
+The user compared the site to mastra.ai and rejected the flat look. A redesign round,
+driven by mastra.ai's actual shipped markup/CSS (fetched and inspected), delivered:
+
+- **Folder-shell FeatureTabs**: `Tabs` primitive rewritten — icon+mono-label tab grid,
+  measured SVG shell whose top edge wraps the active tab (Mastra's clip-path geometry:
+  convex r 20 caps, concave r = panelTop − 20 joints), with an feTurbulence grain
+  spotlight anchored to the active cap. Same ARIA/keyboard contract; all Tabs tests
+  unchanged and passing. Panels rebuilt as product mockups (`WindowCard` chrome,
+  context-menu scene, side-panel scene, AI modes, network/keys scenes) with copy
+  centered below, Mastra-style.
+- **Provider logo wall**: the ten used provider PNGs restored from `24723a1^` into
+  `public/provider-icons/`; `Provider` regained `logo` (+`wordmark` flag). Rendered as
+  a 5-col monochrome wall (`grayscale+brightness` filter). Tests updated: logos are now
+  required (the old "renders no img" test encoded the deleted-text-strip decision).
+- **Visible FAQ** (former Task 6, now done): `src/data/faq.ts` is the single source for
+  both the accordion section and the FAQPage JSON-LD, closing the Google compliance
+  gap. Native `<details>`, first item open.
+- **Cards**: testimonials became bordered cards (3-col), CTA became a centered card.
+  Testimonial author names carry `lang="tr"` so İ/I uppercase correctly on the EN route.
+
+Phase-2 Task 5 (provider directory with supported-IOC data) is superseded in spirit by
+the logo wall unless the user asks for the capability table. Task 4's re-review is still
+owed. Task 7 (footer) and 8 (assembly pass) remain open.
+
 ## The Turkish casing trap, because it will bite again
 
 `.label` applies `text-transform: uppercase`. On `<html lang="tr">` browsers use Turkish

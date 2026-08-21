@@ -1,3 +1,5 @@
+import { existsSync } from 'node:fs';
+import { join } from 'node:path';
 import { describe, it, expect } from 'vitest';
 import { providers } from '@/data/constants';
 
@@ -15,5 +17,11 @@ describe('providers', () => {
       'ARIN', 'AbuseIPDB', 'AlienVault OTX', 'GreyNoise', 'MalwareBazaar',
       'Pulsedive', 'Scamalytics', 'Shodan', 'URLhaus', 'VirusTotal',
     ]);
+  });
+
+  it('points every logo at a file that exists under public/', () => {
+    for (const provider of providers) {
+      expect(existsSync(join(process.cwd(), 'public', provider.logo)), provider.logo).toBe(true);
+    }
   });
 });

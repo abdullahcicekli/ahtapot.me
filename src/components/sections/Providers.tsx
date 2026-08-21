@@ -9,22 +9,34 @@ export function Providers() {
 
   return (
     <Section className="py-16 md:py-20">
-      <p id="providers-label" className="label mb-8 text-ink-3">
+      <p id="providers-label" className="label mb-10 text-center text-ink-3">
         {t('providers.title')}
       </p>
 
       <ul
         role="list"
         aria-labelledby="providers-label"
-        className="flex flex-wrap items-center gap-x-12 gap-y-6"
+        className="grid grid-cols-2 gap-px sm:grid-cols-3 lg:grid-cols-5"
       >
         {providers.map((provider) => (
           <li
             key={provider.name}
             lang="en"
-            className="label text-ink-3 transition hover:text-ink-2"
+            className="group flex h-24 min-w-0 items-center justify-center gap-2.5 px-4"
           >
-            {provider.name}
+            {/* Logos render monochrome so mixed brand palettes read as one wall;
+                grayscale+brightness lifts dark marks without clipping light ones. */}
+            <img
+              src={provider.logo}
+              alt={provider.wordmark ? provider.name : ''}
+              loading="lazy"
+              className="h-6 w-auto max-w-full shrink-0 opacity-75 transition-opacity [filter:grayscale(1)_brightness(1.5)] group-hover:opacity-100"
+            />
+            {!provider.wordmark && (
+              <span className="truncate text-[15px] font-medium text-ink-2 transition-colors group-hover:text-ink">
+                {provider.name}
+              </span>
+            )}
           </li>
         ))}
       </ul>

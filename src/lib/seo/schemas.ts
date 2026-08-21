@@ -1,5 +1,6 @@
 import { storeStats } from '@/data/store-stats';
 import { providers } from '@/data/constants';
+import { getFaqItems } from '@/data/faq';
 
 const BASE_URL = 'https://ahtapot.me';
 const STORE_URL =
@@ -83,44 +84,14 @@ export function buildWebSiteSchema(lang: Lang, description: string) {
 }
 
 export function buildFaqSchema(lang: Lang) {
-  const qa =
-    lang === 'en'
-      ? [
-          ['What is Ahtapot IOC Analyzer Extension?',
-           `Ahtapot is a free, open-source IOC (Indicator of Compromise) analyzer browser extension for Chrome and Chromium-based browsers. It helps security professionals and SOC analysts analyze suspicious IPs, domains, URLs, and file hashes using ${providers.length} threat intelligence providers and AI-assisted analysis.`],
-          ['Is Ahtapot free?',
-           'Yes. Ahtapot is completely free and open source. There are no premium tiers or subscriptions. You supply your own API keys for the providers and AI services you want to use.'],
-          ['Which browsers support Ahtapot?',
-           'Chrome, Microsoft Edge, Brave, Arc, Vivaldi, Opera, and all Chromium-based browsers.'],
-          ['Which threat intelligence providers does Ahtapot support?',
-           `Ahtapot integrates with ${providers.length} threat intelligence providers: ${providerNames}.`],
-          ['Does Ahtapot collect my data?',
-           'No. Ahtapot has a privacy-first architecture and collects no user data, browsing history, or analyzed indicators. API keys are stored locally in your browser, and the extension talks only to the providers you configure.'],
-          ['What types of IOCs can Ahtapot analyze?',
-           'IPv4 addresses, IPv6 addresses, domains, URLs, MD5 hashes, SHA1 hashes, SHA256 hashes, email addresses, CVE identifiers, Bitcoin addresses, and Ethereum addresses.'],
-        ]
-      : [
-          ['Ahtapot IOC Analizci Eklentisi nedir?',
-           `Ahtapot, Chrome ve Chromium tabanlı tarayıcılar için ücretsiz, açık kaynaklı bir IOC analizci tarayıcı eklentisidir. Güvenlik profesyonellerinin ve SOC analistlerinin ${providers.length} tehdit istihbarat sağlayıcısı ve yapay zeka destekli analiz ile şüpheli IP, domain, URL ve dosya hashlerini incelemesine yardımcı olur.`],
-          ['Ahtapot ücretsiz mi?',
-           'Evet. Ahtapot tamamen ücretsiz ve açık kaynaklıdır. Premium katman veya abonelik yoktur. Kullanmak istediğiniz sağlayıcılar ve yapay zeka hizmetleri için kendi API anahtarlarınızı sağlarsınız.'],
-          ["Hangi tarayıcılar Ahtapot'u destekler?",
-           'Chrome, Microsoft Edge, Brave, Arc, Vivaldi, Opera ve tüm Chromium tabanlı tarayıcılar.'],
-          ['Ahtapot hangi tehdit istihbarat sağlayıcılarını destekler?',
-           `Ahtapot ${providers.length} tehdit istihbarat sağlayıcısıyla entegredir: ${providerNames}.`],
-          ['Ahtapot verilerimi topluyor mu?',
-           'Hayır. Ahtapot gizlilik öncelikli bir mimariye sahiptir; kullanıcı verisi, tarama geçmişi veya analiz edilen göstergeleri toplamaz. API anahtarları tarayıcınızda yerel olarak saklanır ve eklenti yalnızca yapılandırdığınız sağlayıcılarla iletişim kurar.'],
-          ['Ahtapot hangi IOC türlerini analiz edebilir?',
-           "IPv4 adresleri, IPv6 adresleri, domainler, URL'ler, MD5 hashleri, SHA1 hashleri, SHA256 hashleri, e-posta adresleri, CVE tanımlayıcıları, Bitcoin adresleri ve Ethereum adresleri."],
-        ];
-
+  // Same source as the visible FAQ section, so the schema always matches the page.
   return {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: qa.map(([name, text]) => ({
+    mainEntity: getFaqItems(lang).map(({ question, answer }) => ({
       '@type': 'Question',
-      name,
-      acceptedAnswer: { '@type': 'Answer', text },
+      name: question,
+      acceptedAnswer: { '@type': 'Answer', text: answer },
     })),
   };
 }

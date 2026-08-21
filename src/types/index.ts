@@ -8,4 +8,8 @@ export interface Testimonial {
 
 export interface Provider {
   name: string;
+  /* Path under public/ to the provider's mark, shown in the logo wall. */
+  logo: string;
+  /* True when the file is a wordmark (name included), so the wall skips the text. */
+  wordmark?: boolean;
 }

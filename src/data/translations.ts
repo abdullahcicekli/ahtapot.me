@@ -31,6 +31,8 @@ export const translations = {
     'social.title': 'From the Chrome Web Store',
     'social.openSource': 'MIT licensed',
 
+    'faq.title': 'Frequently asked questions',
+
     'cta.title': 'Add it to your browser.',
     'cta.install': 'Install',
 
@@ -69,6 +71,8 @@ export const translations = {
 
     'social.title': "Chrome Web Store'dan",
     'social.openSource': 'MIT lisanslı',
+
+    'faq.title': 'Sıkça sorulan sorular',
 
     'cta.title': 'Tarayıcına ekle.',
     'cta.install': 'Yükle',

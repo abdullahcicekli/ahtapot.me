@@ -18,12 +18,16 @@ export function SocialProof() {
 
       <div
         aria-labelledby="social-proof-label"
-        className="grid gap-x-12 gap-y-10 md:grid-cols-2"
+        className="grid gap-4 md:grid-cols-2 lg:grid-cols-3"
       >
         {testimonials.map((testimonial) => (
-          <blockquote key={testimonial.id} className="space-y-3">
+          <blockquote
+            key={testimonial.id}
+            className="flex flex-col justify-between gap-5 rounded-card border border-hairline bg-raised p-6 transition-colors hover:border-hairline-hi"
+          >
             <p className="text-[15px] leading-relaxed text-ink-2">“{testimonial.quote}”</p>
-            <footer className="label text-ink-3">{testimonial.author}</footer>
+            {/* Reviewer names are Turkish; lang keeps i→İ uppercasing correct on the EN route */}
+            <footer lang="tr" className="label text-ink-3">{testimonial.author}</footer>
           </blockquote>
         ))}
       </div>

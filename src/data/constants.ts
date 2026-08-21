@@ -44,14 +44,14 @@ export const testimonials: Testimonial[] = [
 ];
 
 export const providers: Provider[] = [
-  { name: 'VirusTotal' },
-  { name: 'AlienVault OTX' },
-  { name: 'AbuseIPDB' },
-  { name: 'MalwareBazaar' },
-  { name: 'ARIN' },
-  { name: 'Shodan' },
-  { name: 'GreyNoise' },
-  { name: 'URLhaus' },
-  { name: 'Pulsedive' },
-  { name: 'Scamalytics' },
+  { name: 'VirusTotal', logo: '/provider-icons/virustotal_logo.png' },
+  { name: 'AlienVault OTX', logo: '/provider-icons/alienVaultOtx-logo.png' },
+  { name: 'AbuseIPDB', logo: '/provider-icons/abuseipdb-logo.png' },
+  { name: 'MalwareBazaar', logo: '/provider-icons/malwarebazaar-logo.png', wordmark: true },
+  { name: 'ARIN', logo: '/provider-icons/arin-logo.png' },
+  { name: 'Shodan', logo: '/provider-icons/shodan-logo.png' },
+  { name: 'GreyNoise', logo: '/provider-icons/greynoise-logo.png' },
+  { name: 'URLhaus', logo: '/provider-icons/urlhaus-logo.png', wordmark: true },
+  { name: 'Pulsedive', logo: '/provider-icons/pulsedive-logo.png' },
+  { name: 'Scamalytics', logo: '/provider-icons/scamalytics-logo.png' },
 ];

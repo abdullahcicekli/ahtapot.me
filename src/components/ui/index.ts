@@ -1,5 +1,2 @@
 export { Button } from './Button';
-export { Badge } from './Badge';
-export { Card } from './Card';
-export { SectionTitle } from './SectionTitle';
-export { Avatar } from './Avatar';
+export { LanguageSelect } from './LanguageSelect';

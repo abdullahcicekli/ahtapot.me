@@ -1212,9 +1212,69 @@ One component renders every product visual on the page. When the extension UI ch
 in a later workstream, this file is the only thing that needs to follow.
 
 **Files:**
+- Modify: `src/lib/utils.ts` (preliminary — see below)
+- Modify: `package.json` (preliminary)
+- Create: `src/lib/__tests__/cn-merge.test.ts` (preliminary)
 - Create: `src/components/product/fixtures.ts`
 - Create: `src/components/product/IOCPanel.tsx`
 - Create: `src/components/product/__tests__/IOCPanel.test.tsx`
+
+### Preliminary: make `cn` resolve Tailwind conflicts
+
+`cn` is currently plain `clsx`, which concatenates. When a caller passes a utility that
+collides with a component's own — `Section` hardcodes `py-24 md:py-32` while Tasks 10
+and 12 pass `py-16` and `py-20` — both land in the class list and the winner is decided
+by Tailwind's emission order, not by JSX order. Measured against Tailwind 3.4.14, the
+emission order is `.py-16`, `.py-20`, `.py-24`, `.py-28`, `.pt-32`, so `py-24` beats
+both `py-16` and `py-20` while `py-28` and `pt-32` win. Two of five sections would
+silently render with the wrong spacing and no test would catch it.
+
+```bash
+npm install tailwind-merge@^2.5.4
+```
+
+`src/lib/utils.ts`:
+
+```ts
+import { clsx, type ClassValue } from 'clsx';
+import { twMerge } from 'tailwind-merge';
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
+
+export function getInitial(name: string): string {
+  return name.charAt(0).toUpperCase();
+}
+```
+
+`src/lib/__tests__/cn-merge.test.ts`:
+
+```ts
+import { describe, it, expect } from 'vitest';
+import { cn } from '@/lib/utils';
+
+describe('cn conflict resolution', () => {
+  it('lets a caller class override a component default', () => {
+    expect(cn('py-24', 'py-16')).toBe('py-16');
+  });
+
+  it('keeps responsive variants independent of the base utility', () => {
+    expect(cn('py-24 md:py-32', 'py-16')).toBe('md:py-32 py-16');
+  });
+
+  it('leaves non-conflicting classes alone', () => {
+    expect(cn('border border-hairline rounded-outer', 'p-10')).toBe(
+      'border border-hairline rounded-outer p-10',
+    );
+  });
+});
+```
+
+Run `npm test` and confirm these three pass plus the existing 35 before starting the
+`IOCPanel` work. The existing `cn` test from Task 1 asserts `cn('a', false && 'b', 'c')`
+returns `'a c'`; `twMerge` leaves non-Tailwind tokens untouched, so it still passes.
+
 
 **Interfaces:**
 - Consumes: `Box` from Task 6, verdict tokens from Task 4
@@ -1411,6 +1471,9 @@ Expected: PASS, 7 new tests. The `aria-hidden` assertion targets `container.firs
 - [ ] **Step 6: Commit**
 
 ```bash
+git add src/lib/utils.ts src/lib/__tests__/cn-merge.test.ts package.json package-lock.json
+git commit -m "fix: resolve Tailwind class conflicts in cn"
+
 git add src/components/product/
 git commit -m "feat: add IOCPanel real-DOM product visual"
 ```
